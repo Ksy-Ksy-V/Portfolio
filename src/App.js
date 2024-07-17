@@ -1,10 +1,15 @@
 import './App.css';
 
+import Navbar from './components/Navbar';
+import AboutMePage from './pages/about-me/AboutMePage';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <Navbar />
+      <div className="content">
+        <AboutMePage />
+      </div>
     </div>
   );
 }
