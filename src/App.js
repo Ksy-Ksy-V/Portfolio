@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import AboutMePage from './pages/about-me/AboutMePage';
 import Contact from './pages/contact/Contact';
 import Portfolio from './pages/portfolio/Portfolio';
 import PortfolioDetails from './pages/portfolio/PortfolioDetails';
 import NotFound from './components/NotFound';
-import Footer from './components/Footer';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (

@@ -1,0 +1,64 @@
+.header {
+	padding: 40px 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: var(--header-bg);
+	background-image: url('./../../img/bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	text-align: left;
+  }
+  
+  .header__wrapper {
+	padding: 0 15px;
+	max-width: 660px;
+  }
+  
+  .header__title {
+	margin-bottom: 20px;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: #f1356d;
+	text-align: left;
+  }
+  
+  .header__title strong {
+	font-size: 60px;
+	font-weight: 700;
+	color: #f1356d;
+  }
+  
+  .header__title em {
+	font-style: normal;
+	color: #f1356d;
+  }
+  
+  .header__wrapper .header__text {
+	margin-bottom: 40px;
+	font-size: 18px;
+	line-height: 1.333;
+	color: white; /* Изменен цвет на белый */
+	text-align: left;
+  }
+  
+  .header .btn {
+	display: block;
+	margin-left: 0;
+	padding: 6px 12px;
+	background-color: transparent; 
+	color: #f1356d; 
+	border: 2px solid #f1356d; 
+	border-radius: 4px;
+	text-decoration: none;
+	transition: background-color 0.3s ease, color 0.3s ease; 
+	width: fit-content;
+  }
+  
+  .header .btn:hover {
+	background-color: #f1356d; 
+	color: #fff; 
+  }
+  
