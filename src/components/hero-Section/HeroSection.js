@@ -1,15 +1,15 @@
 import "./heroSection.css"
 
 const HeroSection = () => {
-    return (<header className='header'>
-        <div className='header__wrapper'>
+    return (<header className='hero-section'>
+        <div className='hero-section__wrapper'>
 
-            <h1 className='header__title'>
+            <h1 className='hero-section__title'>
                 <strong>Hi, my name is <em>Ksy!</em></strong>
                 <br />a frontend developer
             </h1>
 
-            <div className='header__text'>
+            <div className='hero-section__text'>
                 <p>with passion for learning and creating.</p>
             </div>
 

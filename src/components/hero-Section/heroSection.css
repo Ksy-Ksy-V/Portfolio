@@ -1,4 +1,4 @@
-.header {
+.hero-section {
 	padding: 40px 0;
 	display: flex;
 	justify-content: flex-start;
@@ -11,12 +11,12 @@
 	text-align: left;
   }
   
-  .header__wrapper {
+  .hero-section__wrapper {
 	padding: 0 15px;
 	max-width: 660px;
   }
   
-  .header__title {
+  .hero-section__title {
 	margin-bottom: 20px;
 	font-size: 40px;
 	font-weight: 700;
@@ -25,26 +25,26 @@
 	text-align: left;
   }
   
-  .header__title strong {
+  .hero-section__title strong {
 	font-size: 60px;
 	font-weight: 700;
 	color: #f1356d;
   }
   
-  .header__title em {
+  .hero-section__title em {
 	font-style: normal;
 	color: #f1356d;
   }
   
-  .header__wrapper .header__text {
+  .hero-section__wrapper .hero-section__text {
 	margin-bottom: 40px;
 	font-size: 18px;
 	line-height: 1.333;
-	color: white; /* Изменен цвет на белый */
+	color: white; 
 	text-align: left;
   }
   
-  .header .btn {
+  .hero-section .btn {
 	display: block;
 	margin-left: 0;
 	padding: 6px 12px;
@@ -57,7 +57,7 @@
 	width: fit-content;
   }
   
-  .header .btn:hover {
+  .hero-section .btn:hover {
 	background-color: #f1356d; 
 	color: #fff; 
   }
