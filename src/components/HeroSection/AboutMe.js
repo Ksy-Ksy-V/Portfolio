@@ -26,6 +26,11 @@ const AboutMe = () => {
                             variant='h5' 
                             color={'primary.main'} 
                             mt='3rem'
+                            sx={{
+                                '&:hover': {
+                                    textDecoration: 'underline wavy', 
+                                }
+                            }}
                         >
                             {`< About me! >`}
                         </Typography>

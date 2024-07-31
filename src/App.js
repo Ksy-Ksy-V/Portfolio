@@ -15,18 +15,18 @@ function App() {
   return (
     <Router>
       <Container maxWidth="md" sx={{ marginTop: '2rem', marginBottom: '2rem' }}>
-      <Header />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/portfolio" element={<PortfolioList />} />
-            <Route path="/portfoliodetails/:id" element={<PortfolioDetails />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
+        <Header />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/portfolio" element={<PortfolioList />} />
+              <Route path="/portfoliodetails/:id" element={<PortfolioDetails />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        <Footer />
       </Container>
-      <Footer />
     </Router>
   );
 }
