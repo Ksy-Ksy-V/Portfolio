@@ -1,9 +1,7 @@
-import HeroSection from "../../components/hero-Section/HeroSection";
-import imgAboutMe from "./../../img/imgAboutMe.jpg"
+import HeroSection from "../../components/HeroSection/HeroSection";
+import imgAboutMe from "./../../img/imgAboutMe.jpg" 
 
-import "./aboutMePage.css"
-
-const AboutMePage = () => {
+const Home = () => {
     return (
         <div className="about-me-page">
             <HeroSection />
@@ -33,4 +31,4 @@ const AboutMePage = () => {
     );
 }
  
-export default AboutMePage;
+export default Home;

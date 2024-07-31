@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ModeSwitchBtn from "./../header/ModeSwitchBtn"
+import ModeSwitchBtn from "./ModeSwitchBtn"
 
 
 const Navbar = () => {
