@@ -1,6 +1,6 @@
-import HeroSection from "../../components/HeroSection/HeroSection";
-import AboutMe from "../../components/HeroSection/AboutMe"
-import RunningLine from "../../components/HeroSection/RunningLine"
+import HeroSection from "../../components/heroSection/HeroSection";
+import AboutMe from "../../components/heroSection/AboutMe"
+import RunningLine from "../../components/heroSection/RunningLine"
 
 
 const Home = () => {
