@@ -1,4 +1,4 @@
-import "./heroSection.css"
+
 
 const HeroSection = () => {
     return (<header className='hero-section'>
