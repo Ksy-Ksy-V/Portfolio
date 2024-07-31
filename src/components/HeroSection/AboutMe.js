@@ -33,7 +33,7 @@ const AboutMe = () => {
             >
               {`< About me! >`}
             </Typography>
-            <Typography variant='body1' color={'primary.background'} mt='3rem'>
+            <Typography variant='body2' color={'primary.background'} mt='3rem'>
               {`< Anim ullamco ex amet ea magna duis ut irure cillum nulla. Dolore et anim aute id aute aliqua sint aute ut sint pariatur do ullamco. Mollit anim ex cupidatat ad exercitation minim anim deserunt anim do aliquip. Nulla culpa sint amet consectetur. >`}
             </Typography>
           </Box>

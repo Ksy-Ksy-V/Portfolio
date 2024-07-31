@@ -32,14 +32,20 @@ const Footer = () => {
                 className='logo'
                 sx={{
                   textDecoration: 'none',
-                  color: 'primary.dark'
+                  color: 'primary.dark',
+                  '&:hover': {
+                    color: 'primary.main',
+                  }
                 }}
               >
                 KSY
               </Typography>
             </Grid>
             <Grid item xs={12} ml={2}>
-              <Typography fontSize={10} variant='body2' color='primary.dark'>
+              <Typography 
+                fontSize={10} variant='body2' 
+                color='primary.dark'
+                >
                 © 2024 Lorem ipsum dolor sit
               </Typography>
             </Grid>
@@ -56,20 +62,52 @@ const Footer = () => {
             }}
           >
             <Grid item>
-              <a href='https://www.facebook.com/' className='btn'>
-                <FacebookIcon sx={{ color: 'primary.dark', fontSize: '3rem' }} />
+            <a href="https://www.facebook.com/" 
+                className="btn" 
+                target="_blank" 
+                rel="noopener noreferrer"
+            >
+                <FacebookIcon 
+                sx={{ 
+                    color: 'primary.dark', 
+                    fontSize: '3rem',
+                    '&:hover': {
+                    color: 'primary.main',
+                    }
+                }} 
+                />
+            </a>
+            </Grid>
+
+            <Grid item>
+              <a href='https://github.com/'
+                    className="btn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    >
+                <GitHubIcon sx={{ 
+                    color: 'primary.dark', 
+                    fontSize: '3rem', 
+                        '&:hover': {
+                            color: 'primary.main',
+                        }
+                    }} />
               </a>
             </Grid>
 
             <Grid item>
-              <a href='https://github.com/' className='btn'>
-                <GitHubIcon sx={{ color: 'primary.dark', fontSize: '3rem' }} />
-              </a>
-            </Grid>
-
-            <Grid item>
-              <a href='https://www.linkedin.com/' className='btn'>
-                <LinkedInIcon sx={{ color: 'primary.dark', fontSize: '3rem' }} />
+              <a href='https://www.linkedin.com/'
+                    className="btn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    >
+                <LinkedInIcon sx={{ 
+                    color: 'primary.dark', 
+                    fontSize: '3rem',
+                    '&:hover': {
+                        color: 'primary.main',
+                    } 
+                    }} />
               </a>
             </Grid>
           </Grid>
