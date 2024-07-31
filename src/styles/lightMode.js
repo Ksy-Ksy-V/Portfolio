@@ -7,7 +7,7 @@ const lightMode = createTheme({
       main: '#D63484',
       dark: '#402B3A',
       background: '#F8F4EC'
-    },
+    }
   },
   typography: {
     fontFamily: 'Bruno Ace',
@@ -15,22 +15,27 @@ const lightMode = createTheme({
     fontWeightRegular: 500,
     fontWeightMedium: 600,
     fontWeightBold: 700,
-    color: 'primary.dark',
+    color: 'primary.dark'
   },
   components: {
     MuiButton: {
       styleOverrides: {
+        // outlined: {
+        //   '&:hover': {
+        //     backgroundColor: '#FF9BD2'
+        //   }
+        // },
         root: {
-          border: `2px solid #402B3A`, 
-          borderRadius: 0, 
-          color: '#D63484', 
+          border: `2px solid #402B3A`,
+          borderRadius: 0,
+          color: '#D63484',
           '&:hover': {
-            backgroundColor: '#F8F4EC',
-          },
-        },
-      },
-    },
-  },
+            border: `2px solid #FF9BD2`
+          }
+        }
+      }
+    }
+  }
 });
 
 export default lightMode;
