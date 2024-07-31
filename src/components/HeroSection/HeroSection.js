@@ -5,7 +5,10 @@ import heroSectionImg from './../../img/heroSection.jpg'
 const HeroSection = () => {
     return (
     
-        <Grid container spacing={2}>
+        <Grid 
+            container spacing={2} 
+            marginBottom='2rem'
+        >
             <Grid 
                 item xs={6} 
                 sx={{ paddingLeft: 0 }}>
