@@ -1,15 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 
-import Contact from './pages/contact/Contact';
-
 import Home from './pages/home/homePage';
 import PortfolioList from './pages/portfolio/portfolioList';
 import PortfolioDetails from './pages/portfolio/portfolioDetails';
+import Contact from './pages/contact/Contact';
 import NotFound from './pages/errorPages/NotFound';
 
 import Header from './components/general/header/HeaderComp';
-import Footer from './components/general/footer/Footer';
+import Footer from './components/general/footer/Footer'; 
 
 function App() {
   return (
