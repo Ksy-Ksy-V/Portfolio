@@ -14,11 +14,15 @@ const lightMode = createTheme({
     fontWeightLight: 200,
     fontWeightRegular: 500,
     fontWeightMedium: 600,
-    fontWeightBold: 700,
-    color: 'primary.dark',
+    fontWeightBold: 700, 
     body1: {
       fontFamily: 'Rhodium Libre, Arial, sans-serif',
+      color: '#402B3A',
     },
+    h6: {
+      fontFamily: 'Bruno Ace, Inter, Arial, sans-serif',
+      color: '#402B3A',
+    }
   },
   components: {
     MuiButton: {
@@ -35,10 +39,6 @@ const lightMode = createTheme({
           '&:hover': {
             border: `0px`,
             backgroundColor: 'transparent',   
-          },
-          '&:active': {
-            border: `0px`,
-            backgroundColor: 'inherit',   
           },
         },
         text: {

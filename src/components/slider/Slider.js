@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { Typography, Button, Paper, MobileStepper, Box, Grid } from '@mui/material';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-
+import { Typography,   MobileStepper, Box, Grid } from '@mui/material';
+import ArrowSliderButton from '../../components/general/buttons/arrowSliderButton'
 import posterImg01 from "./../../img/projectPosterImg01.jpg";
 import posterImg02 from "./../../img/projectPosterImg02.jpg";
 import posterImg03 from "./../../img/projectPosterImg03.jpg";
@@ -54,8 +52,7 @@ const Slider = () => {
   };
 
   return (
-    <Box sx={{ width: '100vw', height: '100vh', overflow: 'hidden', position: 'relative' }}>
-    <Grid container>
+    <Grid container sx={{  overflow: 'hidden', position: 'relative' }} mt={'2rem'}>
       <Grid item xs={12} sx={{ position: 'relative' }}>
         <Box
           sx={{
@@ -86,34 +83,16 @@ const Slider = () => {
           }}
           alt={data[index].title}
         />
-        <Button
-            variant="outlined"
-          size="large"
+        <ArrowSliderButton
+        direction={'left'} 
           onClick={goToPrevPicture}
-          sx={{
-            position: 'absolute',
-            left: '10px',
-            top: '50%',
-            transform: 'translateY(-50%)', 
-            zIndex: 2,
-          }}
-        >
-          <KeyboardArrowLeft />
-        </Button>
-        <Button
-            variant="outlined"
-          size="large"
+           />
+        <ArrowSliderButton      
           onClick={goToNextPicture}
-          sx={{
-            position: 'absolute',
-            right: '10px',
-            top: '50%',
-            transform: 'translateY(-50%)', 
-            zIndex: 2,
-          }}
-        >
-          <KeyboardArrowRight />
-        </Button>
+          direction='right'
+           />
+
+
       </Grid>
       <Grid item xs={12}>
         <MobileStepper
@@ -131,7 +110,6 @@ const Slider = () => {
         />
       </Grid>
     </Grid>
-  </Box>
 );
 }
 

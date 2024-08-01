@@ -13,7 +13,12 @@ import Footer from './components/general/footer/Footer';
 function App() {
   return (
     <Router>
-      <Container maxWidth='md' sx={{ marginTop: '2rem', marginBottom: '2rem' }}>
+      <Container 
+        maxWidth='md' 
+        sx={{ 
+          marginTop: '2rem', 
+          marginBottom: '2rem' 
+        }}>
         <Header />
         <div className='content'>
           <Routes>
