@@ -54,54 +54,85 @@ const Slider = () => {
   };
 
   return (
-    <Box>
-        <Paper
-          square
-          elevation={0}
+    <Box sx={{ width: '100vw', height: '100vh', overflow: 'hidden', position: 'relative' }}>
+    <Grid container>
+      <Grid item xs={12} sx={{ position: 'relative' }}>
+        <Box
           sx={{
-            height: 50,
-            display: "flex",
-            alignItems: "center",
+            position: 'absolute',
+            top: '10%',
+            left: '2%',
+            zIndex: 2, 
+            padding: '1rem',
+            borderRadius: '8px',
+            maxWidth: '30%',
           }}
         >
-          <Typography>{data[index].title}</Typography>
-          <Typography>{data[index].textContent}</Typography>
-        </Paper>
-        <img
+          <Typography variant="h4" gutterBottom sx={{
+            color: 'primary.main',
+            '&:hover': {
+                textDecoration: 'underline wavy'
+              }
+          }}>{data[index].title}</Typography>
+          <Typography variant="body1" color='primary.light'>{data[index].textContent}</Typography>
+        </Box>
+        <Box
+          component="img"
           src={data[index].imgUrl}
-          sx={{ 
-            width: "100%", 
-            display: "block",
-            overflow: "hidden",
+          sx={{
+            width: '100%',
+            height: '100vh',
+            objectFit: 'cover',
           }}
           alt={data[index].title}
         />
+        <Button
+            variant="outlined"
+          size="large"
+          onClick={goToPrevPicture}
+          sx={{
+            position: 'absolute',
+            left: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)', 
+            zIndex: 2,
+          }}
+        >
+          <KeyboardArrowLeft />
+        </Button>
+        <Button
+            variant="outlined"
+          size="large"
+          onClick={goToNextPicture}
+          sx={{
+            position: 'absolute',
+            right: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)', 
+            zIndex: 2,
+          }}
+        >
+          <KeyboardArrowRight />
+        </Button>
+      </Grid>
+      <Grid item xs={12}>
         <MobileStepper
           variant="dots"
           position="static"
           activeStep={index}
-          steps={CollectionSize}
-          nextButton={
-            <Button
-              size="small"
-              onClick={goToNextPicture}
-            >
-              Next
-              <KeyboardArrowRight />
-            </Button>
-          }
-          backButton={
-            <Button
-              size="small"
-              onClick={goToPrevPicture}
-            >
-              <KeyboardArrowLeft />
-              Back
-            </Button>
-          }
+          steps={CollectionSize} 
+          sx={{
+            backgroundColor: "transparent",
+            position: 'absolute',
+            bottom: '10px',
+            width: '100%',
+            justifyContent: 'center',
+          }}
         />
-    </Box>
-  );
+      </Grid>
+    </Grid>
+  </Box>
+);
 }
 
 export default Slider;

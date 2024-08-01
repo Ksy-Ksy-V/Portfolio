@@ -123,7 +123,7 @@ const Footer = () => {
             <Typography mb={1} mt={1} variant='body' color='primary.dark'>
               Any questions?
             </Typography>
-            <Button fullWidth sx={{ marginX: '1rem', marginBottom: '1rem' }} component={Link} to='/contact' variant='outlined'>
+            <Button fullWidth sx={{ marginX: '1rem', marginBottom: '1rem' }} component={Link} to='/contact'>
               Contact
             </Button>
           </Grid>

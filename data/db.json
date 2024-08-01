@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "ThousandReads",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "feature": ["HTML", "CSS", "JavaScript"],
+      "description": "It is a web application that allows users to create their own online library. It provides the ability to add books to virtual shelves or a separate library for physical copies of books, catalog them, and keep a reading diary.",
+      "link": "https://github.com",
+      "gitHubLink": "https://github.com"
+
+    },
+    {
+      "id": "2",
+      "title": "EverGreen",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "feature": ["HTML", "CSS", "JavaScript"],
+      "description": "2 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
+      "link": "https://github.com",
+      "gitHubLink": "https://github.com"
+    
+    },
+    {
+      "id": "3",
+      "title": "Project 3",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "feature": ["HTML", "CSS", "JavaScript"],
+      "description": "3 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
+      "link": "https://github.com",
+      "gitHubLink": "https://github.com"
+    },
+    {
+      "id": "4",
+      "title": "Project 4",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "feature": ["HTML", "CSS", "JavaScript"],
+      "description": "4 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
+      "link": "https://github.com",
+      "gitHubLink": "https://github.com"
+    },
+    {
+      "id": "5",
+      "title": "Project 5",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "feature": ["HTML", "CSS", "JavaScript"],
+      "description": "5 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
+      "link": "https://github.com",
+      "gitHubLink": "https://github.com"
+    },
+    {
+      "id": "6",
+      "title": "Project 6",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "feature": ["HTML", "CSS", "JavaScript"],
+      "description": "6 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
+      "link": "https://github.com",
+      "gitHubLink": "https://github.com"
+    }
+  ]
+}
