@@ -24,7 +24,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/portfolio' element={<PortfolioList />} />
-            <Route path='/portfoliodetails/:id' element={<PortfolioDetails />} />
+            {/* <Route path='/portfoliodetails/:id' element={<PortfolioDetails />} /> */}
+            <Route path='/portfoliodetails' element={<PortfolioDetails />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
