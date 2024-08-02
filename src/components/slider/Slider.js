@@ -66,13 +66,15 @@ const Slider = () => {
           }}
         >
           <Typography variant="h4" gutterBottom sx={{
-            color: 'primary.main',
+            color: 'primary.main', 
             '&:hover': {
                 textDecoration: 'underline wavy'
               }
           }}>{data[index].title}</Typography>
+
           <Typography variant="body1" color='primary.light'>{data[index].textContent}</Typography>
         </Box>
+    
         <Box
           component="img"
           src={data[index].imgUrl}
@@ -83,6 +85,7 @@ const Slider = () => {
           }}
           alt={data[index].title}
         />
+        
         <ArrowSliderButton
         direction={'left'} 
           onClick={goToPrevPicture}
@@ -109,6 +112,7 @@ const Slider = () => {
           }}
         />
       </Grid>
+      
     </Grid>
 );
 }

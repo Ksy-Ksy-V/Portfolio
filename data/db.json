@@ -4,7 +4,7 @@
       "id": "1",
       "title": "ThousandReads",
       "skills": ["HTML", "CSS", "JavaScript"],
-      "feature": ["HTML", "CSS", "JavaScript"],
+      "feature": ["Adding books by QR-code", "CSS", "JavaScript"],
       "description": "It is a web application that allows users to create their own online library. It provides the ability to add books to virtual shelves or a separate library for physical copies of books, catalog them, and keep a reading diary.",
       "link": "https://github.com",
       "gitHubLink": "https://github.com"

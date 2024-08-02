@@ -22,11 +22,22 @@ const HeroSection = () => {
             </Typography>
             {` >`}
           </Typography>
-          <Typography variant='body' color={'primary.dark'} mt='1rem'>
+          <Typography 
+              variant='body' 
+              color={'primary.dark'} 
+              mt='1rem'
+          >
             {`< A junior front end developer >`}
           </Typography>
           <Box sx={{ mt: '2rem' }}>
-            <Button variant='outlined'>Download CV</Button>
+            <Button 
+              sx={{
+                paddingLeft: '2rem',
+                paddingRight: '2rem',
+              }}
+            >
+              Download CV
+            </Button>
           </Box>
         </Box>
       </Grid>
