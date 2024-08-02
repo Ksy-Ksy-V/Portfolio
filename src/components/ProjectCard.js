@@ -1,6 +1,7 @@
 import { Grid, Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-const ProjectCard = ({ title, imgSrc }) => {
+const ProjectCard = ({ title, imgSrc, id }) => {
   return (
     <Grid item xs={4}>
       <Typography
@@ -33,6 +34,8 @@ const ProjectCard = ({ title, imgSrc }) => {
       />
 
       <Button 
+        component={Link}
+        to={`/portfoliodetails/${id}`}
         fullWidth 
         sx={{ 
           border: '3px solid',
