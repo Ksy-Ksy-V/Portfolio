@@ -1,31 +1,23 @@
 import { Grid, Box, Typography, Button } from '@mui/material';
 import heroSectionImg from './../../img/heroSection.jpg';
+import MainHeader from "./../MainHeader";
+import StyledImage from "./../StyledImage";
 
 const HeroSection = () => {
   return (
     <Grid container spacing={2} marginBottom='2rem'>
       <Grid item xs={6} sx={{ paddingLeft: 0 }}>
         <Box sx={{ ml: '2rem' }}>
-          <Typography variant='h4' color={'primary.dark'} mt='6rem'>
-            {`< Hi! I'm `}
-            <Typography
-              component='span'
-              variant='h4'
-              sx={{
-                color: 'primary.main',
-                '&:hover': {
-                  textDecoration: 'underline wavy'
-                }
-              }}
-            >
-              Ksenia
-            </Typography>
-            {` >`}
-          </Typography>
+
+          <MainHeader 
+            textOne="Hi! I'm" 
+            highlightText="Ksenia" 
+            textTwo="!"/>
+
           <Typography 
-              variant='body' 
-              color={'primary.dark'} 
-              mt='1rem'
+            variant='body' 
+            color={'primary.dark'} 
+            mt='1rem'
           >
             {`< A junior front end developer >`}
           </Typography>
@@ -43,18 +35,17 @@ const HeroSection = () => {
       </Grid>
 
       <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'end' }}>
-        <Box
-          component='img'
-          src={heroSectionImg}
-          alt='Hero Section'
-          sx={{
+
+        <StyledImage 
+          src={heroSectionImg} 
+          alt='Hero Section' 
+          sx={{ 
             width: '70%',
             height: 'auto',
             marginTop: '2rem',
-            border: '3px solid',
-            borderColor: 'primary.dark'
-          }}
+          }} 
         />
+
       </Grid>
     </Grid>
   );

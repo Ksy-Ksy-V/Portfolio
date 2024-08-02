@@ -1,24 +1,24 @@
 import { Grid, Box, Typography } from '@mui/material';
 
 import aboutMeImg from './../../img/aboutMe.jpg';
+import StyledImage from "./../StyledImage";
 
 const AboutMe = () => {
   return (
     <Box sx={{ backgroundColor: 'primary.dark', padding: '2rem', marginTop: '3rem' }}>
       <Grid container spacing={2}>
         <Grid item xs={6} mt={2} sx={{ paddingLeft: 0 }}>
-          <Box
-            component='img'
-            src={aboutMeImg}
-            alt='Hero Section'
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              border: '3px solid',
-              borderColor: 'primary.dark'
-            }}
-          />
+
+        <StyledImage 
+          src={aboutMeImg} 
+          alt='About me' 
+          sx={{ 
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }} 
+        />
+        
         </Grid>
         <Grid item xs={6} mt={6}>
           <Box>
