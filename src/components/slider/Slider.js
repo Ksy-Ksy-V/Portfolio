@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Typography, MobileStepper, Box, Grid } from '@mui/material'
-import ArrowSliderButton from '../general/Buttons/arrowSliderButton'
+import ArrowSliderButton from '../General/Buttons/ArrowSliderButton'
 import useFetchProjects from '../../utils/useFetch'
 
 const Slider = () => {
@@ -58,8 +58,8 @@ const Slider = () => {
                 textDecoration: 'underline wavy',
               },
             }}
-          >
             {projects[index].title}
+          >
           </Typography> */}
 
                     {/* <Typography variant="body1" color="primary.light">

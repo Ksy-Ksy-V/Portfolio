@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-import ModeSwitchBtn from './modeSwithBtn'
+import ModeSwitchBtn from './ModeSwithBtn'
 
 const Navbar = () => {
     return (
