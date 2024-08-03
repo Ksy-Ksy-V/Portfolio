@@ -1,15 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import {
-    Grid,
-    Box,
-    Typography,
-    List,
-    ListItem,
-    ListItemText,
-    Button,
-} from '@mui/material'
+import { Grid, Typography, Button } from '@mui/material'
 import React from 'react'
+import RunningLine from '../../components/HeroSection/RunningLine'
 
 import Slider from '../../components/Slider/Slider'
 import StyledImage from '../../components/StyledImage'
@@ -38,7 +31,9 @@ const PortfolioDetails = () => {
         return <Typography>Loading...</Typography>
     }
 
-    const { title, description, skills, feature, imgSrc, gitHubLink } = project
+    const { title, description, skills, imgSrc, gitHubLink } = project
+
+    const skillsText = skills.join(' | ')
 
     return (
         <Grid container spacing={0} columns={12}>
@@ -47,6 +42,12 @@ const PortfolioDetails = () => {
             </Grid>
             <Grid item xs={12}>
                 <Slider />
+            </Grid>
+
+            <Grid item xs={12} sx={{ marginTop: '2rem', marginBottom: '1rem' }}>
+                <RunningLine
+                    text={`< Used: ${skillsText} >\u00A0\u00A0\u00A0\u00A0`}
+                />
             </Grid>
 
             <Grid item xs={4}>
@@ -82,6 +83,9 @@ const PortfolioDetails = () => {
 
                 <Button
                     fullWidth
+                    href={gitHubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     sx={{
                         paddingLeft: '2rem',
                         paddingRight: '2rem',
@@ -93,6 +97,24 @@ const PortfolioDetails = () => {
                     }}
                 >
                     See the app
+                </Button>
+                <Button
+                    startIcon={<GitHubIcon />}
+                    href={gitHubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    fullWidth
+                    sx={{
+                        paddingLeft: '2rem',
+                        paddingRight: '2rem',
+                        marginTop: '2rem',
+                        '&:hover': {
+                            borderColor: 'primary.main',
+                            backgroundColor: 'transparent',
+                        },
+                    }}
+                >
+                    GitHub
                 </Button>
             </Grid>
 
@@ -116,148 +138,8 @@ const PortfolioDetails = () => {
                     }}
                 />
             </Grid>
-
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            borderTop: '3px solid',
-                            borderBottom: '3px solid',
-                            borderColor: 'primary.dark',
-                        }}
-                    >
-                        <Grid item xs={4}>
-                            <Box
-                                sx={{
-                                    borderRight: '3px solid',
-                                    borderColor: 'primary.dark',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                }}
-                            >
-                                <Typography
-                                    display={'center'}
-                                    textAlign={'center'}
-                                    justifyContent="center"
-                                    variant="h6"
-                                    color={'primary.dark'}
-                                    sx={{
-                                        '&:hover': {
-                                            textDecoration: 'underline wavy',
-                                        },
-                                        marginTop: '1rem',
-                                    }}
-                                >
-                                    {`< Used technologies >`}
-                                </Typography>
-                                <List sx={{ marginLeft: '2rem' }}>
-                                    {skills.map((tech, index) => (
-                                        <ListItem key={index} disableGutters>
-                                            <ListItemText
-                                                primary={`- ${tech}`}
-                                                primaryTypographyProps={{
-                                                    variant: 'body',
-                                                }}
-                                            />
-                                        </ListItem>
-                                    ))}
-                                </List>
-                            </Box>
-                        </Grid>
-
-                        <Grid item xs={4}>
-                            <Box
-                                sx={{
-                                    borderColor: 'primary.dark',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                }}
-                            >
-                                <Typography
-                                    display={'center'}
-                                    textAlign={'center'}
-                                    justifyContent="center"
-                                    variant="h6"
-                                    color={'primary.dark'}
-                                    sx={{
-                                        '&:hover': {
-                                            textDecoration: 'underline wavy',
-                                        },
-                                        marginBottom: '2rem',
-                                        marginTop: '1rem',
-                                    }}
-                                >
-                                    {`< Project on GitHub  >`}
-                                </Typography>
-                                <Button
-                                    startIcon={<GitHubIcon />}
-                                    href={gitHubLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    sx={{
-                                        paddingLeft: '4rem',
-                                        paddingRight: '4rem',
-                                        marginTop: '2rem',
-                                        '&:hover': {
-                                            borderColor: 'primary.main',
-                                            backgroundColor: 'transparent',
-                                        },
-                                    }}
-                                >
-                                    GitHub
-                                </Button>
-                            </Box>
-                        </Grid>
-
-                        <Grid item xs={4}>
-                            <Box
-                                sx={{
-                                    borderLeft: '3px solid',
-                                    borderColor: 'primary.dark',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                }}
-                            >
-                                <Typography
-                                    display={'center'}
-                                    textAlign={'center'}
-                                    justifyContent="center"
-                                    variant="h6"
-                                    color={'primary.dark'}
-                                    sx={{
-                                        '&:hover': {
-                                            textDecoration: 'underline wavy',
-                                        },
-                                        marginTop: '1rem',
-                                    }}
-                                >
-                                    {`< A few feature >`}
-                                </Typography>
-                                <List sx={{ marginLeft: '2rem' }}>
-                                    {feature.map((tech, index) => (
-                                        <ListItem key={index} disableGutters>
-                                            <ListItemText
-                                                primary={`- ${tech}`}
-                                                primaryTypographyProps={{
-                                                    variant: 'body',
-                                                }}
-                                            />
-                                        </ListItem>
-                                    ))}
-                                </List>
-                            </Box>
-                        </Grid>
-                    </Box>
-                </Grid>
-            </Grid>
         </Grid>
     )
 }
 
 export default PortfolioDetails
-

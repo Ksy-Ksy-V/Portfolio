@@ -49,22 +49,6 @@ const Slider = () => {
                     >
                         {projects[index].title}
                     </Typography>
-                    {/* <Typography
-            variant="h4"
-            gutterBottom
-            sx={{
-              color: 'primary.main',
-              '&:hover': {
-                textDecoration: 'underline wavy',
-              },
-            }}
-            {projects[index].title}
-          >
-          </Typography> */}
-
-                    {/* <Typography variant="body1" color="primary.light">
-            {projects[index].description}
-          </Typography> */}
                 </Box>
 
                 <Box
@@ -103,3 +87,4 @@ const Slider = () => {
 }
 
 export default Slider
+

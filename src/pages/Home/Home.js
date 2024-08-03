@@ -9,7 +9,9 @@ const Home = () => {
     return (
         <div className="about-me-page">
             <HeroSection />
-            <RunningLine />
+            <RunningLine
+                text={`< MY STACK:  HTML | CSS | JS | REACT >\u00A0\u00A0\u00A0\u00A0`}
+            />
             <AboutMe />
 
             <Grid container spacing={2} columns={12}>
