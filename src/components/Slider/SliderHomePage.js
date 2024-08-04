@@ -3,7 +3,9 @@ import { Typography, MobileStepper, Box, Grid, Button } from '@mui/material'
 import ArrowSliderButton from '../General/Buttons/ArrowSliderButton'
 import useFetchProjects from '../../utils/useFetch'
 import { Link } from 'react-router-dom'
-import MainHeader from '../MainHeader'
+
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 
 const SliderHomePage = () => {
     const { projects, loading, error } = useFetchProjects()
@@ -34,7 +36,7 @@ const SliderHomePage = () => {
                     textAlign={'center'}
                     justifyContent="center"
                     sx={{
-                        marginTop: '4rem',
+                        marginTop: '6rem',
                         '&:hover': {
                             textDecoration: 'underline wavy',
                         },
