@@ -8,11 +8,7 @@ import { Link, useParams } from 'react-router-dom'
 const Slider = () => {
     const { projects, loading, error } = useFetchProjects()
     const CollectionSize = projects.length
-    const { id } = useParams()
-    const initialIndex = parseInt(id) - 1
-    const [index, setActiveStep] = useState(
-        initialIndex >= 0 && initialIndex < CollectionSize ? initialIndex : 0
-    )
+    const [index, setActiveStep] = useState(0)
 
     const goToNextPicture = () => {
         setActiveStep((prevActiveStep) => (prevActiveStep + 1) % CollectionSize)
