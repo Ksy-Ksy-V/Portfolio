@@ -1,3 +1,4 @@
+import React from 'react'
 import { Grid, Box, Typography } from '@mui/material'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined'
@@ -11,7 +12,6 @@ const ContactInformation = () => {
             sx={{
                 textAlign: 'center',
                 justifyContent: 'center',
-                marginTop: 8,
             }}
         >
             <Typography
@@ -114,6 +114,7 @@ const ContactInformation = () => {
                     <Typography
                         variant="body1"
                         sx={{
+                            marginBottom: 2,
                             '&:hover': {
                                 textDecoration: 'underline wavy',
                             },
@@ -123,8 +124,7 @@ const ContactInformation = () => {
                     </Typography>
                 </Grid>
             </Grid>
-
-            <Grid item xs={12}>
+            <Grid item xs={12} sx={{ marginTop: '2rem' }}>
                 <SocialLinks />
             </Grid>
         </Box>

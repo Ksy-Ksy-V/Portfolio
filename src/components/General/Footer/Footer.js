@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Box, Grid, Typography, Button } from '@mui/material'
-
 import SocialLinks from './SocialLinks'
+
 const Footer = () => {
     const { pathname } = useLocation()
 
@@ -19,11 +18,19 @@ const Footer = () => {
             }}
         >
             <Grid container spacing={2} alignItems="center">
-                <Grid item xs={3}>
+                <Grid
+                    item
+                    xs={pathname === '/contact' ? 12 : 3}
+                    sx={{
+                        display: 'flex',
+                        justifyContent:
+                            pathname === '/contact' ? 'center' : 'initial',
+                    }}
+                >
                     <Grid container display={'flex'} justifyContent={'center'}>
-                        <Grid item mt={1} xs={12} ml={2} mb={1}>
+                        <Grid item xs={12} ml={2} mb={1}>
                             <Typography
-                                variant="h4"
+                                variant="h5"
                                 component={Link}
                                 to="/"
                                 className="logo"
@@ -33,6 +40,10 @@ const Footer = () => {
                                     '&:hover': {
                                         color: 'primary.main',
                                     },
+                                    textAlign:
+                                        pathname === '/contact'
+                                            ? 'center'
+                                            : 'left',
                                 }}
                             >
                                 KSY
@@ -43,51 +54,73 @@ const Footer = () => {
                                 fontSize={10}
                                 variant="body2"
                                 color="primary.dark"
+                                sx={{
+                                    textAlign:
+                                        pathname === '/contact'
+                                            ? 'center'
+                                            : 'left',
+                                }}
                             >
                                 © 2024 Lorem ipsum dolor sit
                             </Typography>
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                    <Grid
-                        container
-                        display={'flex'}
-                        justifyContent={'center'}
-                        spacing={5}
-                        sx={{
-                            display: pathname === '/contact' ? 'none' : 'flex',
-                        }}
-                    >
-                        <SocialLinks />
-                    </Grid>
-                </Grid>
-                <Grid
-                    item
-                    xs={3}
-                    sx={{
-                        display: pathname === '/contact' ? 'none' : 'flex',
-                    }}
-                >
-                    <Grid container display={'flex'} justifyContent={'center'}>
-                        <Typography
-                            mb={1}
-                            mt={1}
-                            variant="body"
-                            color="primary.dark"
+                {pathname !== '/contact' && (
+                    <>
+                        <Grid item xs={6}>
+                            <Grid
+                                container
+                                display={'flex'}
+                                justifyContent={'center'}
+                                spacing={5}
+                                sx={{
+                                    marginTop: '1rem',
+                                    display:
+                                        pathname === '/contact'
+                                            ? 'none'
+                                            : 'flex',
+                                }}
+                            >
+                                <SocialLinks />
+                            </Grid>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={3}
+                            sx={{
+                                display:
+                                    pathname === '/contact' ? 'none' : 'flex',
+                            }}
                         >
-                            Any questions?
-                        </Typography>
-                        <Button
-                            fullWidth
-                            sx={{ marginX: '1rem', marginBottom: '1rem' }}
-                            component={Link}
-                            to="/contact"
-                        >
-                            Contact
-                        </Button>
-                    </Grid>
-                </Grid>
+                            <Grid
+                                container
+                                display={'flex'}
+                                justifyContent={'center'}
+                            >
+                                <Typography
+                                    mb={1}
+                                    mt={1}
+                                    variant="body"
+                                    color="primary.dark"
+                                >
+                                    Any questions?
+                                </Typography>
+                                <Button
+                                    fullWidth
+                                    sx={{
+                                        marginX: '1rem',
+                                        marginBottom: '1rem',
+                                    }}
+                                    component={Link}
+                                    to="/contact"
+                                >
+                                    Contact
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </>
+                )}
             </Grid>
         </Box>
     )

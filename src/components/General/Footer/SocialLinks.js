@@ -15,7 +15,6 @@ const SocialLinks = () => {
             sx={{
                 display: 'flex',
                 alignItems: 'center',
-                marginTop: '1rem',
             }}
         >
             <Grid item>

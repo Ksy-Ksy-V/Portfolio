@@ -12,34 +12,41 @@ import Footer from './components/General/Footer/Footer'
 import ScrollToTopButton from './components/General/Buttons/ScrollToTopButton'
 import OpenOnTop from './utils/OpenOnTop'
 
+import ThemeProvider from './components/General/SwithModeBtn/ThemeProvider'
+
 function App() {
     return (
-        <Router>
-            <Container
-                maxWidth="md"
-                sx={{
-                    marginTop: '2rem',
-                    marginBottom: '2rem',
-                }}
-            >
-                <OpenOnTop />
-                <Header />
-                <div className="content">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/portfolio" element={<PortfolioList />} />
-                        <Route
-                            path="/portfoliodetails/:id"
-                            element={<PortfolioDetails />}
-                        />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </div>
-                <Footer />
-                <ScrollToTopButton />
-            </Container>
-        </Router>
+        <ThemeProvider>
+            <Router>
+                <Container
+                    maxWidth="md"
+                    sx={{
+                        marginTop: '2rem',
+                        marginBottom: '2rem',
+                    }}
+                >
+                    <OpenOnTop />
+                    <Header />
+                    <div className="content">
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route
+                                path="/portfolio"
+                                element={<PortfolioList />}
+                            />
+                            <Route
+                                path="/portfoliodetails/:id"
+                                element={<PortfolioDetails />}
+                            />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </div>
+                    <Footer />
+                    <ScrollToTopButton />
+                </Container>
+            </Router>
+        </ThemeProvider>
     )
 }
 export default App

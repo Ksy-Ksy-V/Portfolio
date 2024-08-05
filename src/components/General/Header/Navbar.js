@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom'
-import ModeSwitchBtn from './ModeSwithBtn'
+import ModeSwitchBtn from './../SwithModeBtn/ModeSwithBtn'
 
 const Navbar = () => {
     const location = useLocation()
