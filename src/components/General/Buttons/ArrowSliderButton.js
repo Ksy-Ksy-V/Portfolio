@@ -9,11 +9,14 @@ const ArrowSliderButton = ({
     variant = 'outlined',
     sx = {
         position: 'absolute',
-        left: direction === 'left' && '10px',
-        right: direction === 'right' && '10px',
-        top: '50%',
-        transform: 'translateY(-50%)',
+        left: direction === 'left' && '0',
+        right: direction === 'right' && '0',
+        transform: 'translateY(200%)',
         zIndex: 2,
+        color: 'primary.main',
+        '& .MuiButton-startIcon': {
+            color: 'primary.main',
+        },
     },
 }) => {
     return (

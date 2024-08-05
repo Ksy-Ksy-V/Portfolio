@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState } from 'react'
+import React, { createContext, useMemo, useState, useEffect } from 'react'
 import {
     ThemeProvider as MuiThemeProvider,
     createTheme,
@@ -20,7 +20,20 @@ const ThemeProvider = ({ children }) => {
         []
     )
 
-    const theme = useMemo(() => createTheme(getDesign(mode)), [mode])
+    useEffect(() => {
+        const existingPreference = localStorage.getItem('theme')
+        localStorage.setItem('theme', 'light')
+        if (existingPreference === 'light' || existingPreference === 'dark') {
+            setMode(existingPreference)
+            console.log(existingPreference)
+            localStorage.setItem('theme', existingPreference)
+        } else {
+            setMode('light')
+            localStorage.setItem('theme', 'light')
+        }
+    }, [localStorage.getItem('theme')])
+
+    const theme = createTheme(getDesign(mode))
 
     return (
         <ColorModeContext.Provider value={colorMode}>

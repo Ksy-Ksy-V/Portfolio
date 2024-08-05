@@ -6,9 +6,8 @@ import RunningLine from '../../components/HeroSection/RunningLine'
 import useFetchImg from '../../utils/useFetchImg'
 import StyledImage from '../../components/StyledImage'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import { fullPageImagesDataOne } from '../../img/imagesData'
+import SliderPortfolio from '../../components/Slider/SliderPortfolio'
 
 const PortfolioDetails = () => {
     const { id } = useParams()
@@ -16,7 +15,7 @@ const PortfolioDetails = () => {
     const [project, setProject] = useState(null)
 
     const { projects, loading, error } = useFetchImg()
-    const CollectionSize = projects.length
+    const collectionSize = projects.length
     const initialIndex = parseInt(id, 10) - 1
     const [index, setActiveStep] = useState(initialIndex)
 
@@ -40,15 +39,15 @@ const PortfolioDetails = () => {
     if (!project) return <Typography>Loading...</Typography>
 
     const goToNextPicture = () => {
-        const newIndex = (index + 1) % CollectionSize
+        const newIndex = (index + 1) % collectionSize
         setActiveStep(newIndex)
-        navigate(`/portfoliodetails/${projects[newIndex].id}`)
+        navigate(`/portfolio-details/${projects[newIndex].id}`)
     }
 
     const goToPrevPicture = () => {
-        const newIndex = (index - 1 + CollectionSize) % CollectionSize
+        const newIndex = (index - 1 + collectionSize) % collectionSize
         setActiveStep(newIndex)
-        navigate(`/portfoliodetails/${projects[newIndex].id}`)
+        navigate(`/portfolio-details/${projects[newIndex].id}`)
     }
 
     const { title, description, skills, imgSrc, gitHubLink } = project
@@ -66,78 +65,11 @@ const PortfolioDetails = () => {
                     marginBottom: '1rem',
                 }}
             >
-                <Button
-                    variant="outlined"
-                    size="large"
-                    disableRipple
-                    onClick={goToPrevPicture}
-                    sx={{
-                        position: 'absolute',
-                        left: '0',
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        zIndex: 2,
-                        color: 'primary.main',
-                        '& .MuiButton-startIcon': {
-                            color: 'primary.main',
-                        },
-                    }}
-                >
-                    <KeyboardArrowLeft sx={{ fontSize: '4rem' }} />
-                    <Typography
-                        variant="body1"
-                        color="primary.light"
-                        textAlign="center"
-                    >
-                        Prev
-                        <br />
-                        project
-                    </Typography>
-                </Button>
-
-                <Button
-                    variant="outlined"
-                    size="large"
-                    disableRipple
-                    onClick={goToNextPicture}
-                    sx={{
-                        position: 'absolute',
-                        right: '0',
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        zIndex: 2,
-                        color: 'primary.main',
-                        '& .MuiButton-endIcon': {
-                            color: 'primary.main',
-                        },
-                    }}
-                >
-                    <Typography
-                        variant="body1"
-                        color="primary.light"
-                        textAlign="center"
-                    >
-                        Next
-                        <br />
-                        project
-                    </Typography>
-                    <KeyboardArrowRight sx={{ fontSize: '4rem' }} />
-                </Button>
-
-                <Typography
-                    variant="h4"
-                    textAlign="center"
-                    justifyContent="center"
-                    gutterBottom
-                    sx={{
-                        color: 'primary.main',
-                        '&:hover': {
-                            textDecoration: 'underline wavy',
-                        },
-                    }}
-                >
-                    {projects[index]?.title || title}
-                </Typography>
+                <SliderPortfolio
+                    title={projects[index]?.title || title}
+                    nextPicture={() => goToNextPicture()}
+                    prevPicture={() => goToPrevPicture()}
+                />
             </Grid>
 
             <Grid item xs={12} mb={4}>
@@ -160,7 +92,7 @@ const PortfolioDetails = () => {
                         variant="dots"
                         position="static"
                         activeStep={index}
-                        steps={CollectionSize}
+                        steps={collectionSize}
                         sx={{
                             backgroundColor: 'transparent',
                             position: 'absolute',

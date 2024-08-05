@@ -7,7 +7,7 @@ const HeroSection = () => {
     return (
         <Grid container spacing={2} marginBottom="2rem">
             <Grid item xs={6} sx={{ paddingLeft: 0 }}>
-                <Box sx={{ ml: '2rem' }}>
+                <Box>
                     <MainHeader
                         textOne="Hi! I'm"
                         highlightText="Ksenia"
@@ -47,4 +47,3 @@ const HeroSection = () => {
 }
 
 export default HeroSection
-

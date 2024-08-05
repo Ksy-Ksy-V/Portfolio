@@ -8,9 +8,18 @@ import { ColorModeContext } from './ThemeProvider'
 const ModeSwitchBtn = () => {
     const theme = useTheme()
     const colorMode = useContext(ColorModeContext)
-
     return (
-        <IconButton onClick={colorMode.toggleColorMode} color="inherit">
+        <IconButton
+            onClick={() => {
+                if (theme.palette.mode === 'dark') {
+                    localStorage.setItem('theme', 'light')
+                } else {
+                    localStorage.setItem('theme', 'dark')
+                }
+                colorMode.toggleColorMode()
+            }}
+            color="inherit"
+        >
             {theme.palette.mode === 'dark' ? (
                 <Brightness7Icon />
             ) : (

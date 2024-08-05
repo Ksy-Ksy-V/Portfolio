@@ -8,12 +8,7 @@ import SocialLinks from '../General/Footer/SocialLinks'
 
 const ContactInformation = () => {
     return (
-        <Box
-            sx={{
-                textAlign: 'center',
-                justifyContent: 'center',
-            }}
-        >
+        <Grid>
             <Typography
                 variant="h6"
                 color={'primary.light'}
@@ -127,7 +122,7 @@ const ContactInformation = () => {
             <Grid item xs={12} sx={{ marginTop: '2rem' }}>
                 <SocialLinks />
             </Grid>
-        </Box>
+        </Grid>
     )
 }
 

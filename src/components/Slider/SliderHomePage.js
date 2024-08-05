@@ -4,22 +4,19 @@ import ArrowSliderButton from '../General/Buttons/ArrowSliderButton'
 import useFetchImg from '../../utils/useFetchImg'
 import { Link } from 'react-router-dom'
 
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
-
 const SliderHomePage = () => {
     const { projects, loading, error } = useFetchImg()
-    const CollectionSize = projects.length
+    const collectionSize = projects.length
     const [index, setActiveStep] = useState(0)
 
     const goToNextPicture = () => {
-        setActiveStep((prevActiveStep) => (prevActiveStep + 1) % CollectionSize)
+        setActiveStep((prevActiveStep) => (prevActiveStep + 1) % collectionSize)
     }
 
     const goToPrevPicture = () => {
         setActiveStep(
             (prevActiveStep) =>
-                (prevActiveStep - 1 + CollectionSize) % CollectionSize
+                (prevActiveStep - 1 + collectionSize) % collectionSize
         )
     }
 
@@ -45,23 +42,10 @@ const SliderHomePage = () => {
             </Grid>
 
             <Grid item xs={12}>
-                <ArrowSliderButton
-                    direction="left"
-                    onClick={goToPrevPicture}
-                    sx={{
-                        position: 'absolute',
-                        left: '0',
-                        transform: 'translateY(200%)',
-                    }}
-                />
+                <ArrowSliderButton direction="left" onClick={goToPrevPicture} />
                 <ArrowSliderButton
                     direction="right"
                     onClick={goToNextPicture}
-                    sx={{
-                        position: 'absolute',
-                        right: '0',
-                        transform: 'translateY(200%)',
-                    }}
                 />
             </Grid>
 
@@ -85,7 +69,7 @@ const SliderHomePage = () => {
                         variant="dots"
                         position="static"
                         activeStep={index}
-                        steps={CollectionSize}
+                        steps={collectionSize}
                         sx={{
                             backgroundColor: 'transparent',
                             position: 'absolute',
@@ -122,7 +106,7 @@ const SliderHomePage = () => {
                     </Typography>
                     <Button
                         component={Link}
-                        to={`/portfoliodetails/${projects[index].id}`}
+                        to={`/portfolio-details/${projects[index].id}`}
                         fullWidth
                         sx={{
                             border: '3px solid',

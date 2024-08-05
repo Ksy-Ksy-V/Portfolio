@@ -22,6 +22,7 @@ function App() {
                     maxWidth="md"
                     sx={{
                         marginTop: '2rem',
+                        minHeight: 'calc(100vh - 250px)',
                         marginBottom: '2rem',
                     }}
                 >
@@ -35,16 +36,16 @@ function App() {
                                 element={<PortfolioList />}
                             />
                             <Route
-                                path="/portfoliodetails/:id"
+                                path="/portfolio-details/:id"
                                 element={<PortfolioDetails />}
                             />
                             <Route path="/contact" element={<Contact />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
                     </div>
-                    <Footer />
                     <ScrollToTopButton />
                 </Container>
+                <Footer />
             </Router>
         </ThemeProvider>
     )
