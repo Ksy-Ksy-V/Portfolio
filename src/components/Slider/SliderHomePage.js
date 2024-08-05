@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { Typography, MobileStepper, Box, Grid, Button } from '@mui/material'
 import ArrowSliderButton from '../General/Buttons/ArrowSliderButton'
-import useFetchProjects from '../../utils/useFetch'
+import useFetchImg from '../../utils/useFetchImg'
 import { Link } from 'react-router-dom'
 
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 
 const SliderHomePage = () => {
-    const { projects, loading, error } = useFetchProjects()
+    const { projects, loading, error } = useFetchImg()
     const CollectionSize = projects.length
     const [index, setActiveStep] = useState(0)
 

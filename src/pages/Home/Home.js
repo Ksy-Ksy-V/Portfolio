@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material'
+import { Grid } from '@mui/material'
 import SliderHomePage from '../../components/Slider/SliderHomePage'
 
 import HeroSection from '../../components/HeroSection/HeroSection'

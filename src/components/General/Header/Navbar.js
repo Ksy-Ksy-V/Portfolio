@@ -1,9 +1,12 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ModeSwitchBtn from './ModeSwithBtn'
 
 const Navbar = () => {
+    const location = useLocation()
+    const currentPath = location.pathname
+
     return (
         <Box
             sx={{
@@ -28,7 +31,10 @@ const Navbar = () => {
                     to="/"
                     sx={{
                         textDecoration: 'none',
-                        color: 'primary.dark',
+                        color:
+                            currentPath === '/'
+                                ? 'primary.main'
+                                : 'primary.dark',
                         '&:hover': {
                             textDecoration: 'underline wavy',
                             color: 'primary.main',
@@ -43,7 +49,9 @@ const Navbar = () => {
                     to="/portfolio"
                     sx={{
                         textDecoration: 'none',
-                        color: 'primary.dark',
+                        color: currentPath.startsWith('/portfolio')
+                            ? 'primary.main'
+                            : 'primary.dark',
                         '&:hover': {
                             textDecoration: 'underline wavy',
                             color: 'primary.main',
@@ -58,7 +66,10 @@ const Navbar = () => {
                     to="/contact"
                     sx={{
                         textDecoration: 'none',
-                        color: 'primary.dark',
+                        color:
+                            currentPath === '/contact'
+                                ? 'primary.main'
+                                : 'primary.dark',
                         '&:hover': {
                             textDecoration: 'underline wavy',
                             color: 'primary.main',
