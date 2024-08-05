@@ -1,37 +1,45 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Container } from '@mui/material';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Container } from '@mui/material'
 
-import Home from './pages/Home/Home';
-import PortfolioList from './pages/Portfolio/PortfolioList';
-import PortfolioDetails from './pages/Portfolio/PortfolioDetails';
-import Contact from './pages/Contact/Contact';
-import NotFound from './pages/ErrorPages/NotFound';
+import Home from './pages/Home/Home'
+import PortfolioList from './pages/Portfolio/PortfolioList'
+import PortfolioDetails from './pages/Portfolio/PortfolioDetails'
+import Contact from './pages/Contact/Contact'
+import NotFound from './pages/ErrorPages/NotFound'
 
-import Header from './components/General/Header/Header';
-import Footer from './components/General/Footer/Footer'; 
+import Header from './components/General/Header/Header'
+import Footer from './components/General/Footer/Footer'
+import ScrollToTopButton from './components/General/Buttons/ScrollToTopButton'
+import OpenOnTop from './utils/OpenOnTop'
 
 function App() {
-  return (
-    <Router>
-      <Container 
-        maxWidth='md' 
-        sx={{ 
-          marginTop: '2rem', 
-          marginBottom: '2rem' 
-        }}>
-        <Header />
-        <div className='content'>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/portfolio' element={<PortfolioList />} />
-            <Route path='/portfoliodetails/:id' element={<PortfolioDetails />} /> 
-            <Route path='/contact' element={<Contact />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Container>
-    </Router>
-  );
+    return (
+        <Router>
+            <Container
+                maxWidth="md"
+                sx={{
+                    marginTop: '2rem',
+                    marginBottom: '2rem',
+                }}
+            >
+                <OpenOnTop />
+                <Header />
+                <div className="content">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/portfolio" element={<PortfolioList />} />
+                        <Route
+                            path="/portfoliodetails/:id"
+                            element={<PortfolioDetails />}
+                        />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </div>
+                <Footer />
+                <ScrollToTopButton />
+            </Container>
+        </Router>
+    )
 }
-export default App;
+export default App
