@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Box, Grid, Typography, Button } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import SocialLinks from './SocialLinks'
 
 const Footer = () => {
@@ -18,15 +18,7 @@ const Footer = () => {
             }}
         >
             <Grid container spacing={2} alignItems="center">
-                <Grid
-                    item
-                    xs={pathname === '/contact' ? 12 : 3}
-                    sx={{
-                        display: 'flex',
-                        justifyContent:
-                            pathname === '/contact' ? 'center' : 'initial',
-                    }}
-                >
+                <Grid item xs={3}>
                     <Grid container display={'flex'} justifyContent={'center'}>
                         <Grid item xs={12} ml={2} mb={1}>
                             <Typography
@@ -40,28 +32,9 @@ const Footer = () => {
                                     '&:hover': {
                                         color: 'primary.main',
                                     },
-                                    textAlign:
-                                        pathname === '/contact'
-                                            ? 'center'
-                                            : 'left',
                                 }}
                             >
                                 KSY
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} ml={2}>
-                            <Typography
-                                fontSize={10}
-                                variant="body2"
-                                color="primary.dark"
-                                sx={{
-                                    textAlign:
-                                        pathname === '/contact'
-                                            ? 'center'
-                                            : 'left',
-                                }}
-                            >
-                                © 2024 Lorem ipsum dolor sit
                             </Typography>
                         </Grid>
                     </Grid>
@@ -85,20 +58,15 @@ const Footer = () => {
                                 <SocialLinks />
                             </Grid>
                         </Grid>
-                        <Grid
-                            item
-                            xs={3}
-                            sx={{
-                                display:
-                                    pathname === '/contact' ? 'none' : 'flex',
-                            }}
-                        >
-                            <Grid
-                                container
-                                display={'flex'}
-                                justifyContent={'center'}
+                        <Grid item xs={3}>
+                            <Typography
+                                fontSize={10}
+                                variant="body2"
+                                color="primary.dark"
                             >
-                                <Typography
+                                © 2024 Lorem ipsum dolor sit
+                            </Typography>
+                            {/* <Typography
                                     mb={1}
                                     mt={1}
                                     variant="body"
@@ -116,8 +84,7 @@ const Footer = () => {
                                     to="/contact"
                                 >
                                     Contact
-                                </Button>
-                            </Grid>
+                                </Button> */}
                         </Grid>
                     </>
                 )}
