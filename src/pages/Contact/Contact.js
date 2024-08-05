@@ -4,12 +4,19 @@ import ContactInformation from '../../components/Contacts/ContactInformation'
 
 const Contact = () => {
     return (
-        <Grid container spacing={2} columns={12} sx={{ marginTop: '2rem' }}>
-            <Grid item xs={5}>
+        <Grid
+            container
+            spacing={2}
+            display={'flex'}
+            alignItems={'center'}
+            columns={12}
+            sx={{ marginTop: '2rem', minHeight: '60vh' }}
+        >
+            <Grid item xs={12} sm={5}>
                 <ContactInformation />
             </Grid>
 
-            <Grid item xs={7}>
+            <Grid item xs={12} sm={7}>
                 <ContactForm />
             </Grid>
         </Grid>
