@@ -3,6 +3,8 @@ import { Typography, MobileStepper, Box, Grid, Button } from '@mui/material'
 import ArrowSliderButton from '../General/Buttons/ArrowSliderButton'
 import useFetchImg from '../../utils/useFetchImg'
 import { Link } from 'react-router-dom'
+import Loading from './../../components/General/Loading'
+import ErrorMessage from './../../components/General/ErrorMessage'
 
 const SliderHomePage = () => {
     const { projects, loading, error } = useFetchImg()
@@ -20,8 +22,8 @@ const SliderHomePage = () => {
         )
     }
 
-    if (loading) return <Typography>Loading...</Typography>
-    if (error) return <Typography>Error: {error}</Typography>
+    if (loading) return <Loading />
+    if (error) return <ErrorMessage />
 
     return (
         <Grid container spacing={2} columns={12}>
@@ -32,12 +34,7 @@ const SliderHomePage = () => {
                     display={'center'}
                     textAlign={'center'}
                     justifyContent="center"
-                    sx={{
-                        marginTop: '3rem',
-                        '&:hover': {
-                            textDecoration: 'underline wavy',
-                        },
-                    }}
+                    mt={`3rem`}
                 >{`< A bit about my projects: >`}</Typography>
             </Grid>
 
@@ -123,7 +120,7 @@ const SliderHomePage = () => {
                             '&:hover': {
                                 backgroundColor: 'transparent',
                                 border: '3px solid',
-                                borderColor: 'primary.main',
+                                borderColor: 'primary.dark',
                             },
                         }}
                     >

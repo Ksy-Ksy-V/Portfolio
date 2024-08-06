@@ -1,35 +1,42 @@
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import ProjectCard from '../../components/ProjectCard'
 import MainHeader from '../../components/MainHeader'
 import React from 'react'
 
 import { imagesData } from '../../img/imagesData'
+import Loading from '../../components/General/Loading'
+import ErrorMessage from './../../components/General/ErrorMessage'
 
 const PortfolioList = () => {
     const [projects, setProjects] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         fetch('http://localhost:8000/projects')
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                return response.json()
+            })
             .then((data) => {
                 const projectsWithImages = data.map((project) => ({
                     ...project,
                     imgSrc: imagesData[project.id],
                 }))
                 setProjects(projectsWithImages)
+                setLoading(false)
             })
             .catch((error) => {
-                console.error(
-                    'There was an error fetching the projects!',
-                    error
-                )
+                setError(error.message)
+                setLoading(false)
             })
     }, [])
 
-    if (!projects) {
-        return <Typography>Loading...</Typography>
-    }
+    if (loading) return <Loading />
+    if (error) return <ErrorMessage />
 
     return (
         <Grid container spacing={2} columns={12}>

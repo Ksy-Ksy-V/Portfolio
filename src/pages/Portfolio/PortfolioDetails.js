@@ -8,6 +8,8 @@ import StyledImage from '../../components/StyledImage'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import { fullPageImagesDataOne } from '../../img/imagesData'
 import SliderPortfolio from '../../components/Slider/SliderPortfolio'
+import Loading from './../../components/General/Loading'
+import ErrorMessage from './../../components/General/ErrorMessage'
 
 const PortfolioDetails = () => {
     const { id } = useParams()
@@ -34,9 +36,9 @@ const PortfolioDetails = () => {
             })
     }, [id])
 
-    if (loading) return <Typography>Loading...</Typography>
-    if (error) return <Typography>Error: {error}</Typography>
-    if (!project) return <Typography>Loading...</Typography>
+    if (loading) return <Loading />
+    if (error) return <ErrorMessage />
+    if (!project) return <ErrorMessage />
 
     const goToNextPicture = () => {
         const newIndex = (index + 1) % collectionSize

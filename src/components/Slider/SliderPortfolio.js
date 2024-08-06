@@ -2,12 +2,14 @@ import { Typography, Grid, Button } from '@mui/material'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import useFetchImg from '../../utils/useFetchImg'
+import Loading from './../../components/General/Loading'
+import ErrorMessage from './../../components/General/ErrorMessage'
 
 const SliderPortfolio = ({ nextPicture, prevPicture, title }) => {
     const { loading, error } = useFetchImg()
 
-    if (loading) return <Typography>Loading...</Typography>
-    if (error) return <Typography>Error: {error}</Typography>
+    if (loading) return <Loading />
+    if (error) return <ErrorMessage />
 
     return (
         <Grid

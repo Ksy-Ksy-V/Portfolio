@@ -25,7 +25,6 @@ const ThemeProvider = ({ children }) => {
         localStorage.setItem('theme', 'light')
         if (existingPreference === 'light' || existingPreference === 'dark') {
             setMode(existingPreference)
-            console.log(existingPreference)
             localStorage.setItem('theme', existingPreference)
         } else {
             setMode('light')
@@ -46,3 +45,4 @@ const ThemeProvider = ({ children }) => {
 }
 
 export default ThemeProvider
+
