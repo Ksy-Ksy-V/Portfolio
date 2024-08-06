@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Box, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
@@ -13,6 +13,8 @@ const ContactInformation = () => {
                 variant="h6"
                 color={'primary.light'}
                 sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
                     '&:hover': {
                         textDecoration: 'underline wavy',
                     },

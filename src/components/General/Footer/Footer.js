@@ -9,68 +9,60 @@ const Footer = () => {
     return (
         <Container maxWidth="md" sx={{ marginBottom: '2rem' }}>
             <Box
-                component={'footer'}
-                className="header"
                 sx={{
-                    py: 3,
-                    px: 2,
-                    mt: 'auto',
-                    border: 3,
-                    mt: '1rem',
+                    border: '3px solid',
                     borderColor: 'primary.dark',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    mt: '2rem',
+                    position: 'relative',
                 }}
             >
-                <Grid container spacing={2} alignItems="center">
-                    <Grid item xs={3}>
-                        <Grid
-                            container
-                            display={'flex'}
-                            justifyContent={'center'}
-                        >
-                            <Grid item mt={1} xs={12} ml={2} mb={1}>
-                                <Typography
-                                    variant="h4"
-                                    component={Link}
-                                    to="/"
-                                    className="logo"
-                                    sx={{
-                                        textDecoration: 'none',
-                                        color: 'primary.dark',
-                                        '&:hover': {
-                                            color: 'primary.main',
-                                        },
-                                    }}
-                                >
-                                    KSY
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} ml={2}>
-                                <Typography
-                                    fontSize={10}
-                                    variant="body2"
-                                    color="primary.dark"
-                                >
-                                    © 2024 Lorem ipsum dolor sit
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Grid
-                            container
-                            display={'flex'}
-                            justifyContent={'center'}
-                            spacing={5}
+                <Grid container alignItems="center">
+                    <Grid
+                        item
+                        xs={2}
+                        display="flex"
+                        justifyContent="flex-start"
+                    >
+                        <Typography
+                            variant="h5"
+                            component={Link}
+                            to="/"
+                            className="logo"
                             sx={{
-                                display:
-                                    pathname === '/contact' ? 'none' : 'flex',
+                                textDecoration: 'none',
+                                color: 'primary.dark',
+                                marginLeft: '2rem',
+                                '&:hover': {
+                                    color: 'primary.main',
+                                },
                             }}
                         >
+                            KSY
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={8}
+                        display="flex"
+                        justifyContent="center"
+                        sx={{ marginTop: '0.5rem' }}
+                    >
+                        {pathname === '/contact' ? (
+                            <Box sx={{ width: '100%', height: '100%' }} />
+                        ) : (
                             <SocialLinks />
-                        </Grid>
+                        )}
+                    </Grid>
+                    <Grid item xs={2} display="flex" justifyContent="flex-end">
+                        <Typography
+                            variant="body1"
+                            color="primary.dark"
+                            sx={{
+                                right: '2rem',
+                            }}
+                        >
+                            © 2024 Lorem ipsum dolor sit
+                        </Typography>
                     </Grid>
                 </Grid>
             </Box>

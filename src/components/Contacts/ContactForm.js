@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Typography, Box, Grid, TextField, Button } from '@mui/material'
 
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 const ContactForm = () => {
     const [name, setName] = useState('')
@@ -132,7 +133,7 @@ const ContactForm = () => {
                                     sx={{
                                         margin: '1rem',
                                         border: '3px solid',
-                                        borderColor: 'primary.main',
+                                        borderColor: 'primary.light',
                                         '&:hover': {
                                             border: '3px solid',
                                             borderColor: 'primary.main',
@@ -154,6 +155,10 @@ const ContactForm = () => {
                         '&:hover': {
                             borderColor: 'primary.main',
                         },
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                     }}
                 >
                     <Typography
@@ -162,7 +167,6 @@ const ContactForm = () => {
                         justifyContent="center"
                         variant="h6"
                         sx={{
-                            marginBottom: '2rem',
                             marginTop: '2rem',
                         }}
                     >
@@ -174,12 +178,25 @@ const ContactForm = () => {
                         justifyContent="center"
                         variant="body"
                         sx={{
-                            marginBottom: '2rem',
+                            marginBottom: '1rem',
                             marginTop: '2rem',
                         }}
                     >
                         I will get back to you as soon as possible.
                     </Typography>
+
+                    <FavoriteBorderIcon
+                        sx={{
+                            display: 'center',
+                            textAlign: 'center',
+                            color: 'primary.dark',
+                            fontSize: '3rem',
+                            marginBottom: '2rem',
+                            '&:hover': {
+                                color: 'primary.main',
+                            },
+                        }}
+                    />
                 </Box>
             )}
         </Grid>
