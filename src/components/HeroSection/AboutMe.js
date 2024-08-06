@@ -14,7 +14,7 @@ const AboutMe = () => {
             }}
         >
             <Grid container spacing={2}>
-                <Grid item xs={6} mt={2} sx={{ paddingLeft: 0 }}>
+                <Grid item xs={6} mt={1} sx={{ paddingLeft: 0 }}>
                     <StyledImage src={aboutMeImg} alt="About me" />
                 </Grid>
                 <Grid item xs={6} mt={6}>

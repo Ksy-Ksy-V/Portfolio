@@ -27,43 +27,41 @@ function App() {
                     }}
                 >
                     <OpenOnTop />
-                    <div className="content">
-                        <Routes>
-                            <Route
-                                path="/"
-                                element={
-                                    <PageWrapper>
-                                        <Home />
-                                    </PageWrapper>
-                                }
-                            />
-                            <Route
-                                path="/portfolio"
-                                element={
-                                    <PageWrapper>
-                                        <PortfolioList />
-                                    </PageWrapper>
-                                }
-                            />
-                            <Route
-                                path="/portfolio-details/:id"
-                                element={
-                                    <PageWrapper>
-                                        <PortfolioDetails />
-                                    </PageWrapper>
-                                }
-                            />
-                            <Route
-                                path="/contact"
-                                element={
-                                    <PageWrapper>
-                                        <Contact />
-                                    </PageWrapper>
-                                }
-                            />
-                            <Route path="*" element={<NotFound />} />
-                        </Routes>
-                    </div>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <PageWrapper>
+                                    <Home />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route
+                            path="/portfolio"
+                            element={
+                                <PageWrapper>
+                                    <PortfolioList />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route
+                            path="/portfolio-details/:id"
+                            element={
+                                <PageWrapper>
+                                    <PortfolioDetails />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route
+                            path="/contact"
+                            element={
+                                <PageWrapper>
+                                    <Contact />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
                     <ScrollToTopButton />
                 </Container>
             </Router>
