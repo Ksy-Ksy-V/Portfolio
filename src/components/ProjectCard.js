@@ -1,4 +1,4 @@
-import { Grid, Typography, Button } from '@mui/material'
+import { Grid, Typography, Button, Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 import StyledImage from './../components/StyledImage'
 import React from 'react'
@@ -23,17 +23,25 @@ const ProjectCard = ({ title, imgSrc, id }) => {
                 {`< ${title} >`}
             </Typography>
 
-            <StyledImage
-                src={imgSrc}
-                alt={title}
+            <Box
+                component={Link}
+                to={`/portfolio-details/${id}`}
                 sx={{
-                    width: '100%',
-                    height: 'auto',
-                    aspectRatio: '1/1',
-                    objectFit: 'cover',
+                    display: 'block',
                     marginBottom: '2rem',
                 }}
-            />
+            >
+                <StyledImage
+                    src={imgSrc}
+                    alt={title}
+                    sx={{
+                        width: '100%',
+                        height: 'auto',
+                        aspectRatio: '1/1',
+                        objectFit: 'cover',
+                    }}
+                />
+            </Box>
 
             <Button
                 component={Link}

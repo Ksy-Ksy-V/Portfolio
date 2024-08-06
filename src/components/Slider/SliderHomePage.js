@@ -33,7 +33,7 @@ const SliderHomePage = () => {
                     textAlign={'center'}
                     justifyContent="center"
                     sx={{
-                        marginTop: '6rem',
+                        marginTop: '3rem',
                         '&:hover': {
                             textDecoration: 'underline wavy',
                         },
@@ -49,11 +49,20 @@ const SliderHomePage = () => {
                 />
             </Grid>
 
-            <Grid item xs={8} mb={4}>
+            <Grid
+                item
+                xs={8}
+                mb={4}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+            >
                 <Box
                     sx={{
                         overflow: 'hidden',
                         position: 'relative',
+                        marginLeft: '1rem',
                     }}
                 >
                     <Box
@@ -114,7 +123,7 @@ const SliderHomePage = () => {
                             '&:hover': {
                                 backgroundColor: 'transparent',
                                 border: '3px solid',
-                                borderColor: 'primary.light',
+                                borderColor: 'primary.main',
                             },
                         }}
                     >

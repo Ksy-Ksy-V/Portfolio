@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Grid } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom'
 import ModeSwitchBtn from './../SwithModeBtn/ModeSwithBtn'
 
@@ -17,11 +17,12 @@ const Navbar = () => {
             }}
         >
             <Box
+                mr={6}
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    gap: '1rem',
+                    gap: '2rem',
                     color: 'primary.dark',
                     flex: 1,
                 }}
@@ -80,7 +81,7 @@ const Navbar = () => {
                 </Typography>
             </Box>
 
-            <Box>
+            <Box mr={3}>
                 <ModeSwitchBtn />
             </Box>
         </Box>

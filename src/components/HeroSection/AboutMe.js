@@ -7,27 +7,22 @@ const AboutMe = () => {
     return (
         <Box
             sx={{
-                backgroundColor: 'primary.dark',
+                border: '3px solid',
+                borderColor: 'primary.dark',
                 padding: '2rem',
                 marginTop: '3rem',
             }}
         >
             <Grid container spacing={2}>
                 <Grid item xs={6} mt={2} sx={{ paddingLeft: 0 }}>
-                    <StyledImage
-                        src={aboutMeImg}
-                        alt="About me"
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                        }}
-                    />
+                    <StyledImage src={aboutMeImg} alt="About me" />
                 </Grid>
                 <Grid item xs={6} mt={6}>
                     <Box>
                         <Typography
                             variant="h5"
+                            display="flex"
+                            justifyContent="center"
                             color={'primary.main'}
                             sx={{
                                 '&:hover': {
@@ -52,4 +47,3 @@ const AboutMe = () => {
 }
 
 export default AboutMe
-

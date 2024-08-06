@@ -110,7 +110,14 @@ const PortfolioDetails = () => {
                 />
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid
+                item
+                xs={4}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+            >
                 <Typography
                     display={'center'}
                     textAlign={'center'}
@@ -122,7 +129,6 @@ const PortfolioDetails = () => {
                             textDecoration: 'underline wavy',
                         },
                         marginBottom: '2rem',
-                        marginTop: '3rem',
                     }}
                 >
                     {`< About ${projects[index]?.title} >`}
