@@ -34,11 +34,11 @@ const NotFound = () => {
                         justifyContent="center"
                         mb={2}
                     >
-                        Ooops...
+                        Ooops...{'  '}
                         <Typography
                             component="span"
                             variant="h1"
-                            ml={4}
+                            ml={6}
                             sx={{
                                 color: 'primary.light',
                                 '&:hover': {
@@ -46,7 +46,7 @@ const NotFound = () => {
                                 },
                             }}
                         >
-                            {`   404`}
+                            {`404`}
                         </Typography>
                     </Typography>
                     <Typography

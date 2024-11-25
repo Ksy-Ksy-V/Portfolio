@@ -1,39 +1,12 @@
-import { Grid, Typography } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { Grid } from '@mui/material'
 import ProjectCard from '../../components/ProjectCard'
 import MainHeader from '../../components/MainHeader'
 import React from 'react'
-
-import { imagesData } from '../../img/imagesData'
 import Loading from '../../components/General/Loading'
 import ErrorMessage from './../../components/General/ErrorMessage'
 
 const PortfolioList = () => {
-    const [projects, setProjects] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-
-    useEffect(() => {
-        fetch('http://localhost:8000/projects')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok')
-                }
-                return response.json()
-            })
-            .then((data) => {
-                const projectsWithImages = data.map((project) => ({
-                    ...project,
-                    imgSrc: imagesData[project.id],
-                }))
-                setProjects(projectsWithImages)
-                setLoading(false)
-            })
-            .catch((error) => {
-                setError(error.message)
-                setLoading(false)
-            })
-    }, [])
+    const { projects, loading, error } = fetchProjects()
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage />

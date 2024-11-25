@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { Grid, Typography, Button, Box, MobileStepper } from '@mui/material'
 import React from 'react'
 import RunningLine from '../../components/HeroSection/RunningLine'
-import useFetchImg from '../../utils/useFetchImg'
+import fetchProjects from '../../utils/fetchProjects'
 import StyledImage from '../../components/StyledImage'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import {
@@ -19,7 +19,7 @@ const PortfolioDetails = () => {
     const navigate = useNavigate()
     const [project, setProject] = useState(null)
 
-    const { projects, loading, error } = useFetchImg()
+    const { projects, loading, error } = fetchProjects()
     const collectionSize = projects.length
     const initialIndex = parseInt(id, 10) - 1
     const [index, setActiveStep] = useState(initialIndex)

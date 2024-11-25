@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Typography, MobileStepper, Box, Grid, Button } from '@mui/material'
 import ArrowSliderButton from '../General/Buttons/ArrowSliderButton'
-import useFetchImg from '../../utils/useFetchImg'
+import fetchProjects from '../../utils/fetchProjects'
 import { Link } from 'react-router-dom'
 import Loading from './../../components/General/Loading'
 import ErrorMessage from './../../components/General/ErrorMessage'
 
 const SliderHomePage = () => {
-    const { projects, loading, error } = useFetchImg()
+    const { projects, loading, error } = fetchProjects()
     const collectionSize = projects.length
     const [index, setActiveStep] = useState(0)
 
@@ -26,7 +26,13 @@ const SliderHomePage = () => {
     if (error) return <ErrorMessage />
 
     return (
-        <Grid container spacing={2} columns={12}>
+        <Grid
+            container
+            className="slider-home-page"
+            spacing={2}
+            columns={12}
+            justifyContent={'center'}
+        >
             <Grid item xs={12}>
                 <Typography
                     variant="h5"

@@ -47,14 +47,15 @@ const Footer = () => {
                         <SocialLinks />
                     )}
                 </Grid>
-                <Grid item xs={3} display="flex" justifyContent="flex-start">
+
+                <Grid item xs={2} display="flex">
                     <Typography
-                        fontSize="10px"
+                        fontSize={12}
                         variant="body1"
                         color="primary.dark"
                         sx={{}}
                     >
-                        © 2024 Lorem ipsum dolor sit
+                        Copyright © 2024 Ksy®. All rights reserved.
                     </Typography>
                 </Grid>
             </Grid>

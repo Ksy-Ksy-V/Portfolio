@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material'
+import { Grid } from '@mui/material'
 import SliderHomePage from '../../components/Slider/SliderHomePage'
 
 import HeroSection from '../../components/HeroSection/HeroSection'
@@ -14,7 +14,7 @@ const Home = () => {
             />
             <AboutMe />
 
-            <Grid container spacing={2} columns={12}>
+            <Grid container spacing={2} columns={12} display={'block'}>
                 <SliderHomePage />
             </Grid>
         </div>
