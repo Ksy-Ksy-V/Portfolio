@@ -6,7 +6,10 @@ import RunningLine from '../../components/HeroSection/RunningLine'
 import useFetchImg from '../../utils/useFetchImg'
 import StyledImage from '../../components/StyledImage'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import { fullPageImagesDataOne } from '../../img/imagesData'
+import {
+    fullPageImagesDataOne,
+    fullPageImagesDataTwo,
+} from '../../img/imagesData'
 import SliderPortfolio from '../../components/Slider/SliderPortfolio'
 import Loading from './../../components/General/Loading'
 import ErrorMessage from './../../components/General/ErrorMessage'
@@ -27,7 +30,8 @@ const PortfolioDetails = () => {
             .then((data) => {
                 setProject({
                     ...data,
-                    imgSrc: fullPageImagesDataOne[data.id],
+                    imgSrcOne: fullPageImagesDataOne[data.id],
+                    imgSrcTwo: fullPageImagesDataTwo[data.id],
                 })
                 setActiveStep(Number(id) - 1)
             })
@@ -52,7 +56,16 @@ const PortfolioDetails = () => {
         navigate(`/portfolio-details/${projects[newIndex].id}`)
     }
 
-    const { title, description, skills, imgSrc, gitHubLink } = project
+    const {
+        title,
+        description,
+        skills,
+        imgSrcOne,
+        imgSrcTwo,
+        gitHubLink,
+        link,
+        developmentDescription,
+    } = project
 
     const skillsText = skills.join(' | ')
 
@@ -83,7 +96,7 @@ const PortfolioDetails = () => {
                 >
                     <Box
                         component="img"
-                        src={projects[index]?.imgUrl || imgSrc}
+                        src={projects[index]?.imgUrl || imgSrcOne}
                         sx={{
                             width: '100%',
                             objectFit: 'cover',
@@ -106,7 +119,7 @@ const PortfolioDetails = () => {
                 </Box>
             </Grid>
 
-            <Grid item xs={12} sx={{ marginBottom: '1rem' }}>
+            <Grid item xs={12} sx={{ marginBottom: '3rem' }}>
                 <RunningLine
                     text={`< Used: ${skillsText} >\u00A0\u00A0\u00A0\u00A0`}
                 />
@@ -143,15 +156,39 @@ const PortfolioDetails = () => {
                     variant="body1"
                     sx={{
                         marginBottom: '2rem',
-                        marginTop: '2rem',
                     }}
                 >
                     {description}
                 </Typography>
 
+                <Typography
+                    display={'center'}
+                    textAlign={'center'}
+                    justifyContent="center"
+                    variant="h6"
+                    color={'primary.main'}
+                    sx={{
+                        '&:hover': {
+                            textDecoration: 'underline wavy',
+                        },
+                        marginBottom: '2rem',
+                    }}
+                >
+                    {`< About ${projects[index]?.title} development>`}
+                </Typography>
+
+                <Typography
+                    display={'center'}
+                    textAlign={'center'}
+                    justifyContent="center"
+                    variant="body1"
+                >
+                    {developmentDescription}
+                </Typography>
+
                 <Button
                     fullWidth
-                    href={gitHubLink}
+                    href={link}
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
@@ -186,9 +223,16 @@ const PortfolioDetails = () => {
                 </Button>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid
+                item
+                xs={4}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+            >
                 <StyledImage
-                    src={imgSrc}
+                    src={imgSrcOne}
                     alt={title}
                     sx={{
                         margin: '1rem',
@@ -196,9 +240,16 @@ const PortfolioDetails = () => {
                     }}
                 />
             </Grid>
-            <Grid item xs={4}>
+            <Grid
+                item
+                xs={4}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+            >
                 <StyledImage
-                    src={imgSrc}
+                    src={imgSrcTwo}
                     alt={title}
                     sx={{
                         margin: '1rem',

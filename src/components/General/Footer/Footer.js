@@ -16,7 +16,7 @@ const Footer = () => {
             }}
         >
             <Grid container alignItems="center">
-                <Grid item xs={2} display="flex" justifyContent="flex-start">
+                <Grid item xs={3} display="flex" justifyContent="flex-start">
                     <Typography
                         variant="h5"
                         component={Link}
@@ -36,7 +36,7 @@ const Footer = () => {
                 </Grid>
                 <Grid
                     item
-                    xs={8}
+                    xs={6}
                     display="flex"
                     justifyContent="center"
                     sx={{ marginTop: '0.5rem' }}
@@ -47,13 +47,12 @@ const Footer = () => {
                         <SocialLinks />
                     )}
                 </Grid>
-                <Grid item xs={2} display="flex" justifyContent="flex-end">
+                <Grid item xs={3} display="flex" justifyContent="flex-start">
                     <Typography
+                        fontSize="10px"
                         variant="body1"
                         color="primary.dark"
-                        sx={{
-                            right: '2rem',
-                        }}
+                        sx={{}}
                     >
                         © 2024 Lorem ipsum dolor sit
                     </Typography>

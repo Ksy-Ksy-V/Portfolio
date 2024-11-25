@@ -1,60 +1,38 @@
 {
-  "projects": [
-    {
-      "id": "1",
-      "title": "ThousandReads",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "feature": ["Adding books by QR-code", "CSS", "JavaScript"],
-      "description": "It is a web application that allows users to create their own online library. It provides the ability to add books to virtual shelves or a separate library for physical copies of books, catalog them, and keep a reading diary.",
-      "link": "https://github.com",
-      "gitHubLink": "https://github.com"
-
-    },
-    {
-      "id": "2",
-      "title": "EverGreen",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "feature": ["HTML", "CSS", "JavaScript"],
-      "description": "2 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
-      "link": "https://github.com",
-      "gitHubLink": "https://github.com"
-    
-    },
-    {
-      "id": "3",
-      "title": "Project 3",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "feature": ["HTML", "CSS", "JavaScript"],
-      "description": "3 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
-      "link": "https://github.com",
-      "gitHubLink": "https://github.com"
-    },
-    {
-      "id": "4",
-      "title": "Project 4",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "feature": ["HTML", "CSS", "JavaScript"],
-      "description": "4 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
-      "link": "https://github.com",
-      "gitHubLink": "https://github.com"
-    },
-    {
-      "id": "5",
-      "title": "Project 5",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "feature": ["HTML", "CSS", "JavaScript"],
-      "description": "5 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
-      "link": "https://github.com",
-      "gitHubLink": "https://github.com"
-    },
-    {
-      "id": "6",
-      "title": "Project 6",
-      "skills": ["HTML", "CSS", "JavaScript"],
-      "feature": ["HTML", "CSS", "JavaScript"],
-      "description": "6 Do quis amet veniam deserunt laborum ea. Consequat ex cupidatat amet duis. Nisi do incididunt aliqua enim culpa ex eu in. Non nostrud labore in reprehenderit aliquip elit ut fugiat culpa laborum. Excepteur magna Lorem amet nulla laboris sit cillum exercitation aute.",
-      "link": "https://github.com",
-      "gitHubLink": "https://github.com"
-    }
-  ]
+    "projects": [
+        {
+            "id": "1",
+            "title": "CinePeek",
+            "skills": ["HTML", "CSS", "JavaScript (ES6+)", "TMDB API"],
+            "description": "CinePeek is a dynamic web application designed for movie and TV show enthusiasts. The platform allows users to explore the latest popular movies and TV shows, access detailed information about individual titles, and search through an extensive database of films and series.",
+            "developmentDescription": "This is one of my first projects developed using JavaScript. The project served as an introduction to building dynamic web applications, integrating external APIs, and implementing responsive design. The application leverages modern web technologies, including HTML5 for structuring the content, CSS3 for styling and layout, and vanilla JavaScript (ES6+) for handling the core functionality. To enhance the user experience, I incorporated the TMDB API to fetch real-time data about movies and TV shows. The development process was a significant learning experience, allowing me to gain practical skills in modular JavaScript, API integration, and responsive web design",
+            "link": "https://flixx-app-theme.vercel.app/",
+            "gitHubLink": "https://github.com/Ksy-Ksy-V/cinepeek-app"
+        },
+        {
+            "id": "2",
+            "title": "Cat Game",
+            "skills": ["HTML", "CSS", "JavaScript (ES6+)", "Canvas API"],
+            "description": "Cat Game is a 2D retro-style platformer in which the player kills enemies by collecting power-ups and scoring high scores. The game features pixelated graphics and nostalgic gameplay reminiscent of classic arcade games.",
+            "developmentDescription": "This project represents one of my initial forays into development using vanilla JavaScript. The game is built entirely using the Canvas API, allowing for smooth animations and precise control over game rendering. HTML5 and CSS3 are used for structuring and styling the game interface, while JavaScript (ES6+) handles all game logic, including player movement, collision detection, and enemy AI.  Through this project, I gained valuable experience in building interactive applications, optimizing performance, and implementing game mechanics from scratch.",
+            "link": "https://game-iota-six.vercel.app/",
+            "gitHubLink": "https://github.com/Ksy-Ksy-V/game"
+        },
+        {
+            "id": "3",
+            "title": "Kito",
+            "skills": [
+                "React",
+                "TypeScript",
+                "Material-UI (MUI)",
+                "Redux",
+                "Axios",
+                "Jikan API"
+            ],
+            "description": "Kito is a web platform tailored for anime fans to explore, organize, and track their favorite shows. Users can browse a vast anime library, create personalized watchlists, and schedule ongoing series to stay updated on new episode releases. Kito combines a clean design with intuitive functionality, making it accessible for both seasoned anime enthusiasts and newcomers.",
+            "developmentDescription": "This project showcases my ability to develop modern web applications using advanced technologies. The frontend is built with React, TypeScript, and Material-UI, providing a responsive and visually appealing user interface. Anime data is fetched via the Jikan API, while a custom Node.js backend with MongoDB handles user registration, authentication, and list management. Through this project, I enhanced my skills in state management with Redux Toolkit, API integration, and delivering a seamless user experience. Kito represents my passion for anime and my dedication to creating user-centric web applications.",
+            "link": "https://kito-eta.vercel.app/",
+            "gitHubLink": "https://github.com/Ksy-Ksy-V/kito"
+        }
+    ]
 }
