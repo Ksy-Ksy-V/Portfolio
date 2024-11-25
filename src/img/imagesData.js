@@ -7,7 +7,7 @@ import fullPage01Img03 from './../img/projectFullPage01Img03.jpg'
 import fullPage01Img04 from './../img/projectFullPage01Img04.png'
 
 import fullPage02Img04 from './../img/projectFullPage02Img04.jpg'
-import posterImg03 from './../img/projectPosterImg03.jpg'
+import posterImg03 from './../img/projectPosterImg03.png'
 
 const imagesData = {
     1: previweImg04,

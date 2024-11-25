@@ -4,7 +4,6 @@ import { Grid, Typography, Button, Box, MobileStepper } from '@mui/material'
 import React from 'react'
 import RunningLine from '../../components/HeroSection/RunningLine'
 import fetchProjects from '../../utils/fetchProjects'
-import StyledImage from '../../components/StyledImage'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import {
     fullPageImagesDataOne,
@@ -13,6 +12,8 @@ import {
 import SliderPortfolio from '../../components/Slider/SliderPortfolio'
 import Loading from './../../components/General/Loading'
 import ErrorMessage from './../../components/General/ErrorMessage'
+import CinePeek from '../../components/ProjectContent/CinePeek'
+import CatGame from '../../components/ProjectContent/CatGame'
 
 const PortfolioDetails = () => {
     const { id } = useParams()
@@ -68,6 +69,23 @@ const PortfolioDetails = () => {
     } = project
 
     const skillsText = skills.join(' | ')
+
+    const projectProps = {
+        imgSrcOne: project.imgSrcOne,
+        imgSrcTwo: project.imgSrcTwo,
+        title: project.title,
+    }
+
+    const getProjectComponent = (projectId, projectProps) => {
+        switch (projectId) {
+            case '1':
+                return <CinePeek {...projectProps} />
+            case '2':
+                return <CatGame {...projectProps} />
+            default:
+                return <DefaultComponent {...projectProps} />
+        }
+    }
 
     return (
         <Grid container spacing={0} columns={12}>
@@ -190,7 +208,6 @@ const PortfolioDetails = () => {
                     fullWidth
                     href={link}
                     target="_blank"
-                    rel="noopener noreferrer"
                     sx={{
                         paddingLeft: '2rem',
                         paddingRight: '2rem',
@@ -207,7 +224,6 @@ const PortfolioDetails = () => {
                     startIcon={<GitHubIcon />}
                     href={gitHubLink}
                     target="_blank"
-                    rel="noopener noreferrer"
                     fullWidth
                     sx={{
                         paddingLeft: '2rem',
@@ -223,40 +239,7 @@ const PortfolioDetails = () => {
                 </Button>
             </Grid>
 
-            <Grid
-                item
-                xs={4}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-            >
-                <StyledImage
-                    src={imgSrcOne}
-                    alt={title}
-                    sx={{
-                        margin: '1rem',
-                        width: '95%',
-                    }}
-                />
-            </Grid>
-            <Grid
-                item
-                xs={4}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-            >
-                <StyledImage
-                    src={imgSrcTwo}
-                    alt={title}
-                    sx={{
-                        margin: '1rem',
-                        width: '95%',
-                    }}
-                />
-            </Grid>
+            {getProjectComponent(id, projectProps)}
         </Grid>
     )
 }

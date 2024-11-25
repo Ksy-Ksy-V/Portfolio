@@ -16,7 +16,7 @@ const HeroSection = () => {
                     />
 
                     <Typography variant="body" color={'primary.dark'} mt="1rem">
-                        {`< A junior front end developer >`}
+                        {` A junior front end developer `}
                     </Typography>
                     <Box sx={{ mt: '2rem' }}>
                         <Button

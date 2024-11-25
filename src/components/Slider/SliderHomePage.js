@@ -41,7 +41,7 @@ const SliderHomePage = () => {
                     textAlign={'center'}
                     justifyContent="center"
                     mt={`3rem`}
-                >{`< A bit about my projects: >`}</Typography>
+                >{`A bit about my projects:`}</Typography>
             </Grid>
 
             <Grid item xs={12}>

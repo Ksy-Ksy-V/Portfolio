@@ -4,6 +4,7 @@ import MainHeader from '../../components/MainHeader'
 import React from 'react'
 import Loading from '../../components/General/Loading'
 import ErrorMessage from './../../components/General/ErrorMessage'
+import fetchProjects from '../../utils/fetchProjects'
 
 const PortfolioList = () => {
     const { projects, loading, error } = fetchProjects()
@@ -32,7 +33,7 @@ const PortfolioList = () => {
                             key={project.id}
                             id={project.id}
                             title={project.title}
-                            imgSrc={project.imgSrc}
+                            imgSrc={project.imgUrl}
                             buttonText="See more"
                         />
                     ))}
