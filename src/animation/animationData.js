@@ -1,6 +1,6 @@
-import animation1 from './Animation1.gif'
-import animation2 from './Animation2.gif'
-import animation3 from './Animation3.gif'
+import animation1 from './Animation1.mp4'
+import animation2 from './Animation2.mp4'
+import animation3 from './Animation3.mp4'
 
 const animations = {
     1: animation1,
