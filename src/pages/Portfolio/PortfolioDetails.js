@@ -5,15 +5,12 @@ import React from 'react'
 import RunningLine from '../../components/HeroSection/RunningLine'
 import fetchProjects from '../../utils/fetchProjects'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import {
-    fullPageImagesDataOne,
-    fullPageImagesDataTwo,
-} from '../../img/imagesData'
 import SliderPortfolio from '../../components/Slider/SliderPortfolio'
 import Loading from './../../components/General/Loading'
 import ErrorMessage from './../../components/General/ErrorMessage'
 import CinePeek from '../../components/ProjectContent/CinePeek'
 import CatGame from '../../components/ProjectContent/CatGame'
+import Kito from '../../components/ProjectContent/Kito'
 
 const PortfolioDetails = () => {
     const { id } = useParams()
@@ -31,8 +28,6 @@ const PortfolioDetails = () => {
             .then((data) => {
                 setProject({
                     ...data,
-                    imgSrcOne: fullPageImagesDataOne[data.id],
-                    imgSrcTwo: fullPageImagesDataTwo[data.id],
                 })
                 setActiveStep(Number(id) - 1)
             })
@@ -61,8 +56,6 @@ const PortfolioDetails = () => {
         title,
         description,
         skills,
-        imgSrcOne,
-        imgSrcTwo,
         gitHubLink,
         link,
         developmentDescription,
@@ -71,8 +64,6 @@ const PortfolioDetails = () => {
     const skillsText = skills.join(' | ')
 
     const projectProps = {
-        imgSrcOne: project.imgSrcOne,
-        imgSrcTwo: project.imgSrcTwo,
         title: project.title,
     }
 
@@ -83,7 +74,7 @@ const PortfolioDetails = () => {
             case '2':
                 return <CatGame {...projectProps} />
             default:
-                return <DefaultComponent {...projectProps} />
+                return <Kito {...projectProps} />
         }
     }
 

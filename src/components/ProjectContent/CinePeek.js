@@ -2,7 +2,10 @@ import React from 'react'
 import { Grid } from '@mui/material'
 import StyledImage from '../../components/StyledImage'
 
-const CinePeek = ({ imgSrcOne, imgSrcTwo, title }) => {
+import fullCine01 from '../../img/fullCine01.png'
+import fullCine02 from '../../img/fullCine02.jpg'
+
+const CinePeek = ({ title }) => {
     return (
         <>
             <Grid
@@ -14,7 +17,7 @@ const CinePeek = ({ imgSrcOne, imgSrcTwo, title }) => {
                 alignItems="center"
             >
                 <StyledImage
-                    src={imgSrcOne}
+                    src={fullCine01}
                     alt={title}
                     sx={{
                         margin: '1rem',
@@ -31,7 +34,7 @@ const CinePeek = ({ imgSrcOne, imgSrcTwo, title }) => {
                 alignItems="center"
             >
                 <StyledImage
-                    src={imgSrcTwo}
+                    src={fullCine02}
                     alt={title}
                     sx={{
                         margin: '1rem',
