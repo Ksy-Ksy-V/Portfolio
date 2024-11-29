@@ -8,9 +8,10 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import SliderPortfolio from '../../components/Slider/SliderPortfolio'
 import Loading from './../../components/General/Loading'
 import ErrorMessage from './../../components/General/ErrorMessage'
-import CinePeek from '../../components/ProjectContent/CinePeek'
+
 import CatGame from '../../components/ProjectContent/CatGame'
-import Kito from '../../components/ProjectContent/Kito'
+import ImageTabs from '../../components/ProjectContent/ImageTabs '
+import { sliderData } from '../../img/imagesData'
 
 const PortfolioDetails = () => {
     const { id } = useParams()
@@ -23,18 +24,22 @@ const PortfolioDetails = () => {
     const [index, setActiveStep] = useState(initialIndex)
 
     useEffect(() => {
-        fetch(`http://localhost:8000/projects/${id}`)
+        fetch(`http://localhost:3000/db.json`)
             .then((response) => response.json())
             .then((data) => {
+                console.log(id, 'id')
+                console.log(data.projects[id], 'data')
                 setProject({
-                    ...data,
+                    ...data.projects[id],
                 })
                 setActiveStep(Number(id) - 1)
             })
             .catch((error) => {
+                console.log(error, 'error')
                 console.error('There was an error fetching the project!', error)
             })
     }, [id])
+    console.log(project, 'project1')
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage />
@@ -63,20 +68,15 @@ const PortfolioDetails = () => {
 
     const skillsText = skills.join(' | ')
 
-    const projectProps = {
-        title: project.title,
-    }
+    console.log('Projects:', projects)
 
-    const getProjectComponent = (projectId, projectProps) => {
-        switch (projectId) {
-            case '1':
-                return <CinePeek {...projectProps} />
-            case '2':
-                return <CatGame {...projectProps} />
-            default:
-                return <Kito {...projectProps} />
-        }
-    }
+    // const projectImg = () => {
+    // 	if (projects[index] === 1) {
+    // 		return CinePeek
+    // 	} else if (projects[index] === 3)  {
+    // 		return Kito
+    // 	}
+    // }
 
     return (
         <Grid container spacing={0} columns={12}>
@@ -105,7 +105,7 @@ const PortfolioDetails = () => {
                 >
                     <Box
                         component="img"
-                        src={projects[index]?.imgUrl || imgSrcOne}
+                        src={projects[index]?.imagesData['desc']}
                         sx={{
                             width: '100%',
                             objectFit: 'cover',
@@ -139,19 +139,21 @@ const PortfolioDetails = () => {
                 xs={4}
                 display="flex"
                 flexDirection="column"
-                justifyContent="center"
+                justifyContent="flex-start"
                 alignItems="center"
+                sx={{ marginTop: '6rem' }}
             >
                 <Typography
                     display={'center'}
                     textAlign={'center'}
-                    justifyContent="center"
+                    justifyContent="flex-start"
                     variant="h6"
                     color={'primary.main'}
                     sx={{
                         '&:hover': {
                             textDecoration: 'underline wavy',
                         },
+
                         marginBottom: '2rem',
                     }}
                 >
@@ -230,7 +232,7 @@ const PortfolioDetails = () => {
                 </Button>
             </Grid>
 
-            {getProjectComponent(id, projectProps)}
+            {id === '2' ? <CatGame /> : <ImageTabs project={project} />}
         </Grid>
     )
 }

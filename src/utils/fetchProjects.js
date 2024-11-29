@@ -9,12 +9,12 @@ const fetchProjects = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8000/projects')
+                const response = await fetch('http://localhost:3000/db.json')
                 if (!response.ok) {
                     throw new Error('Failed to fetch projects')
                 }
                 const data = await response.json()
-                const projectsWithImages = data.map((project) => ({
+                const projectsWithImages = data.projects.map((project) => ({
                     ...project,
                     imgUrl: sliderData[project.id],
                 }))
