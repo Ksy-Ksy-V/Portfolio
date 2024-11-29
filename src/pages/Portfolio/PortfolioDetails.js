@@ -19,44 +19,35 @@ const PortfolioDetails = () => {
 
     const { projects, loading, error } = fetchProjects()
 
-    const collectionSize = projects.length
-    const initialIndex = parseInt(id, 10) - 1
-    const [index, setActiveStep] = useState(initialIndex)
-
     useEffect(() => {
-        fetch(`/db.json`)
-            .then((response) => response.json())
-            .then((data) => {
-                const selectedProject = data.projects.find(
-                    (project) => project.id === id
-                )
-                if (selectedProject) {
-                    setProject(selectedProject)
-                    setActiveStep(data.projects.indexOf(selectedProject))
-                } else {
-                    console.error('Project not found!')
-                }
-            })
-            .catch((error) => {
-                console.error('There was an error fetching the project!', error)
-            })
-    }, [id])
-    console.log(project, 'project1')
+        if (projects.length > 0) {
+            const selectedProject = projects.find(
+                (project) => project.id === id
+            )
+            if (selectedProject) {
+                setProject(selectedProject)
+            } else {
+                console.error('Project not found!')
+            }
+        }
+    }, [id, projects])
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage />
     if (!project) return <ErrorMessage />
 
     const goToNextPicture = () => {
-        const newIndex = (index + 1) % collectionSize
-        setActiveStep(newIndex)
-        navigate(`/portfolio-details/${projects[newIndex].id}`)
+        const currentIndex = projects.findIndex((proj) => proj.id === id)
+        const nextIndex = (currentIndex + 1) % projects.length
+        const nextProject = projects[nextIndex]
+        navigate(`/portfolio-details/${nextProject.id}`)
     }
 
     const goToPrevPicture = () => {
-        const newIndex = (index - 1 + collectionSize) % collectionSize
-        setActiveStep(newIndex)
-        navigate(`/portfolio-details/${projects[newIndex].id}`)
+        const currentIndex = projects.findIndex((proj) => proj.id === id)
+        const prevIndex = (currentIndex - 1 + projects.length) % projects.length
+        const prevProject = projects[prevIndex]
+        navigate(`/portfolio-details/${prevProject.id}`)
     }
 
     const {
@@ -68,11 +59,10 @@ const PortfolioDetails = () => {
         gitHubLink,
         sliderData,
         imagesData,
+        figmaLink,
     } = project
 
     const skillsText = skills.join(' | ')
-
-    console.log('Projects:', projects)
 
     return (
         <Grid container spacing={0} columns={12}>
@@ -86,7 +76,7 @@ const PortfolioDetails = () => {
                 }}
             >
                 <SliderPortfolio
-                    title={projects[index]?.title || title}
+                    title={title}
                     nextPicture={() => goToNextPicture()}
                     prevPicture={() => goToPrevPicture()}
                 />
@@ -101,18 +91,20 @@ const PortfolioDetails = () => {
                 >
                     <Box
                         component="img"
-                        src={projects[index]?.sliderData}
+                        src={sliderData}
                         sx={{
                             width: '100%',
                             objectFit: 'cover',
                         }}
-                        alt={projects[index]?.title || title}
+                        alt={title}
                     />
                     <MobileStepper
                         variant="dots"
                         position="static"
-                        activeStep={index}
-                        steps={collectionSize}
+                        activeStep={projects.findIndex(
+                            (proj) => proj.id === id
+                        )}
+                        steps={projects.length}
                         sx={{
                             backgroundColor: 'transparent',
                             position: 'absolute',
@@ -137,7 +129,7 @@ const PortfolioDetails = () => {
                 flexDirection="column"
                 justifyContent="flex-start"
                 alignItems="center"
-                sx={{ marginTop: '6rem' }}
+                sx={{ marginTop: '5rem' }}
             >
                 <Typography
                     display={'center'}
@@ -153,7 +145,7 @@ const PortfolioDetails = () => {
                         marginBottom: '2rem',
                     }}
                 >
-                    {`< About ${projects[index]?.title} >`}
+                    {`< About ${title} >`}
                 </Typography>
 
                 <Typography
@@ -181,7 +173,7 @@ const PortfolioDetails = () => {
                         marginBottom: '2rem',
                     }}
                 >
-                    {`< About ${projects[index]?.title} development>`}
+                    {`< About ${title} development>`}
                 </Typography>
 
                 <Typography
@@ -226,9 +218,29 @@ const PortfolioDetails = () => {
                 >
                     GitHub
                 </Button>
+
+                {project.figmaLink ? (
+                    <Button
+                        startIcon={<GitHubIcon />}
+                        href={figmaLink}
+                        target="_blank"
+                        fullWidth
+                        sx={{
+                            paddingLeft: '2rem',
+                            paddingRight: '2rem',
+                            marginTop: '2rem',
+                            '&:hover': {
+                                borderColor: 'primary.main',
+                                backgroundColor: 'transparent',
+                            },
+                        }}
+                    >
+                        Figma
+                    </Button>
+                ) : null}
             </Grid>
 
-            {id === '2' ? <CatGame /> : <ImageTabs project={project} />}
+            {project.imagesData ? <ImageTabs project={project} /> : <CatGame />}
         </Grid>
     )
 }

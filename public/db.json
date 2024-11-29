@@ -13,7 +13,8 @@
                 "desc": [
                     "/img/cine/descCine01.png",
                     "/img/cine/descCine02.png",
-                    "/img/cine/descCine03.png"
+                    "/img/cine/descCine03.png",
+                    "/img/cine/descCine04.png"
                 ],
                 "tab": ["/img/cine/tabCine01.png", "/img/cine/tabCine02.png"],
                 "mob": ["/img/cine/mobCine01.png", "/img/cine/mobCine02.png"]
@@ -45,6 +46,7 @@
             "link": "https://kito-eta.vercel.app/",
             "gitHubLink": "https://github.com/Ksy-Ksy-V/kito",
             "sliderData": "/img/sliderData/projectPrev03.png",
+            "figmaLink": "https://www.figma.com/design/YM1PNAfyYkUUYHCjkJG8rF/Kito?node-id=435-2083&t=nVavjC7Lr0fGTptB-1",
             "imagesData": {
                 "desc": [
                     "/img/kito/descKito01.png",

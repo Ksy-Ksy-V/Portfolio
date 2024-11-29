@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Tabs, Tab, Box, Grid } from '@mui/material'
 import StyledImage from '../StyledImage'
 
 const ImageTabs = ({ project }) => {
     const [activeTab, setActiveTab] = useState('desc')
+
+    useEffect(() => {
+        setActiveTab('desc')
+    }, [project])
 
     const handleChange = (_event, newValue) => {
         const tabKeys = ['desc', 'tab', 'mob']
@@ -16,7 +20,6 @@ const ImageTabs = ({ project }) => {
                 value={['desc', 'tab', 'mob'].indexOf(activeTab)}
                 onChange={handleChange}
                 centered
-                indicatorColor="primary"
                 textColor="primary"
                 TabIndicatorProps={{
                     style: { display: 'none' },
@@ -56,9 +59,7 @@ const ImageTabs = ({ project }) => {
                             height: 'auto',
                             margin: '1rem',
                         }}
-                    >
-                        {console.log(image, 'image')}
-                    </StyledImage>
+                    ></StyledImage>
                 ))}
             </Box>
         </Grid>

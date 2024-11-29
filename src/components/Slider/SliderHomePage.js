@@ -4,12 +4,12 @@ import ArrowSliderButton from '../General/Buttons/ArrowSliderButton'
 import fetchProjects from '../../utils/fetchProjects'
 import { Link } from 'react-router-dom'
 import Loading from './../../components/General/Loading'
-import ErrorMessage from './../../components/General/ErrorMessage'
+import ErrorMessage from '../General/ErrorMessage'
 
 const SliderHomePage = () => {
     const { projects, loading, error } = fetchProjects()
     const collectionSize = projects.length
-    const [index, setActiveStep] = useState(0)
+    const [index, setActiveStep] = useState(1)
 
     const goToNextPicture = () => {
         setActiveStep((prevActiveStep) => (prevActiveStep + 1) % collectionSize)
