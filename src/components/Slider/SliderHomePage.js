@@ -70,7 +70,7 @@ const SliderHomePage = () => {
                 >
                     <Box
                         component="img"
-                        src={projects[index].imgUrl}
+                        src={projects[index].sliderData}
                         sx={{
                             width: '100%',
                             objectFit: 'cover',

@@ -33,7 +33,7 @@ const PortfolioList = () => {
                             key={project.id}
                             id={project.id}
                             title={project.title}
-                            imgSrc={project.imgUrl}
+                            imgSrc={project.sliderData}
                             buttonText="See more"
                         />
                     ))}

@@ -11,7 +11,6 @@ import ErrorMessage from './../../components/General/ErrorMessage'
 
 import CatGame from '../../components/ProjectContent/CatGame'
 import ImageTabs from '../../components/ProjectContent/ImageTabs '
-import { sliderData } from '../../img/imagesData'
 
 const PortfolioDetails = () => {
     const { id } = useParams()
@@ -19,23 +18,26 @@ const PortfolioDetails = () => {
     const [project, setProject] = useState(null)
 
     const { projects, loading, error } = fetchProjects()
+
     const collectionSize = projects.length
     const initialIndex = parseInt(id, 10) - 1
     const [index, setActiveStep] = useState(initialIndex)
 
     useEffect(() => {
-        fetch(`http://localhost:3000/db.json`)
+        fetch(`/db.json`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(id, 'id')
-                console.log(data.projects[id], 'data')
-                setProject({
-                    ...data.projects[id],
-                })
-                setActiveStep(Number(id) - 1)
+                const selectedProject = data.projects.find(
+                    (project) => project.id === id
+                )
+                if (selectedProject) {
+                    setProject(selectedProject)
+                    setActiveStep(data.projects.indexOf(selectedProject))
+                } else {
+                    console.error('Project not found!')
+                }
             })
             .catch((error) => {
-                console.log(error, 'error')
                 console.error('There was an error fetching the project!', error)
             })
     }, [id])
@@ -61,22 +63,16 @@ const PortfolioDetails = () => {
         title,
         description,
         skills,
-        gitHubLink,
         link,
         developmentDescription,
+        gitHubLink,
+        sliderData,
+        imagesData,
     } = project
 
     const skillsText = skills.join(' | ')
 
     console.log('Projects:', projects)
-
-    // const projectImg = () => {
-    // 	if (projects[index] === 1) {
-    // 		return CinePeek
-    // 	} else if (projects[index] === 3)  {
-    // 		return Kito
-    // 	}
-    // }
 
     return (
         <Grid container spacing={0} columns={12}>
@@ -105,7 +101,7 @@ const PortfolioDetails = () => {
                 >
                     <Box
                         component="img"
-                        src={projects[index]?.imagesData['desc']}
+                        src={projects[index]?.sliderData}
                         sx={{
                             width: '100%',
                             objectFit: 'cover',

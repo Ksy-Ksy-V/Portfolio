@@ -26,7 +26,7 @@ const ImageTabs = ({ project }) => {
                     <Tab
                         key={index}
                         label={label}
-                        disableRipple="false"
+                        disableRipple
                         sx={{
                             fontSize: '1.25rem',
                             textTransform: 'none',
