@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import {
     Timeline,
     TimelineItem,
@@ -9,63 +10,79 @@ import {
 } from '@mui/lab'
 import { Typography, Box, Button } from '@mui/material'
 
-import cinePeek from '../../img/icons/cinePeekSM.png'
-import portfolio from '../../img/icons/portfolioSM.png'
-import catGame from '../../img/icons/catSM.png'
-import kito from '../../img/icons/kitoSM.png'
-
-import cinePeekImg from '../../img/projectPrev01.jpg'
-import catGameImg from '../../img/projectPrev02.png'
-import kitoImg from '../../img/projectPrev03.png'
-
+import { projects } from './TimeLineData'
 import StyledImage from '../StyledImage'
 
-import { Link } from 'react-router-dom'
-
 const TimeLine = () => {
-    const projects = [
-        {
-            id: '1',
-            title: 'CinePeek',
-            date: 'April',
-            icon: cinePeek,
-            img: cinePeekImg,
-            description:
-                'This is a dynamic web application designed for movie and TV show enthusiasts.',
-        },
-        {
-            title: 'Personal Page',
-            date: 'July',
-            icon: portfolio,
+    const [visibleItems, setVisibleItems] = useState([])
+    const timelineRef = useRef(null)
 
-            description: 'This is portfolio site you are currently on.',
-        },
-        {
-            id: '2',
-            title: 'Cat Game',
-            date: 'August',
-            icon: catGame,
-            img: catGameImg,
-            description:
-                'This is a 2D retro-style platformer with pixelated graphics reminiscent of classic arcade games.',
-        },
-        {
-            id: '3',
-            title: 'Kito',
-            date: 'September - December',
-            icon: kito,
-            img: kitoImg,
-            description:
-                'This is a web app for anime fans to explore, organize, and track their favorite shows.',
-        },
-    ]
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const index = parseInt(
+                        entry.target.getAttribute('data-index'),
+                        10
+                    )
+                    if (entry.isIntersecting) {
+                        setVisibleItems((prev) => [
+                            ...new Set([...prev, index]),
+                        ])
+                    } else {
+                        setVisibleItems((prev) =>
+                            prev.filter((item) => item !== index)
+                        )
+                    }
+                })
+            },
+            {
+                threshold: 0.7,
+            }
+        )
+
+        const items = timelineRef.current.querySelectorAll('.timeline-item')
+        items.forEach((item) => observer.observe(item))
+
+        return () => {
+            items.forEach((item) => observer.unobserve(item))
+        }
+    }, [])
 
     return (
-        <Timeline position="alternate" sx={{ marginTop: '5rem' }}>
+        <Timeline
+            ref={timelineRef}
+            position="alternate"
+            sx={{ marginTop: '4rem' }}
+        >
+            <TimelineItem>
+                <TimelineSeparator>
+                    <TimelineConnector
+                        sx={{
+                            height: '4rem',
+                            width: '3px',
+                        }}
+                    />
+                </TimelineSeparator>
+                <TimelineContent />
+            </TimelineItem>
             {projects.map((project, index) => (
-                <TimelineItem key={index}>
+                <TimelineItem
+                    key={index}
+                    className="timeline-item"
+                    data-index={index}
+                    sx={{
+                        opacity: visibleItems.includes(index) ? 1 : 0,
+                        transform: visibleItems.includes(index)
+                            ? 'translateY(0px) scale(1)'
+                            : 'translateY(50px) scale(0.8)',
+                        transition: 'opacity 0.6s ease, transform 0.6s ease',
+                    }}
+                >
                     {project.img ? (
                         <TimelineOppositeContent
+                            component={Link}
+                            to={`/portfolio-details/${projects[index].id}`}
                             sx={{ m: 'auto 0' }}
                             align="right"
                             variant="body2"
@@ -78,6 +95,10 @@ const TimeLine = () => {
                                     width: '100%',
                                     height: '100%',
                                     objectFit: 'cover',
+                                    transform: visibleItems.includes(index)
+                                        ? 'scale(1)'
+                                        : 'scale(0.8)',
+                                    transition: 'transform 0.6s ease',
                                 }}
                             />
                         </TimelineOppositeContent>
@@ -93,18 +114,31 @@ const TimeLine = () => {
                                 height: 40,
                                 borderRadius: '50%',
                                 objectFit: 'cover',
+                                transform: visibleItems.includes(index)
+                                    ? 'scale(1)'
+                                    : 'scale(0.8)',
+                                transition: 'transform 0.6s ease',
                             }}
                         />
-                        {index < projects.length - 1 && <TimelineConnector />}
+                        {index < projects.length && (
+                            <TimelineConnector
+                                sx={{
+                                    width: '3px',
+                                    // backgroundColor: 'primary.light',
+                                }}
+                            />
+                        )}
                     </TimelineSeparator>
                     <TimelineContent sx={{ mb: '6rem' }}>
                         <Typography sx={{ color: 'primary.light' }}>
                             {project.date}
                         </Typography>
                         <Typography
+                            component={Link}
+                            to={`/portfolio-details/${projects[index].id}`}
                             variant="h4"
-                            component="span"
                             sx={{
+                                textDecoration: 'none',
                                 color: 'primary.main',
                             }}
                         >
@@ -124,7 +158,7 @@ const TimeLine = () => {
                                     '&:hover': {
                                         backgroundColor: 'transparent',
                                         border: '3px solid',
-                                        borderColor: 'primary.dark',
+                                        borderColor: 'primary.main',
                                     },
                                 }}
                             >

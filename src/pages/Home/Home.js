@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material'
-import SliderHomePage from '../../components/Slider/SliderHomePage'
 
 import HeroSection from '../../components/HeroSection/HeroSection'
 import RunningLine from '../../components/HeroSection/RunningLine'
