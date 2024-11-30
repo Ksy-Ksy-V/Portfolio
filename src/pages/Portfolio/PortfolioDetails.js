@@ -58,7 +58,6 @@ const PortfolioDetails = () => {
         developmentDescription,
         gitHubLink,
         sliderData,
-        imagesData,
         figmaLink,
     } = project
 

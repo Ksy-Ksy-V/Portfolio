@@ -3,6 +3,7 @@ import SliderHomePage from '../../components/Slider/SliderHomePage'
 
 import HeroSection from '../../components/HeroSection/HeroSection'
 import RunningLine from '../../components/HeroSection/RunningLine'
+import TimeLine from '../../components/HeroSection/TimeLine'
 
 const Home = () => {
     return (
@@ -12,8 +13,8 @@ const Home = () => {
                 text={`< MY STACK:  TS | JS | REACT >\u00A0\u00A0\u00A0\u00A0`}
             />
 
-            <Grid container spacing={2} columns={12} display={'block'}>
-                <SliderHomePage />
+            <Grid container spacing={2} columns={12}>
+                <TimeLine />
             </Grid>
         </div>
     )
