@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Grid, Typography, Button, Box, MobileStepper } from '@mui/material'
+import {
+    Grid,
+    Typography,
+    Button,
+    Box,
+    MobileStepper,
+    useTheme,
+} from '@mui/material'
 import React from 'react'
 import RunningLine from '../../components/HeroSection/RunningLine'
 import fetchProjects from '../../utils/fetchProjects'
@@ -11,8 +18,10 @@ import ErrorMessage from './../../components/General/ErrorMessage'
 
 import CatGame from '../../components/ProjectContent/CatGame'
 import ImageTabs from '../../components/ProjectContent/ImageTabs '
+import FigmaIcon from '../../img/icons/FigmaIcon'
 
 const PortfolioDetails = () => {
+    const theme = useTheme()
     const { id } = useParams()
     const navigate = useNavigate()
     const [project, setProject] = useState(null)
@@ -220,7 +229,16 @@ const PortfolioDetails = () => {
 
                 {project.figmaLink ? (
                     <Button
-                        startIcon={<GitHubIcon />}
+                        startIcon={
+                            <FigmaIcon
+                                sx={{
+                                    htmlColor: theme.palette.background.default,
+                                }}
+                                iconStyle={{
+                                    fill: theme.palette.background.default,
+                                }}
+                            />
+                        }
                         href={figmaLink}
                         target="_blank"
                         fullWidth

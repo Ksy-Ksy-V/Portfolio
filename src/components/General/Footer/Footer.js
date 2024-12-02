@@ -48,14 +48,14 @@ const Footer = () => {
                     )}
                 </Grid>
 
-                <Grid item xs={2} display="flex">
+                <Grid item xs={3} display="flex">
                     <Typography
                         fontSize={12}
                         variant="body1"
                         color="primary.dark"
-                        sx={{}}
+                        sx={{ textAlign: 'right', paddingRight: '2rem' }}
                     >
-                        Copyright © 2024 Ksy®. All rights reserved.
+                        Copyright © 2024 Ksy®.{'\n'}All rights reserved.
                     </Typography>
                 </Grid>
             </Grid>

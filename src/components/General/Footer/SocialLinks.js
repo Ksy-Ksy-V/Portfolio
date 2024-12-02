@@ -1,11 +1,12 @@
 import React from 'react'
-import { Grid } from '@mui/material'
+import { Grid, useTheme } from '@mui/material'
 
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import FacebookIcon from '@mui/icons-material/Facebook'
+import FigmaIcon from '../../../img/icons/FigmaIcon'
 
 const SocialLinks = () => {
+    const theme = useTheme()
     return (
         <Grid
             container
@@ -19,36 +20,24 @@ const SocialLinks = () => {
         >
             <Grid item>
                 <a
-                    href="https://www.facebook.com/"
+                    href="https://www.figma.com/design/w5youlWot9C5kUIH7vnU3c/Untitled?node-id=0-1&t=mI74eZvWT363C0YT-1"
                     className="btn"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <FacebookIcon
-                        sx={{
-                            color: 'primary.dark',
-                            fontSize: '3rem',
-                            '&:hover': {
-                                color: 'primary.main',
-                            },
+                    <FigmaIcon
+                        iconStyle={{
+                            fill: theme.palette.background.default,
                         }}
-                    />
-                </a>
-            </Grid>
-
-            <Grid item>
-                <a
-                    href="https://github.com/"
-                    className="btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <GitHubIcon
                         sx={{
-                            color: 'primary.dark',
-                            fontSize: '3rem',
-                            '&:hover': {
-                                color: 'primary.main',
+                            color: theme.palette.primary.dark,
+                            htmlColor: theme.palette.background.default,
+                            fontSize: '2.75rem',
+                            '&:hover circle': {
+                                fill: theme.palette.primary.main,
+                            },
+                            '&:hover path': {
+                                fill: theme.palette.background.default,
                             },
                         }}
                     />
@@ -63,6 +52,25 @@ const SocialLinks = () => {
                     rel="noopener noreferrer"
                 >
                     <LinkedInIcon
+                        sx={{
+                            color: 'primary.dark',
+                            fontSize: '3rem',
+                            '&:hover': {
+                                color: 'primary.main',
+                            },
+                        }}
+                    />
+                </a>
+            </Grid>
+
+            <Grid item>
+                <a
+                    href="https://github.com/Ksy-Ksy-V"
+                    className="btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <GitHubIcon
                         sx={{
                             color: 'primary.dark',
                             fontSize: '3rem',

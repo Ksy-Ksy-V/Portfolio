@@ -18,6 +18,7 @@ function App() {
     return (
         <ThemeProvider>
             <Router>
+                <OpenOnTop />
                 <Container
                     maxWidth="md"
                     sx={{
@@ -26,7 +27,6 @@ function App() {
                         marginBottom: '2rem',
                     }}
                 >
-                    <OpenOnTop />
                     <Routes>
                         <Route
                             path="/"

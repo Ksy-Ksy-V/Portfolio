@@ -124,7 +124,6 @@ const TimeLine = () => {
                             <TimelineConnector
                                 sx={{
                                     width: '3px',
-                                    // backgroundColor: 'primary.light',
                                 }}
                             />
                         )}
