@@ -5,7 +5,7 @@ import React from 'react'
 
 const ProjectCard = ({ title, imgSrc, id }) => {
     return (
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
             <Typography
                 component={Link}
                 to={`/portfolio-details/${id}`}

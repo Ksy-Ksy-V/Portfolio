@@ -1,4 +1,10 @@
-import { Typography, Grid, Button } from '@mui/material'
+import {
+    Typography,
+    Grid,
+    Button,
+    useTheme,
+    useMediaQuery,
+} from '@mui/material'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import fetchProjects from '../../utils/fetchProjects'
@@ -7,6 +13,8 @@ import ErrorMessage from './../../components/General/ErrorMessage'
 
 const SliderPortfolio = ({ nextPicture, prevPicture, title }) => {
     const { loading, error } = fetchProjects()
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage />
@@ -39,15 +47,17 @@ const SliderPortfolio = ({ nextPicture, prevPicture, title }) => {
                 }}
             >
                 <KeyboardArrowLeft sx={{ fontSize: '4rem' }} />
-                <Typography
-                    variant="body1"
-                    color="primary.light"
-                    textAlign="center"
-                >
-                    Prev
-                    <br />
-                    project
-                </Typography>
+                {!isMobile && (
+                    <Typography
+                        variant="body1"
+                        color="primary.light"
+                        textAlign="center"
+                    >
+                        Prev
+                        <br />
+                        project
+                    </Typography>
+                )}
             </Button>
 
             <Button
@@ -67,15 +77,17 @@ const SliderPortfolio = ({ nextPicture, prevPicture, title }) => {
                     },
                 }}
             >
-                <Typography
-                    variant="body1"
-                    color="primary.light"
-                    textAlign="center"
-                >
-                    Next
-                    <br />
-                    project
-                </Typography>
+                {!isMobile && (
+                    <Typography
+                        variant="body1"
+                        color="primary.light"
+                        textAlign="center"
+                    >
+                        Next
+                        <br />
+                        project
+                    </Typography>
+                )}
                 <KeyboardArrowRight sx={{ fontSize: '4rem' }} />
             </Button>
 

@@ -7,6 +7,7 @@ import {
     Box,
     MobileStepper,
     useTheme,
+    useMediaQuery,
 } from '@mui/material'
 import React from 'react'
 import RunningLine from '../../components/HeroSection/RunningLine'
@@ -22,6 +23,8 @@ import FigmaIcon from '../../img/icons/FigmaIcon'
 
 const PortfolioDetails = () => {
     const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+
     const { id } = useParams()
     const navigate = useNavigate()
     const [project, setProject] = useState(null)
@@ -124,7 +127,11 @@ const PortfolioDetails = () => {
                 </Box>
             </Grid>
 
-            <Grid item xs={12} sx={{ marginBottom: '3rem' }}>
+            <Grid
+                item
+                xs={12}
+                sx={{ marginBottom: isMobile ? '0rem' : '3rem' }}
+            >
                 <RunningLine
                     text={`< Used: ${skillsText} >\u00A0\u00A0\u00A0\u00A0`}
                 />
@@ -132,7 +139,7 @@ const PortfolioDetails = () => {
 
             <Grid
                 item
-                xs={4}
+                xs={isMobile ? 12 : 4}
                 display="flex"
                 flexDirection="column"
                 justifyContent="flex-start"

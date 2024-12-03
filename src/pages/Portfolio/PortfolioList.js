@@ -14,7 +14,13 @@ const PortfolioList = () => {
 
     return (
         <Grid container spacing={2} columns={12}>
-            <Grid item xs={12} display="flex" justifyContent="center">
+            <Grid
+                item
+                xs={12}
+                display="flex"
+                justifyContent="center"
+                textAlign="center"
+            >
                 <MainHeader
                     textOne="Do you want see my"
                     highlightText="projects"

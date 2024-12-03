@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Tabs, Tab, Box, Grid } from '@mui/material'
+import { Tabs, Tab, Box, Grid, useMediaQuery, useTheme } from '@mui/material'
 import StyledImage from '../StyledImage'
 
 const ImageTabs = ({ project }) => {
     const [activeTab, setActiveTab] = useState('desc')
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
     useEffect(() => {
         setActiveTab('desc')
@@ -15,7 +17,11 @@ const ImageTabs = ({ project }) => {
     }
 
     return (
-        <Grid item xs={8}>
+        <Grid
+            item
+            xs={isMobile ? 12 : 8}
+            sx={{ mt: isMobile ? '2rem' : '0rem' }}
+        >
             <Tabs
                 value={['desc', 'tab', 'mob'].indexOf(activeTab)}
                 onChange={handleChange}

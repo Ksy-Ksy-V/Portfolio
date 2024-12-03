@@ -18,7 +18,6 @@ const Header = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
             }}
-            useMediaQuery
         >
             <Grid container spacing={2} alignItems="center">
                 <Grid item xs={2}>

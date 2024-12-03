@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Grid } from '@mui/material'
+import { Grid, useTheme, useMediaQuery } from '@mui/material'
 import { animations } from '../../animation/animationData'
 
 const CatGame = () => {
     const [activeIndex, setActiveIndex] = useState(null)
     const videoRefs = useRef([])
+
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -18,7 +21,7 @@ const CatGame = () => {
                     }
                 })
             },
-            { threshold: 0.9 }
+            { threshold: 0.95 }
         )
 
         videoRefs.current.forEach((video) => {
@@ -36,9 +39,18 @@ const CatGame = () => {
         videoRefs.current.forEach((video, index) => {
             if (video instanceof HTMLVideoElement) {
                 if (index === activeIndex) {
-                    video.play()
+                    if (video.paused) {
+                        video.play().catch((error) => {
+                            console.error(
+                                `Error playing video at index ${index}:`,
+                                error
+                            )
+                        })
+                    }
                 } else {
-                    video.pause()
+                    if (!video.paused) {
+                        video.pause()
+                    }
                 }
             }
         })
@@ -47,7 +59,7 @@ const CatGame = () => {
     return (
         <Grid
             item
-            xs={8}
+            xs={isMobile ? 12 : 8}
             display="flex"
             flexDirection="column"
             justifyContent="center"
@@ -57,9 +69,10 @@ const CatGame = () => {
                 <Grid
                     key={index}
                     data-index={index}
-                    ref={(el) =>
-                        (videoRefs.current[index] = el?.querySelector('video'))
-                    }
+                    ref={(el) => {
+                        if (el)
+                            videoRefs.current[index] = el.querySelector('video')
+                    }}
                     sx={{
                         transform:
                             index === activeIndex ? 'scale(1)' : 'scale(0.9)',
