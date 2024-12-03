@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
-import { Box, Grid, Typography, Container } from '@mui/material'
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Box, Grid, Typography, useTheme, useMediaQuery } from '@mui/material'
 
 import SocialLinks from './SocialLinks'
+
 const Footer = () => {
     const { pathname } = useLocation()
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
     return (
         <Box
@@ -34,26 +37,40 @@ const Footer = () => {
                         KSY
                     </Typography>
                 </Grid>
+
+                {isMobile && <Grid item xs={2} />}
+
+                {!isMobile && (
+                    <Grid
+                        item
+                        xs={6}
+                        display="flex"
+                        justifyContent="center"
+                        sx={{ marginTop: '0.5rem' }}
+                    >
+                        {pathname === '/contact' ? (
+                            <Box sx={{ width: '100%', height: '100%' }} />
+                        ) : (
+                            <SocialLinks />
+                        )}
+                    </Grid>
+                )}
+
                 <Grid
                     item
-                    xs={6}
+                    xs={isMobile ? 7 : 3}
                     display="flex"
-                    justifyContent="center"
-                    sx={{ marginTop: '0.5rem' }}
+                    justifyContent="flex-end"
                 >
-                    {pathname === '/contact' ? (
-                        <Box sx={{ width: '100%', height: '100%' }} />
-                    ) : (
-                        <SocialLinks />
-                    )}
-                </Grid>
-
-                <Grid item xs={3} display="flex">
                     <Typography
                         fontSize={12}
                         variant="body1"
                         color="primary.dark"
-                        sx={{ textAlign: 'right', paddingRight: '2rem' }}
+                        sx={{
+                            textAlign: 'right',
+                            paddingRight: '2rem',
+                            width: '100%',
+                        }}
                     >
                         Copyright © 2024 Ksy®.{'\n'}All rights reserved.
                     </Typography>
