@@ -5,7 +5,6 @@ export default function OpenOnTop() {
     const { pathname } = useLocation()
 
     useEffect(() => {
-        console.log('Pathname changed:', pathname)
         window.scrollTo(0, 0)
     }, [pathname])
 
