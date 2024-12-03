@@ -1,8 +1,12 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Grid, Typography, useTheme, useMediaQuery } from '@mui/material'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
+import SmallMenu from './SmallMenu'
 
 const Header = () => {
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+
     return (
         <Box
             className="header"
@@ -14,6 +18,7 @@ const Header = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
             }}
+            useMediaQuery
         >
             <Grid container spacing={2} alignItems="center">
                 <Grid item xs={2}>
@@ -34,9 +39,22 @@ const Header = () => {
                         KSY
                     </Typography>
                 </Grid>
-                <Grid item xs={10}>
-                    <Navbar />
-                </Grid>
+                {isMobile ? (
+                    <Grid
+                        item
+                        xs={10}
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                        }}
+                    >
+                        <SmallMenu />
+                    </Grid>
+                ) : (
+                    <Grid item xs={10}>
+                        <Navbar />
+                    </Grid>
+                )}
             </Grid>
         </Box>
     )
