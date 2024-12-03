@@ -9,6 +9,7 @@ import NotFound from './pages/ErrorPages/NotFound'
 
 import ScrollToTopButton from './components/General/Buttons/ScrollToTopButton'
 import OpenOnTop from './utils/OpenOnTop'
+import CustomSelection from './utils/CustomSelection'
 
 import ThemeProvider from './components/General/SwithModeBtn/ThemeProvider'
 
@@ -18,6 +19,7 @@ function App() {
     return (
         <ThemeProvider>
             <Router>
+                <CustomSelection />
                 <OpenOnTop />
                 <Container
                     maxWidth="md"

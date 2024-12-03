@@ -13,7 +13,17 @@ const PortfolioList = () => {
     if (error) return <ErrorMessage />
 
     return (
-        <Grid container spacing={2} columns={12}>
+        <Grid
+            container
+            spacing={2}
+            columns={12}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-evenly',
+                minHeight: '80vh',
+            }}
+        >
             <Grid
                 item
                 xs={12}

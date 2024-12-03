@@ -10,7 +10,7 @@ const Contact = () => {
             display={'flex'}
             alignItems={'center'}
             columns={12}
-            sx={{ marginTop: '2rem', minHeight: '70vh' }}
+            sx={{ marginTop: '2rem', minHeight: '78vh' }}
         >
             <Grid item xs={12} sm={5}>
                 <ContactInformation />
