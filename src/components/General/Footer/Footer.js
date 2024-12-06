@@ -72,7 +72,7 @@ const Footer = () => {
                             width: '100%',
                         }}
                     >
-                        Copyright © 2024 Ksy®.{'\n'}All rights reserved.
+                        Copyright © 2024 Ksy®. <br /> All rights reserved.
                     </Typography>
                 </Grid>
             </Grid>

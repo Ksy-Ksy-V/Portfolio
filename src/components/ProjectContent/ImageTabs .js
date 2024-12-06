@@ -50,10 +50,10 @@ const ImageTabs = ({ project }) => {
             <Box
                 display="flex"
                 flexDirection={activeTab === 'mob' ? 'row' : 'column'}
-                alignContent="flex-start"
+                alignContent="center"
                 justifyContent="flex-end"
                 alignItems={activeTab === 'mob' ? 'flex-start' : 'flex-end'}
-                sx={{ marginTop: '2rem' }}
+                sx={{ mt: isMobile ? '0rem' : '2rem' }}
             >
                 {project.imagesData[activeTab]?.map((image, index) => (
                     <StyledImage

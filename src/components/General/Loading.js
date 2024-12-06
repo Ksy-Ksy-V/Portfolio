@@ -8,7 +8,7 @@ const Loading = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: '15vh',
+                height: '70vh',
                 textAlign: 'center',
             }}
         >

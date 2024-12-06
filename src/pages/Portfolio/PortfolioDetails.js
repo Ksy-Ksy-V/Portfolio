@@ -28,22 +28,30 @@ const PortfolioDetails = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [project, setProject] = useState(null)
+    const [loading, setLoading] = useState(false)
 
-    const { projects, loading, error } = fetchProjects()
+    const { projects, error } = fetchProjects()
 
     useEffect(() => {
+        setLoading(true)
         if (projects.length > 0) {
             const selectedProject = projects.find(
                 (project) => project.id === id
             )
             if (selectedProject) {
                 setProject(selectedProject)
+                setLoading(false)
             } else {
+                setLoading(false)
+
                 console.error('Project not found!')
             }
         }
     }, [id, projects])
+    console.log(loading, 'loading')
 
+    console.log(error, 'errir')
+    console.log(project, 'project')
     if (loading) return <Loading />
     if (error) return <ErrorMessage />
     if (!project) return <ErrorMessage />

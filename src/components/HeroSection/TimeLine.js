@@ -81,6 +81,10 @@ const TimeLine = () => {
                     className="timeline-item"
                     data-index={index}
                     sx={{
+                        border: isMobile ? 'solid' : 'none',
+                        borderColor: theme.palette.primary.main,
+                        marginTop: isMobile ? '1rem' : '0rem',
+                        borderRadius: '15px',
                         opacity: visibleItems.includes(index) ? 1 : 0,
                         transform: visibleItems.includes(index)
                             ? 'translateY(0px) scale(1)'
@@ -115,31 +119,33 @@ const TimeLine = () => {
                         </TimelineOppositeContent>
                     ) : null}
 
-                    <TimelineSeparator>
-                        <Box
-                            component="img"
-                            src={project.icon}
-                            alt={project.title}
-                            sx={{
-                                width: 40,
-                                height: 40,
-                                borderRadius: '50%',
-                                objectFit: 'cover',
-                                transform: visibleItems.includes(index)
-                                    ? 'scale(1)'
-                                    : 'scale(0.8)',
-                                transition: 'transform 0.6s ease',
-                            }}
-                        />
-                        {index < projects.length && (
-                            <TimelineConnector
+                    {!isMobile && (
+                        <TimelineSeparator>
+                            <Box
+                                component="img"
+                                src={project.icon}
+                                alt={project.title}
                                 sx={{
-                                    width: '3px',
-                                    height: '4rem',
+                                    width: 40,
+                                    height: 40,
+                                    borderRadius: '50%',
+                                    objectFit: 'cover',
+                                    transform: visibleItems.includes(index)
+                                        ? 'scale(1)'
+                                        : 'scale(0.8)',
+                                    transition: 'transform 0.6s ease',
                                 }}
                             />
-                        )}
-                    </TimelineSeparator>
+                            {index < projects.length && (
+                                <TimelineConnector
+                                    sx={{
+                                        width: '3px',
+                                        height: '4rem',
+                                    }}
+                                />
+                            )}
+                        </TimelineSeparator>
+                    )}
                     <TimelineContent
                         sx={{
                             mb: isMobile ? '1rem' : '6rem',

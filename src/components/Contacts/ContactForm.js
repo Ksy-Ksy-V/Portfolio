@@ -1,24 +1,24 @@
 import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import { Typography, Box, Grid, TextField, Button } from '@mui/material'
 
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 const ContactForm = () => {
+    const [state, handleSubmit] = useForm(process.env.REACT_APP_FORM_ID)
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
-    const [submitted, setSubmitted] = useState(false)
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log({ name, email, message })
-        setSubmitted(true)
+    const handleSubmitForm = (e) => {
+        handleSubmit(e)
     }
 
     return (
         <Grid item xs={12}>
-            {!submitted ? (
+            {!state.succeeded ? (
                 <Box
                     sx={{
                         border: '3px solid',
@@ -45,11 +45,13 @@ const ContactForm = () => {
                         {`< Any questions? >`}
                     </Typography>
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmitForm}>
                         <Grid container spacing={2}>
                             <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
                                 <TextField
                                     fullWidth
+                                    id="name"
+                                    name="name"
                                     label="Name"
                                     variant="outlined"
                                     value={name}
@@ -75,6 +77,8 @@ const ContactForm = () => {
                             <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
                                 <TextField
                                     fullWidth
+                                    id="email"
+                                    name="email"
                                     label="Email"
                                     type="email"
                                     variant="outlined"
@@ -98,9 +102,16 @@ const ContactForm = () => {
                                     }}
                                 />
                             </Grid>
+                            <ValidationError
+                                prefix="Email"
+                                field="email"
+                                errors={state.errors}
+                            />
                             <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
                                 <TextField
                                     fullWidth
+                                    id="message"
+                                    name="message"
                                     label="Message"
                                     variant="outlined"
                                     multiline
@@ -125,11 +136,17 @@ const ContactForm = () => {
                                     }}
                                 />
                             </Grid>
+                            <ValidationError
+                                prefix="Message"
+                                field="message"
+                                errors={state.errors}
+                            />
                             <Grid item xs={11}>
                                 <Button
                                     fullWidth
                                     endIcon={<SendOutlinedIcon />}
                                     type="submit"
+                                    disabled={state.submitting}
                                     sx={{
                                         margin: '1rem',
                                         border: '3px solid',

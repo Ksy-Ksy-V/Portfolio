@@ -7,6 +7,8 @@ const fetchProjects = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
+
             try {
                 const response = await fetch('/db.json')
                 if (!response.ok) {
@@ -14,9 +16,9 @@ const fetchProjects = () => {
                 }
                 const data = await response.json()
                 setProjects(data.projects)
+                setLoading(false)
             } catch (err) {
                 setError(err.message)
-            } finally {
                 setLoading(false)
             }
         }
