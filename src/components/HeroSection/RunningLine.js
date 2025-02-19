@@ -1,21 +1,16 @@
-import Marquee from 'react-fast-marquee';
-import { Box, Typography } from '@mui/material';
+import Marquee from 'react-fast-marquee'
+import { Box, Typography } from '@mui/material'
 
-const RunningLine = () => {
+const RunningLine = ({ text, direction = 'left' }) => {
     return (
-        <Box 
-            className="tech-stack" 
-        >
-            <Marquee 
-                pauseOnHover={true} 
-                autoFill
-            >
-                <Typography variant='h6' color={'primary.light'}>
-                    {`< MY STACK:  HTML | CSS | JS | REACT >\u00A0\u00A0\u00A0\u00A0`}
+        <Box className="tech-stack">
+            <Marquee pauseOnHover={true} autoFill direction={direction}>
+                <Typography variant="h6" color={'primary.light'}>
+                    {text}
                 </Typography>
             </Marquee>
         </Box>
-    );
+    )
 }
- 
-export default RunningLine;
+
+export default RunningLine

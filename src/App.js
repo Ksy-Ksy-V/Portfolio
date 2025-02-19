@@ -1,33 +1,73 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Container } from '@mui/material'
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Container } from '@mui/material';
+import Home from './pages/Home/Home'
+import PortfolioList from './pages/Portfolio/PortfolioList'
+import PortfolioDetails from './pages/Portfolio/PortfolioDetails'
+import Contact from './pages/Contact/Contact'
+import NotFound from './pages/ErrorPages/NotFound'
 
-import Home from './pages/Home/Home';
-import Contact from './pages/Contact/Contact';
-import PortfolioList from './pages/Portfolio/PortfolioList';
-import PortfolioDetails from './pages/Portfolio/PortfolioDetails';
-import NotFound from './pages/ErrorPages/NotFound';
+import ScrollToTopButton from './components/General/Buttons/ScrollToTopButton'
+import OpenOnTop from './utils/OpenOnTop'
+import CustomSelection from './utils/CustomSelection'
 
-import Header from './components/general/Header/HeaderComp';
-import Footer from './components/general/Footer/Footer';
+import ThemeProvider from './components/General/SwithModeBtn/ThemeProvider'
+
+import PageWrapper from './components/General/PageWrapper'
 
 function App() {
-  return (
-    <Router>
-      <Container maxWidth="md" sx={{ marginTop: '2rem', marginBottom: '2rem' }}>
-        <Header />
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/portfolio" element={<PortfolioList />} />
-              <Route path="/portfoliodetails/:id" element={<PortfolioDetails />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-        <Footer />
-      </Container>
-    </Router>
-  );
+    return (
+        <ThemeProvider>
+            <Router>
+                <CustomSelection />
+                <OpenOnTop />
+                <Container
+                    maxWidth="md"
+                    sx={{
+                        marginTop: '2rem',
+                        minHeight: 'calc(100vh - 250px)',
+                        marginBottom: '2rem',
+                    }}
+                >
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <PageWrapper>
+                                    <Home />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route
+                            path="/portfolio"
+                            element={
+                                <PageWrapper>
+                                    <PortfolioList />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route
+                            path="/portfolio-details/:id"
+                            element={
+                                <PageWrapper>
+                                    <PortfolioDetails />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route
+                            path="/contact"
+                            element={
+                                <PageWrapper>
+                                    <Contact />
+                                </PageWrapper>
+                            }
+                        />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                    <ScrollToTopButton />
+                </Container>
+            </Router>
+        </ThemeProvider>
+    )
 }
-export default App;
+export default App
