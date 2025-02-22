@@ -8,7 +8,7 @@ const HeroSection = () => {
         <Grid
             container
             spacing={2}
-            marginBottom="2rem"
+            marginBottom="4rem"
             sx={{
                 flexDirection: {
                     xs: 'column',
@@ -30,8 +30,9 @@ const HeroSection = () => {
                         sx={{
                             marginTop: {
                                 xs: '2rem',
-                                sm: '6rem',
+                                sm: '3rem',
                             },
+                            marginBottom: '1rem',
                         }}
                     />
 
@@ -46,7 +47,8 @@ const HeroSection = () => {
                             },
                         }}
                     >
-                        {` A junior front end developer `}
+                        {` A junior front end developer crafting dynamic, user-focused web applications with a blend of technical precision and creativity for efficient, visually appealing solutions.
+`}
                     </Typography>
                     <Box sx={{ mt: '2rem' }}>
                         <Button

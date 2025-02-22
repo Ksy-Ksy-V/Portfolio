@@ -9,7 +9,7 @@ import getDesign from '../../../styles/getDesign'
 export const ColorModeContext = createContext({ toggleColorMode: () => {} })
 
 const ThemeProvider = ({ children }) => {
-    const [mode, setMode] = useState('light')
+    const [mode, setMode] = useState('dark')
 
     const colorMode = useMemo(
         () => ({
@@ -22,13 +22,13 @@ const ThemeProvider = ({ children }) => {
 
     useEffect(() => {
         const existingPreference = localStorage.getItem('theme')
-        localStorage.setItem('theme', 'light')
+        localStorage.setItem('theme', 'dark')
         if (existingPreference === 'light' || existingPreference === 'dark') {
             setMode(existingPreference)
             localStorage.setItem('theme', existingPreference)
         } else {
             setMode('light')
-            localStorage.setItem('theme', 'light')
+            localStorage.setItem('theme', 'dark')
         }
     }, [localStorage.getItem('theme')])
 
@@ -45,4 +45,3 @@ const ThemeProvider = ({ children }) => {
 }
 
 export default ThemeProvider
-
