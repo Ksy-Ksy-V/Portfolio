@@ -48,10 +48,7 @@ const PortfolioDetails = () => {
             }
         }
     }, [id, projects])
-    console.log(loading, 'loading')
 
-    console.log(error, 'error')
-    console.log(project, 'project')
     if (loading) return <Loading />
     if (error) return <ErrorMessage />
     if (!project) return <ErrorMessage />

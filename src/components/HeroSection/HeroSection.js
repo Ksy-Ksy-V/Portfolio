@@ -52,6 +52,9 @@ const HeroSection = () => {
                     </Typography>
                     <Box sx={{ mt: '2rem' }}>
                         <Button
+                            component="a"
+                            href="/cv.pdf"
+                            download="KseniaVoitikh_FrontendDeveloper_CV.pdf"
                             sx={{
                                 paddingLeft: '2rem',
                                 paddingRight: '2rem',
