@@ -16,7 +16,7 @@ const CatGame = () => {
                     const index = parseInt(
                         entry.target.getAttribute('data-index')
                     )
-                    console.log(entry, 'entry')
+
                     if (entry.isIntersecting && entry.intersectionRatio > 0.9) {
                         setActiveIndex(index)
                     }

@@ -19,7 +19,7 @@ const SocialLinks = () => {
         >
             <Grid item>
                 <a
-                    href="https://www.figma.com/design/w5youlWot9C5kUIH7vnU3c/Untitled?node-id=0-1&t=mI74eZvWT363C0YT-1"
+                    href="https://www.figma.com/files/project/45598373"
                     className="btn"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -45,7 +45,7 @@ const SocialLinks = () => {
 
             <Grid item>
                 <a
-                    href="https://www.linkedin.com/"
+                    href="www.linkedin.com/in/kseniia-voitikh"
                     className="btn"
                     target="_blank"
                     rel="noopener noreferrer"

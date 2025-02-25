@@ -6,12 +6,12 @@ const getDesign = (mode) => ({
         ...(mode === 'light'
             ? {
                   primary: {
-                      light: '#FF9BD2',
+                      light: '#F3A7C0',
                       main: '#D63484',
                       dark: '#402B3A',
                   },
                   background: {
-                      default: '#F8F4EC',
+                      default: '#FDE2E4',
                       paper: '#F8F4EC',
                   },
                   text: {

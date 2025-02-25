@@ -41,12 +41,12 @@
                 "Axios",
                 "Jikan API"
             ],
-            "description": "Kito is a web platform tailored for anime fans to explore, organize, and track their favorite shows. Users can browse a vast anime library, create personalized watchlists, and schedule ongoing series to stay updated on new episode releases. Kito combines a clean design with intuitive functionality, making it accessible for both seasoned anime enthusiasts and newcomers.",
+            "description": "Kito is a web platform tailored for anime fans to explore, organize, and track their favorite shows. Users can browse a vast anime library, create personalized watchlists. Kito combines a clean design with intuitive functionality, making it accessible for both seasoned anime enthusiasts and newcomers.",
             "developmentDescription": "This project showcases my ability to develop modern web applications using advanced technologies. The frontend is built with React, TypeScript, and Material-UI, providing a responsive and visually appealing user interface. Anime data is fetched via the Jikan API, while a custom Node.js backend with MongoDB handles user registration, authentication, and list management. Through this project, I enhanced my skills in state management with Redux Toolkit, API integration, and delivering a seamless user experience. Kito represents my passion for anime and my dedication to creating user-centric web applications.",
             "link": "https://kito-eta.vercel.app/",
             "gitHubLink": "https://github.com/Ksy-Ksy-V/kito",
             "sliderData": "/img/sliderData/projectPrev03.png",
-            "figmaLink": "https://www.figma.com/design/YM1PNAfyYkUUYHCjkJG8rF/Kito?node-id=435-2083&t=nVavjC7Lr0fGTptB-1",
+            "figmaLink": "https://www.figma.com/design/gD4Md5DmJMOEfyFIx7oL5V/Kito?node-id=5-3410&t=4PzFZEjsq9tLdO7W-1",
             "imagesData": {
                 "desc": [
                     "/img/kito/descKito01.png",
