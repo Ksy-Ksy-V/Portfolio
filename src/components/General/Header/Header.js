@@ -1,62 +1,90 @@
-import { Box, Grid, Typography, useTheme, useMediaQuery } from '@mui/material'
-import { Link } from 'react-router-dom'
-import Navbar from './Navbar'
-import SmallMenu from './SmallMenu'
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
+import ModeSwitchBtn from '../SwithModeBtn/ModeSwithBtn';
+import './Header.css';
 
 const Header = () => {
-    const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const location = useLocation();
+    const isMobile = useMediaQuery('(max-width: 767px)');
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const currentPath = location.pathname;
+    const isHome = currentPath === '/';
+    const isPortfolio = currentPath.startsWith('/portfolio');
+    const isContact = currentPath === '/contact';
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
+    };
+
+    const closeMobileMenu = () => {
+        setMobileMenuOpen(false);
+    };
+
+    const navLinks = [
+        { path: '/', label: 'Home', isActive: isHome },
+        { path: '/portfolio', label: 'Portfolio', isActive: isPortfolio },
+        { path: '/contact', label: 'Contact', isActive: isContact },
+    ];
 
     return (
-        <Box
-            className="header"
-            sx={{
-                border: 3,
-                mt: '1rem',
-                borderColor: 'primary.dark',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-            }}
-        >
-            <Grid container spacing={2} alignItems="center">
-                <Grid item xs={2}>
-                    <Typography
-                        variant="h5"
-                        component={Link}
-                        to="/"
-                        className="logo"
-                        sx={{
-                            textDecoration: 'none',
-                            color: 'primary.dark',
-                            marginLeft: '2rem',
-                            '&:hover': {
-                                color: 'primary.main',
-                            },
-                        }}
-                    >
-                        KSY
-                    </Typography>
-                </Grid>
+        <header className="header">
+            <div className="header-container">
+                <Link 
+                    to="/" 
+                    className="header-logo"
+                    onClick={closeMobileMenu}
+                >
+                    KSY
+                </Link>
+                
                 {isMobile ? (
-                    <Grid
-                        item
-                        xs={10}
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                        }}
-                    >
-                        <SmallMenu />
-                    </Grid>
+                    <>
+                        <button 
+                            className="mobile-menu-button"
+                            onClick={toggleMobileMenu}
+                            aria-label="menu"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                            </svg>
+                        </button>
+                        {mobileMenuOpen && (
+                            <div className="mobile-menu">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.path}
+                                        to={link.path}
+                                        className={`mobile-menu-item ${link.isActive ? 'active' : ''}`}
+                                        onClick={closeMobileMenu}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                ))}
+                                <div className="mobile-menu-item" onClick={closeMobileMenu}>
+                                    <ModeSwitchBtn />
+                                </div>
+                            </div>
+                        )}
+                    </>
                 ) : (
-                    <Grid item xs={10}>
-                        <Navbar />
-                    </Grid>
+                    <nav className="header-nav">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                className={`nav-button ${link.isActive ? 'active' : ''}`}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                        <ModeSwitchBtn />
+                    </nav>
                 )}
-            </Grid>
-        </Box>
-    )
-}
+            </div>
+        </header>
+    );
+};
 
-export default Header
+export default Header;

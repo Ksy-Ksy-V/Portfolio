@@ -1,5 +1,6 @@
 import React from 'react'
-import { Grid, useTheme } from '@mui/material'
+import { Grid } from '@mui/material'
+import { useTheme } from '../../../hooks/useTheme'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import FigmaIcon from '../../../img/icons/FigmaIcon'

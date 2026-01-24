@@ -2,9 +2,9 @@ import {
     Typography,
     Grid,
     Button,
-    useTheme,
-    useMediaQuery,
 } from '@mui/material'
+import { useTheme } from '../../hooks/useTheme'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import fetchProjects from '../../utils/fetchProjects'
@@ -14,7 +14,7 @@ import ErrorMessage from './../../components/General/ErrorMessage'
 const SliderPortfolio = ({ nextPicture, prevPicture, title }) => {
     const { loading, error } = fetchProjects()
     const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage />

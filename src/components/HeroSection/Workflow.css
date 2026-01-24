@@ -1,0 +1,149 @@
+/* Workflow section styles */
+.workflow-section {
+    position: relative;
+    padding: 6rem 0;
+    background-color: var(--color-background-default);
+}
+
+.workflow-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .workflow-container {
+        padding: 0 3rem;
+    }
+}
+
+/* Header styles */
+.workflow-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.workflow-label {
+    display: block;
+    color: var(--color-primary-main);
+    font-size: 0.875rem;
+    font-family: 'Consolas', 'Courier New', monospace;
+    margin-bottom: 1rem;
+}
+
+.workflow-title {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+@media (min-width: 640px) {
+    .workflow-title {
+        font-size: 3rem;
+    }
+}
+
+/* Grid styles */
+.workflow-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .workflow-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Card styles */
+.workflow-card {
+    position: relative;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    border: 2px solid rgba(214, 52, 132, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .workflow-card {
+    background: linear-gradient(to bottom right, rgba(10, 10, 15, 0.5), rgba(15, 10, 21, 0.3));
+    border: 2px solid rgba(214, 52, 132, 0.2);
+    box-shadow: none;
+}
+
+.workflow-card:hover {
+    border-color: rgba(214, 52, 132, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(214, 52, 132, 0.1);
+}
+
+/* Gradient overlay on hover */
+.workflow-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(214, 52, 132, 0), rgba(214, 52, 132, 0));
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.workflow-card:hover .workflow-card-overlay {
+    background: linear-gradient(to bottom right, rgba(214, 52, 132, 0.1), rgba(214, 52, 132, 0.05));
+}
+
+.workflow-card-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* Number styles */
+.workflow-number {
+    font-size: 3.75rem;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, var(--color-primary-main), var(--color-primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+}
+
+/* Card title */
+.workflow-card-title {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin: 0 0 1rem 0;
+}
+
+/* Card description */
+.workflow-card-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

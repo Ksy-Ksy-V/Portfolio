@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Tabs, Tab, Box, Grid, useMediaQuery, useTheme } from '@mui/material'
+import { Tabs, Tab, Box, Grid } from '@mui/material'
+import { useTheme } from '../../hooks/useTheme'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import StyledImage from '../StyledImage'
 
 const ImageTabs = ({ project }) => {
     const [activeTab, setActiveTab] = useState('desc')
     const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
     useEffect(() => {
         setActiveTab('desc')

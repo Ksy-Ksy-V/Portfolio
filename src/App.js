@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { Container } from '@mui/material'
 
 import Home from './pages/Home/Home'
 import PortfolioList from './pages/Portfolio/PortfolioList'
@@ -21,14 +20,7 @@ function App() {
             <Router>
                 <CustomSelection />
                 <OpenOnTop />
-                <Container
-                    maxWidth="md"
-                    sx={{
-                        marginTop: '2rem',
-                        minHeight: 'calc(100vh - 250px)',
-                        marginBottom: '2rem',
-                    }}
-                >
+               
                     <Routes>
                         <Route
                             path="/"
@@ -65,7 +57,7 @@ function App() {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                     <ScrollToTopButton />
-                </Container>
+                 
             </Router>
         </ThemeProvider>
     )

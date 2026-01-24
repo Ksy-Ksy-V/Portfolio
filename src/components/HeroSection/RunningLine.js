@@ -1,16 +1,49 @@
-import Marquee from 'react-fast-marquee'
-import { Box, Typography } from '@mui/material'
+import React from 'react';
+import './RunningLine.css';
 
-const RunningLine = ({ text, direction = 'left' }) => {
-    return (
-        <Box className="tech-stack">
-            <Marquee pauseOnHover={true} autoFill direction={direction}>
-                <Typography variant="h6" color={'primary.light'}>
-                    {text}
-                </Typography>
-            </Marquee>
-        </Box>
-    )
+export function TechStackTicker() {
+  const technologies = [
+    'TypeScript',
+    'JavaScript',
+    'React',
+    'HTML5',
+    'Next.js',
+    'Node.js',
+    'CSS3',
+    'Tailwind',
+    'Git',
+    'Figma',
+    'Photoshop',
+    'Illustrator',
+    'Responsive Design',
+    'Web Performance',
+  ];
+
+  return (
+    <div className="tech-stack-ticker">
+      <div className="tech-stack-track">
+        {[...Array(3)].map((_, setIndex) => (
+          <React.Fragment key={setIndex}>
+            <div className="tech-stack-set">
+              {technologies.map((tech, index) => (
+                <React.Fragment key={`${setIndex}-${index}`}>
+                  <span className="tech-stack-text">
+                    {tech}
+                  </span>
+                  {index < technologies.length - 1 && (
+                    <span className="tech-stack-separator">●</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+            {setIndex < 2 && (
+              <span className="tech-stack-separator">●</span>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default RunningLine
+export default TechStackTicker;

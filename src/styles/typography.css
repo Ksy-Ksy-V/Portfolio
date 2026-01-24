@@ -1,0 +1,107 @@
+/* Typography styles based on design system */
+
+/* Headline */
+.headline-h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 96px;
+    line-height: 1.2;
+}
+
+/* Heading 2 (Section) */
+.heading-h2 {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+}
+
+/* Heading 3  */
+.heading-h3 {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--color-primary-main);
+}
+
+/* Heading 4 (Card Title)*/
+.heading-h4 {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+}
+
+/* Body Text (Large)  */
+.body-text-large {
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+}
+
+/* Body Text (Regular)  */
+.body-text-regular {
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .headline-h1 {
+        font-size: 48px;
+    }
+    
+    .heading-h2 {
+        font-size: 40px;
+    }
+    
+    .heading-h3 {
+        font-size: 32px;
+    }
+    
+    .heading-h4 {
+        font-size: 24px;
+    }
+    
+    .body-text-large {
+        font-size: 18px;
+    }
+    
+    .body-text-regular {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headline-h1 {
+        font-size: 36px;
+    }
+    
+    .heading-h2 {
+        font-size: 32px;
+    }
+    
+    .heading-h3 {
+        font-size: 24px;
+    }
+    
+    .heading-h4 {
+        font-size: 20px;
+    }
+    
+    .body-text-large {
+        font-size: 16px;
+    }
+    
+    .body-text-regular {
+        font-size: 14px;
+    }
+}

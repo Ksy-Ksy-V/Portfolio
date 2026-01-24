@@ -6,9 +6,9 @@ import {
     Button,
     Box,
     MobileStepper,
-    useTheme,
-    useMediaQuery,
 } from '@mui/material'
+import { useTheme } from '../../hooks/useTheme'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import React from 'react'
 import RunningLine from '../../components/HeroSection/RunningLine'
 import fetchProjects from '../../utils/fetchProjects'
@@ -23,7 +23,7 @@ import FigmaIcon from '../../img/icons/FigmaIcon'
 
 const PortfolioDetails = () => {
     const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
     const { id } = useParams()
     const navigate = useNavigate()

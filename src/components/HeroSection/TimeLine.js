@@ -8,7 +8,9 @@ import {
     TimelineContent,
     TimelineOppositeContent,
 } from '@mui/lab'
-import { Typography, Box, Button, useMediaQuery, useTheme } from '@mui/material'
+import { Typography, Box, Button } from '@mui/material'
+import { useTheme } from '../../hooks/useTheme'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 
 import { projects } from './TimeLineData'
 import StyledImage from '../StyledImage'
@@ -17,7 +19,7 @@ const TimeLine = () => {
     const [visibleItems, setVisibleItems] = useState([])
     const timelineRef = useRef(null)
     const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
     useEffect(() => {
         const thresholdValue = isMobile ? 0.2 : 0.7

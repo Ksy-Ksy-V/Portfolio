@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Grid, useTheme, useMediaQuery } from '@mui/material'
+import { Grid } from '@mui/material'
+import { useTheme } from '../../hooks/useTheme'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { animations } from '../../animation/animationData'
 
 const CatGame = () => {
@@ -7,7 +9,7 @@ const CatGame = () => {
     const videoRefs = useRef([])
 
     const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
     useEffect(() => {
         const observer = new IntersectionObserver(

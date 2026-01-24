@@ -2,10 +2,10 @@ import {
     Typography,
     Card,
     CardContent,
-    useTheme,
     CardMedia,
     Box,
 } from '@mui/material'
+import { useTheme } from '../../hooks/useTheme'
 import { useState } from 'react'
 
 const HoverCard = ({ title, description, lightImg, darkImg }) => {

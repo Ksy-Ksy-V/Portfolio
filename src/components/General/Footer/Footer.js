@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Box, Grid, Typography, useTheme, useMediaQuery } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
+import { useTheme } from '../../../hooks/useTheme'
+import { useMediaQuery } from '../../../hooks/useMediaQuery'
 
 import SocialLinks from './SocialLinks'
 
 const Footer = () => {
     const { pathname } = useLocation()
     const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
     return (
         <Box
