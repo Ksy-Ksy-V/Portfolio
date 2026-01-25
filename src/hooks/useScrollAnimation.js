@@ -30,6 +30,10 @@ export const useScrollAnimation = (options = {}) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
+              if (entry.target) {
+                entry.target.style.opacity = '';
+                entry.target.style.transform = '';
+              }
               setIsVisible(true);
               hasAnimated.current = true;
             });

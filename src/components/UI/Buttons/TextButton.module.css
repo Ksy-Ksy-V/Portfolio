@@ -5,6 +5,7 @@
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
   display: inline-block;
+  border-radius: 0.5rem;
 }
 
 /* Override typography color with more specific selector */

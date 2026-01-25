@@ -88,6 +88,7 @@
   color: var(--color-text-primary);
   padding: 0.5rem;
   transition: color 0.3s ease;
+  border-radius: 0.5rem;
 }
 
 .mobileMenuButton:hover {

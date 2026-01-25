@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import Tag from '../Tag/Tag';
@@ -88,13 +88,7 @@ const ProjectCard = ({ project, index, isFirst, isLast, scrollAnimationDelay = 0
     </div>
   );
 
-  let containerClassName = `${styles.container} `;
-  
-  if (isVisible) {
-    containerClassName += styles.slideUp;
-  } else {
-    containerClassName += styles.hidden;
-  }
+  const containerClassName = `${styles.container} ${isVisible ? styles.slideUp : styles.hidden}`;
 
   const cardStyle = {
     '--scroll-animation-delay': `${scrollAnimationDelay}s`,

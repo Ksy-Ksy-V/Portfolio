@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const ScrollToTopButton = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -34,7 +34,7 @@ const ScrollToTopButton = () => {
         justifyContent: 'center',
         width: '3rem',
         height: '3rem',
-        borderRadius: '50%',
+        borderRadius: '0.5rem',
         backgroundColor: 'transparent',
         border: '2px solid var(--color-primary-dark)',
         cursor: 'pointer',

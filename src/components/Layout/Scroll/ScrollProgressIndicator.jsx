@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const ScrollProgressIndicator = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -20,7 +20,6 @@ const ScrollProgressIndicator = () => {
     window.addEventListener('scroll', calculateScrollProgress);
     window.addEventListener('resize', calculateScrollProgress);
     
-    // Вычислить начальный прогресс
     calculateScrollProgress();
 
     return () => {

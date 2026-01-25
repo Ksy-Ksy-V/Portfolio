@@ -1,14 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Grid } from '@mui/material'
-import { useTheme } from '../../../hooks/useTheme'
 import { useMediaQuery } from '../../../hooks/useMediaQuery'
 import { animations } from '../../../animation/animationData'
 
 const CatGame = () => {
     const [activeIndex, setActiveIndex] = useState(null)
     const videoRefs = useRef([])
-
-    const theme = useTheme()
     const isMobile = useMediaQuery('(max-width: 767px)')
 
     useEffect(() => {

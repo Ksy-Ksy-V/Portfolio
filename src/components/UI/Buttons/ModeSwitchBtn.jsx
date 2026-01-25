@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { ColorModeContext } from '../../Layout/Theme/ThemeProvider';
 import styles from './ModeSwitchBtn.module.css';

@@ -13,7 +13,7 @@
   border: none;
   cursor: pointer;
   font-family: 'Consolas', 'Courier New', monospace;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
 }
 
 @media (max-width: 480px) {

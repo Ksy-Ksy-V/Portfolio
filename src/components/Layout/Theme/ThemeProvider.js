@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState, useEffect } from 'react';
+import { createContext, useMemo, useState, useEffect } from 'react';
 import { getTheme, applyThemeVariables } from '../../../styles/theme.config';
 
 export const ColorModeContext = createContext({ 

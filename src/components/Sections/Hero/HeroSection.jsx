@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AnimatedBackground } from './AnimatedBackground.jsx';
 import MainButton from '../../UI/Buttons/MainButton';
 import OutlineButton from '../../UI/Buttons/OutlineButton';
@@ -52,24 +52,24 @@ export default function HeroSection() {
                   const delay = 100 + (previousLength * typingSpeed);
                   
                   return (
-                    <React.Fragment key={index}>
+                    <span key={index}>
                       {index > 0 && <br />}
                       <TypewriterText 
                         text={line}
                         typingSpeed={typingSpeed}
                         delay={delay}
                       />
-                    </React.Fragment>
+                    </span>
                   );
                 })}
               </>
             ) : (
               <>
                 {Array.from({ length: isMobile ? 4 : 2 }).map((_, index) => (
-                  <React.Fragment key={index}>
+                  <span key={index}>
                     {index > 0 && <br />}
                     <span className={styles.cursor}>|</span>
-                  </React.Fragment>
+                  </span>
                 ))}
               </>
             )}

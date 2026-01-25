@@ -1,4 +1,3 @@
-import React from 'react';
 import { Github, Linkedin, Figma } from 'lucide-react';
 import styles from './SocialLinks.module.css';
 

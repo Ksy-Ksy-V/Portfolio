@@ -14,14 +14,7 @@ const WorkflowCard = ({ stage, randomDelay, randomDuration, scrollAnimationDelay
     '--scroll-animation-delay': `${scrollAnimationDelay}s`,
   };
 
-  let cardClassName = `${styles.card} `;
-  
-  if (isVisible) {
-
-    cardClassName += styles.slideUp;
-  } else {
-    cardClassName += styles.hidden;
-  }
+  const cardClassName = `${styles.card} ${isVisible ? styles.slideUp : styles.hidden}`;
 
   return (
     <div

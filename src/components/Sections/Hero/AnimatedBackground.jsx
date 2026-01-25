@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import styles from './AnimatedBackground.module.css';
 
 const hexToRgb = (hex) => {

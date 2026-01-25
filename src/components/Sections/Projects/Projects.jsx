@@ -1,4 +1,3 @@
-import React from 'react';
 import ProjectCard from '../../UI/Card/ProjectCard';
 import { projectsData } from '../../../data/HomePageData';
 import styles from './Projects.module.css';
@@ -22,20 +21,16 @@ export function Projects() {
         </div>
 
         <div className={styles.projectsList}>
-          {projects.map((project, index) => {
-            const scrollAnimationDelay = index * 0.15;  
-            
-            return (
-              <ProjectCard
-                key={index}
-                project={project}
-                index={index}
-                isFirst={index === 0}
-                isLast={index === projects.length - 1}
-                scrollAnimationDelay={scrollAnimationDelay}
-              />
-            );
-          })}
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              project={project}
+              index={index}
+              isFirst={index === 0}
+              isLast={index === projects.length - 1}
+              scrollAnimationDelay={index * 0.15}
+            />
+          ))}
         </div>
       </div>
     </section>
