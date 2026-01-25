@@ -4,13 +4,12 @@ import MainButton from '../../UI/Buttons/MainButton';
 import OutlineButton from '../../UI/Buttons/OutlineButton';
 import H1TextEffect from '../../UI/Text/H1TextEffect';
 import TypewriterText from '../../UI/Text/TypewriterText';
+import { heroSectionData } from '../../../data/HomePageData';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
   const [greetingComplete, setGreetingComplete] = useState(false);
-  const fullText = "< Hello, I'm Ksenia Voitikh/>";
-  const fullDescription = "Crafting dynamic, user-focused web applications with a blend of technical precision and creativity.";
-  const typingSpeed = 100;
+  const { greeting, title, description, typingSpeed, buttons } = heroSectionData;
 
   return (
     <section 
@@ -24,7 +23,7 @@ export default function HeroSection() {
           <div className={styles.greeting}>
             <span className="heading-h3 mb-4 block">
               <TypewriterText 
-                text={fullText}
+                text={greeting}
                 typingSpeed={typingSpeed}
                 onComplete={() => setGreetingComplete(true)}
               />
@@ -33,16 +32,16 @@ export default function HeroSection() {
 
           <h1 className={`headline-h1 ${styles.title}`}>
             <H1TextEffect>
-              Front-End Developer
+              {title.main}
             </H1TextEffect>
             <br />
-            <span className={styles.titleSpan}>& Designer</span>
+            <span className={styles.titleSpan}>{title.secondary}</span>
           </h1>
           
-          <p className={`body-text-large max-w-2xl ${styles.description}`}>
+          <p className={`heading-h4 max-w-2xl ${styles.description}`}>
             {greetingComplete ? (
               <TypewriterText 
-                text={fullDescription}
+                text={description}
                 typingSpeed={typingSpeed}
                 delay={100}
               />
@@ -54,8 +53,8 @@ export default function HeroSection() {
           </p>
         
           <div className={styles.buttons}>
-            <MainButton />
-            <OutlineButton />
+            <MainButton>{buttons.primary}</MainButton>
+            <OutlineButton>{buttons.secondary}</OutlineButton>
           </div>
         </div>
       </div>

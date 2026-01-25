@@ -85,7 +85,7 @@
 }
 
 .titleSpan {
-  color: #ffffff;
+  color: var(--color-text-primary);
   white-space: nowrap;
   display: inline-block;
 }

@@ -19,7 +19,7 @@ import ErrorMessage from '../../components/Common/ErrorMessage'
 
 import CatGame from '../../components/Features/Games/CatGame'
 import ImageTabs from '../../components/Features/Portfolio/ImageTabs'
-import FigmaIcon from '../../img/icons/FigmaIcon'
+import { Figma } from 'lucide-react'
 
 const PortfolioDetails = () => {
     const theme = useTheme()
@@ -242,12 +242,11 @@ const PortfolioDetails = () => {
                 {project.figmaLink ? (
                     <Button
                         startIcon={
-                            <FigmaIcon
+                            <Figma
                                 style={{
                                     color: theme.palette.background.default,
-                                }}
-                                iconStyle={{
-                                    fill: theme.palette.background.default,
+                                    width: 24,
+                                    height: 24,
                                 }}
                             />
                         }
