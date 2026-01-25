@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { ColorModeContext } from '../components/General/SwithModeBtn/ThemeProvider'
+import { ColorModeContext } from '../components/Layout/Theme/ThemeProvider'
 
 export const useTheme = () => {
     const context = useContext(ColorModeContext)

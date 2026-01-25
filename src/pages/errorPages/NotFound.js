@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Grid, Box, Typography, Button, Container } from '@mui/material'
 
-import RunningLine from './../../components/HeroSection/RunningLine'
+import RunningLine from '../../components/Sections/TechStack/RunningLine'
 
 const NotFound = () => {
     return (
@@ -14,10 +14,7 @@ const NotFound = () => {
             marginTop="7rem"
         >
             <Grid item xs={12} mb={2} sx={{}}>
-                <RunningLine
-                    text={`< Don't worry! >\u00A0\u00A0\u00A0\u00A0`}
-                    direction="right"
-                />
+                <RunningLine />
             </Grid>
             <Grid item xs={12}>
                 <Box
@@ -61,9 +58,7 @@ const NotFound = () => {
                 </Box>
             </Grid>
             <Grid item xs={12} mb={2} sx={{}}>
-                <RunningLine
-                    text={`< Don't worry! >\u00A0\u00A0\u00A0\u00A0`}
-                />
+                <RunningLine />
             </Grid>
             <Grid item xs={6}>
                 <Button

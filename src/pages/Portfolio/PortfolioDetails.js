@@ -10,15 +10,15 @@ import {
 import { useTheme } from '../../hooks/useTheme'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import React from 'react'
-import RunningLine from '../../components/HeroSection/RunningLine'
+import RunningLine from '../../components/Sections/TechStack/RunningLine'
 import fetchProjects from '../../utils/fetchProjects'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import SliderPortfolio from '../../components/Slider/SliderPortfolio'
-import Loading from './../../components/General/Loading'
-import ErrorMessage from './../../components/General/ErrorMessage'
+import SliderPortfolio from '../../components/Features/Portfolio/SliderPortfolio'
+import Loading from '../../components/Common/Loading'
+import ErrorMessage from '../../components/Common/ErrorMessage'
 
-import CatGame from '../../components/ProjectContent/CatGame'
-import ImageTabs from '../../components/ProjectContent/ImageTabs '
+import CatGame from '../../components/Features/Games/CatGame'
+import ImageTabs from '../../components/Features/Portfolio/ImageTabs'
 import FigmaIcon from '../../img/icons/FigmaIcon'
 
 const PortfolioDetails = () => {

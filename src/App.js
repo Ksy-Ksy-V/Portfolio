@@ -6,13 +6,13 @@ import PortfolioDetails from './pages/Portfolio/PortfolioDetails'
 import Contact from './pages/Contact/Contact'
 import NotFound from './pages/ErrorPages/NotFound'
 
-import ScrollToTopButton from './components/General/Buttons/ScrollToTopButton'
+import ScrollToTopButton from './components/Layout/Scroll/ScrollToTopButton'
 import OpenOnTop from './utils/OpenOnTop'
 import CustomSelection from './utils/CustomSelection'
 
-import ThemeProvider from './components/General/SwithModeBtn/ThemeProvider'
+import ThemeProvider from './components/Layout/Theme/ThemeProvider'
 
-import PageWrapper from './components/General/PageWrapper'
+import PageWrapper from './components/Layout/PageWrapper'
 
 function App() {
     return (

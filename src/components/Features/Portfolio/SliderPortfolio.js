@@ -3,13 +3,13 @@ import {
     Grid,
     Button,
 } from '@mui/material'
-import { useTheme } from '../../hooks/useTheme'
-import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { useTheme } from '../../../hooks/useTheme'
+import { useMediaQuery } from '../../../hooks/useMediaQuery'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
-import fetchProjects from '../../utils/fetchProjects'
-import Loading from '../../components/Common/Loading'
-import ErrorMessage from '../../components/Common/ErrorMessage'
+import fetchProjects from '../../../utils/fetchProjects'
+import Loading from '../../Common/Loading'
+import ErrorMessage from '../../Common/ErrorMessage'
 
 const SliderPortfolio = ({ nextPicture, prevPicture, title }) => {
     const { loading, error } = fetchProjects()
