@@ -4,8 +4,12 @@
   cursor: pointer;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
-  color: var(--color-text-primary) !important;
   display: inline-block;
+}
+
+/* Override typography color with more specific selector */
+.button.heading-h3 {
+  color: var(--color-text-primary);
 }
 
 .button:hover {
@@ -13,6 +17,7 @@
   transform: scale(1.05);
 }
 
-.button.active {
-  color: var(--color-primary-main) !important;
+.button.active,
+.button.active.heading-h3 {
+  color: var(--color-primary-main);
 }

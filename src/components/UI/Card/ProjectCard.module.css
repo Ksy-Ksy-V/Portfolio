@@ -5,6 +5,12 @@
   margin-bottom: 6rem;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    margin-bottom: 4rem;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -19,12 +25,26 @@
   align-items: center;
 }
 
+@media (max-width: 1024px) {
+  .grid,
+  .gridReverse {
+    gap: 2rem;
+  }
+}
+
 .imageWrapper {
   margin-top: 2rem;
   margin-bottom: 6rem;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 1024px) {
+  .imageWrapper {
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+  }
 }
 
 .imageGlow {
@@ -145,8 +165,12 @@
 }
 
 .title {
-  color: var(--color-primary-main) !important;
   margin: 0 0 1rem 0;
+}
+
+/* Override typography color with more specific selector */
+.info .title.heading-h2 {
+  color: var(--color-primary-main);
 }
 
 .description {
@@ -165,44 +189,127 @@
 .buttonWrapper {
   margin: 0;
   padding: 0;
-  align-self: flex-start;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
+/* Remove margins from buttons within ProjectCard */
 .buttonWrapper :global(button),
-.buttonWrapper :global(.outline-button),
-.info .buttonWrapper :global(button) {
-  margin: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+.buttonWrapper :global(.outline-button) {
+  margin: 0;
 }
 
 @media (max-width: 768px) {
   .grid,
   .gridReverse {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
   }
   
   .info {
-    text-align: center !important;
+    text-align: left;
+    margin-bottom: 0;
+    order: 1;
   }
   
   .tags {
-    justify-content: center !important;
+    justify-content: flex-start;
   }
 
   .timelineColumn {
-    order: -1;
-    flex-direction: row !important;
-    width: 100%;
+    order: 2;
+  }
+
+  .imageWrapper,
+  .placeholder {
+    margin-top: 0;
+    margin-bottom: 0;
+    order: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid,
+  .gridReverse {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    order: 2;
+  }
+  
+  .tags {
     justify-content: center;
   }
 
-  .timelineLine {
-    width: 100% !important;
-    height: 3px !important;
-    min-height: 3px !important;
+  .buttonWrapper {
+    justify-content: center;
   }
+
+  .timelineColumn {
+    display: none;
+  }
+
+  .imageWrapper,
+  .placeholder {
+    margin-top: 0;
+    margin-bottom: 0;
+    order: 1;
+  }
+
+  .container {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-primary-main) 20%, transparent);
+  }
+
+  .container:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Анимации появления/исчезания */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+}
+
+.container.hidden {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  pointer-events: none;
+  animation: none;
+}
+
+.container.slideUp {
+  animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--scroll-animation-delay, 0s);
+  pointer-events: auto;
+}
+
+.container.slideDown {
+  animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: var(--scroll-animation-delay, 0s);
+  pointer-events: none;
 }

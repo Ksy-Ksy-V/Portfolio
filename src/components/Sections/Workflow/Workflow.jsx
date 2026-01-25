@@ -10,6 +10,7 @@ export function Workflow() {
     return stages.map((stage, index) => {
       const randomDelay = Math.random() * 5;
       const randomDuration = 12 + Math.random() * 8;
+      const scrollAnimationDelay = index * 0.1; 
       
       return (
         <WorkflowCard
@@ -17,6 +18,7 @@ export function Workflow() {
           stage={stage}
           randomDelay={randomDelay}
           randomDuration={randomDuration}
+          scrollAnimationDelay={scrollAnimationDelay}
         />
       );
     });

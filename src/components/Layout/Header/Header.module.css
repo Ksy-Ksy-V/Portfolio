@@ -71,6 +71,12 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .nav {
+    gap: 2rem;
+  }
+}
+
 
 .mobileMenuButton {
   display: flex;

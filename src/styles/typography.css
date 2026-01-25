@@ -54,35 +54,35 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .headline-h1 {
+        font-size: 64px;
+    }
+    
+    .heading-h2 {
         font-size: 48px;
     }
     
-    .heading-h2 {
-        font-size: 40px;
-    }
-    
     .heading-h3 {
-        font-size: 32px;
+        font-size: 22px;
     }
     
     .heading-h4 {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .body-text-large {
-        font-size: 18px;
+        font-size: 19px;
     }
     
     .body-text-regular {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .headline-h1 {
-        font-size: 36px;
+        font-size: 40px;
     }
     
     .heading-h2 {
@@ -90,7 +90,7 @@
     }
     
     .heading-h3 {
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .heading-h4 {
@@ -102,6 +102,32 @@
     }
     
     .body-text-regular {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headline-h1 {
+        font-size: 32px;
+    }
+    
+    .heading-h2 {
+        font-size: 28px;
+    }
+    
+    .heading-h3 {
+        font-size: 18px;
+    }
+    
+    .heading-h4 {
+        font-size: 18px;
+    }
+    
+    .body-text-large {
         font-size: 14px;
+    }
+    
+    .body-text-regular {
+        font-size: 12px;
     }
 }

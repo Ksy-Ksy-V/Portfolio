@@ -8,7 +8,16 @@ export const heroSectionData = {
     main: "Front-End Developer",
     secondary: "& Designer"
   },
-  description: "Crafting dynamic, user-focused web applications with a blend of technical precision and creativity.",
+  description: [
+    "Crafting dynamic, user-focused web applications",
+    "with a blend of technical precision and creativity."
+  ],
+  descriptionsMobile: [
+    "Crafting dynamic, user-focused",
+    "web applications",
+    "with a blend of technical",
+    "precision and creativity."
+  ],
   typingSpeed: 100,
   buttons: {
     primary: "Download CV",

@@ -22,15 +22,20 @@ export function Projects() {
         </div>
 
         <div className={styles.projectsList}>
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              index={index}
-              isFirst={index === 0}
-              isLast={index === projects.length - 1}
-            />
-          ))}
+          {projects.map((project, index) => {
+            const scrollAnimationDelay = index * 0.15;  
+            
+            return (
+              <ProjectCard
+                key={index}
+                project={project}
+                index={index}
+                isFirst={index === 0}
+                isLast={index === projects.length - 1}
+                scrollAnimationDelay={scrollAnimationDelay}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

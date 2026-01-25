@@ -8,6 +8,13 @@
   position: relative;
 }
 
+@media (max-width: 1024px) {
+  .section {
+    padding: 3rem 1.5rem;
+    margin-top: 4rem;
+  }
+}
+
 .container {
   max-width: 1200px;
   width: 100%;
@@ -22,6 +29,13 @@
   text-align: center;
   margin-bottom: 6rem;
   margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+  }
 }
 
 .label {

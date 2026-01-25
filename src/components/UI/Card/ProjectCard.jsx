@@ -1,12 +1,17 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import Tag from '../Tag/Tag';
 import OutlineButton from '../Buttons/OutlineButton';
 import styles from './ProjectCard.module.css';
 
-const ProjectCard = ({ project, index, isFirst, isLast }) => {
+const ProjectCard = ({ project, index, isFirst, isLast, scrollAnimationDelay = 0 }) => {
   const navigate = useNavigate();
   const isReverse = index % 2 === 1;
+  const { ref, isVisible } = useScrollAnimation({
+    rootMargin: '-100px',
+    threshold: 0.1,
+  });
 
   const handleNavigate = useCallback(() => {
     navigate(project.route);
@@ -83,8 +88,20 @@ const ProjectCard = ({ project, index, isFirst, isLast }) => {
     </div>
   );
 
+  let containerClassName = `${styles.container} `;
+  
+  if (isVisible) {
+    containerClassName += styles.slideUp;
+  } else {
+    containerClassName += styles.hidden;
+  }
+
+  const cardStyle = {
+    '--scroll-animation-delay': `${scrollAnimationDelay}s`,
+  };
+
   return (
-    <div className={styles.container}>
+    <div ref={ref} className={containerClassName} style={cardStyle}>
       <div className={isReverse ? styles.gridReverse : styles.grid}>
         {isReverse ? (
           <>

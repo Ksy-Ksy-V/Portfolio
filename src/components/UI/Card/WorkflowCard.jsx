@@ -1,15 +1,32 @@
+import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import Tag from '../Tag/Tag';
 import styles from './WorkflowCard.module.css';
 
-const WorkflowCard = ({ stage, randomDelay, randomDuration }) => {
+const WorkflowCard = ({ stage, randomDelay, randomDuration, scrollAnimationDelay = 0 }) => {
+  const { ref, isVisible } = useScrollAnimation({
+    rootMargin: '-50px',
+    threshold: 0.1,
+  });
+
   const cardStyle = {
     '--card-animation-delay': `${randomDelay}s`,
     '--card-animation-duration': `${randomDuration}s`,
+    '--scroll-animation-delay': `${scrollAnimationDelay}s`,
   };
+
+  let cardClassName = `${styles.card} `;
+  
+  if (isVisible) {
+
+    cardClassName += styles.slideUp;
+  } else {
+    cardClassName += styles.hidden;
+  }
 
   return (
     <div
-      className={styles.card}
+      ref={ref}
+      className={cardClassName}
       style={cardStyle}
     >
       <div className={styles.content}>

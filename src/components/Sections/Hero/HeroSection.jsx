@@ -4,17 +4,21 @@ import MainButton from '../../UI/Buttons/MainButton';
 import OutlineButton from '../../UI/Buttons/OutlineButton';
 import H1TextEffect from '../../UI/Text/H1TextEffect';
 import TypewriterText from '../../UI/Text/TypewriterText';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
 import { heroSectionData } from '../../../data/HomePageData';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
   const [greetingComplete, setGreetingComplete] = useState(false);
-  const { greeting, title, description, typingSpeed, buttons } = heroSectionData;
+  const isMobile = useMediaQuery('(max-width: 480px)');
+  const { greeting, title, description, descriptionsMobile, typingSpeed, buttons } = heroSectionData;
+  
+  const currentDescription = isMobile ? descriptionsMobile : description;
 
   return (
     <section 
       id="home" 
-      className={`${styles.section} relative min-h-screen w-full flex items-center pt-20 overflow-x-hidden`}
+      className={`${styles.section} ${styles.heroSection} relative w-full flex items-center pt-20 overflow-x-hidden`}
     >
       <AnimatedBackground />
       
@@ -38,19 +42,38 @@ export default function HeroSection() {
             <span className={styles.titleSpan}>{title.secondary}</span>
           </h1>
           
-          <p className={`heading-h4 max-w-2xl ${styles.description}`}>
+          <div className={`heading-h4 max-w-2xl ${styles.description}`}>
             {greetingComplete ? (
-              <TypewriterText 
-                text={description}
-                typingSpeed={typingSpeed}
-                delay={100}
-              />
+              <>
+                {currentDescription.map((line, index) => {
+                  const previousLength = currentDescription
+                    .slice(0, index)
+                    .reduce((sum, line) => sum + line.length, 0);
+                  const delay = 100 + (previousLength * typingSpeed);
+                  
+                  return (
+                    <React.Fragment key={index}>
+                      {index > 0 && <br />}
+                      <TypewriterText 
+                        text={line}
+                        typingSpeed={typingSpeed}
+                        delay={delay}
+                      />
+                    </React.Fragment>
+                  );
+                })}
+              </>
             ) : (
-              <span className={styles.cursor}>
-                |
-              </span>
+              <>
+                {Array.from({ length: isMobile ? 4 : 2 }).map((_, index) => (
+                  <React.Fragment key={index}>
+                    {index > 0 && <br />}
+                    <span className={styles.cursor}>|</span>
+                  </React.Fragment>
+                ))}
+              </>
             )}
-          </p>
+          </div>
         
           <div className={styles.buttons}>
             <MainButton>{buttons.primary}</MainButton>

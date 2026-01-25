@@ -98,10 +98,6 @@ export function AnimatedBackground() {
     return (
         <div
             className={styles.animatedBackground}
-            style={{
-                backgroundColor: 'var(--color-background-default)',
-                position: 'relative',
-            }}
         >
             {/* Animated particles */}
             {particles.map((particle) => (
