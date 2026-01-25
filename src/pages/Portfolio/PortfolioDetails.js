@@ -243,8 +243,8 @@ const PortfolioDetails = () => {
                     <Button
                         startIcon={
                             <FigmaIcon
-                                sx={{
-                                    htmlColor: theme.palette.background.default,
+                                style={{
+                                    color: theme.palette.background.default,
                                 }}
                                 iconStyle={{
                                     fill: theme.palette.background.default,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
-import ModeSwitchBtn from '../Theme/ModeSwitchBtn';
+import ModeSwitchBtn from '../../UI/Buttons/ModeSwitchBtn';
 import './Header.css';
 
 const Header = () => {

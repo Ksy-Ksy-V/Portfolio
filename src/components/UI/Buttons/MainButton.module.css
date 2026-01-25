@@ -1,0 +1,29 @@
+.button {
+  position: relative;
+  padding: 10px 30px;
+  margin: 2rem;
+  margin-left: 0;
+  margin-bottom: 6rem;
+  color: var(--color-text-contrast);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  overflow: hidden;
+  transition: 0.5s;
+  background: linear-gradient(to right, var(--color-primary-main), var(--color-primary-light));
+  border: none;
+  cursor: pointer;
+  font-family: 'Consolas', 'Courier New', monospace;
+  border-radius: 0.15rem;
+}
+
+.button:hover {
+  color: var(--color-background-default);
+  background: linear-gradient(to right, var(--color-primary-light), var(--color-primary-main));
+  box-shadow: 
+    0 0 10px var(--color-primary-main), 
+    0 0 40px var(--color-primary-main), 
+    0 0 80px var(--color-primary-main);
+  transition-delay: 0s;
+}

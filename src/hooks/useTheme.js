@@ -17,10 +17,11 @@ export const useTheme = () => {
                     default: '#0A0A0F',
                     paper: '#0f0a15',
                 },
-                text: {
-                    primary: '#F8F4EC',
-                    secondary: '#F8F4EC',
-                },
+            text: {
+                primary: '#F8F4EC',
+                secondary: '#F8F4EC',
+                contrast: '#FFFFFF',
+            },
                 divider: '#E6E6EB',
             },
             breakpoints: {
@@ -63,6 +64,7 @@ export const useTheme = () => {
             text: {
                 primary: context.theme.palette.text.primary,
                 secondary: context.theme.palette.text.secondary || context.theme.palette.text.primary,
+                contrast: context.theme.palette.text.contrast || '#FFFFFF',
             },
             divider: context.theme.palette.divider || '#E6E6EB',
         },

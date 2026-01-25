@@ -1,0 +1,156 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpSmall {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.section {
+  width: 100%;
+  position: relative;
+  min-width: 100%;
+  overflow: hidden;
+  background-color: var(--color-background-default);
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 8.33%;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    padding-left: 4.17%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-left: 2.6%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding-left: 2.08%;
+  }
+}
+
+.greeting {
+  display: inline-block;
+  margin-top: 10rem;
+  animation: fadeInUpSmall 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.title {
+  white-space: nowrap;
+  animation: fadeInUpSmall 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.titleSpan {
+  color: #ffffff;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.cursor {
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: var(--color-primary-main);
+  animation: blink 1s infinite;
+}
+
+.description {
+  animation: fadeInUpSmall 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  animation: fadeInUpSmall 0.8s ease-out 0.7s forwards;
+  opacity: 0;
+}
+
+@keyframes scrollIndicator {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes scrollDot {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollIndicator 2s ease-in-out infinite;
+}
+
+.scrollIndicatorContainer {
+  width: 1.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--color-primary-main);
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+  opacity: 0.5;
+}
+
+.scrollDot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background-color: var(--color-primary-main);
+  animation: scrollDot 2s ease-in-out infinite;
+}
