@@ -1,9 +1,9 @@
 import { Grid } from '@mui/material'
-import ProjectCard from '../../components/ProjectCard'
-import MainHeader from '../../components/MainHeader'
+import ProjectCard from '../../components/Features/Portfolio/ProjectCard'
+import MainHeader from '../../components/UI/Text/MainHeader'
 import React from 'react'
-import Loading from '../../components/General/Loading'
-import ErrorMessage from './../../components/General/ErrorMessage'
+import Loading from '../../components/Common/Loading'
+import ErrorMessage from '../../components/Common/ErrorMessage'
 import fetchProjects from '../../utils/fetchProjects'
 
 const PortfolioList = () => {

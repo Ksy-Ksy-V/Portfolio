@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
-import ContactForm from '../../components/Contacts/ContactForm'
-import ContactInformation from '../../components/Contacts/ContactInformation'
+import ContactForm from '../../components/Features/Contact/ContactForm'
+import ContactInformation from '../../components/Features/Contact/ContactInformation'
 
 const Contact = () => {
     return (

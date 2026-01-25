@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Grid, Box, Typography, Button, Container } from '@mui/material'
 
-import RunningLine from './../../components/HeroSection/RunningLine'
+import RunningLine from './../../components/Sections/TechStack/RunningLine'
 
 const NotFound = () => {
     return (

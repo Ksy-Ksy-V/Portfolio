@@ -6,24 +6,24 @@ import {
     Button,
     Box,
     MobileStepper,
-    useTheme,
-    useMediaQuery,
 } from '@mui/material'
+import { useTheme } from '../../hooks/useTheme'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import React from 'react'
-import RunningLine from '../../components/HeroSection/RunningLine'
+import RunningLine from '../../components/Sections/TechStack/RunningLine'
 import fetchProjects from '../../utils/fetchProjects'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import SliderPortfolio from '../../components/Slider/SliderPortfolio'
-import Loading from './../../components/General/Loading'
-import ErrorMessage from './../../components/General/ErrorMessage'
+import SliderPortfolio from '../../components/Features/Portfolio/SliderPortfolio'
+import Loading from '../../components/Common/Loading'
+import ErrorMessage from '../../components/Common/ErrorMessage'
 
-import CatGame from '../../components/ProjectContent/CatGame'
-import ImageTabs from '../../components/ProjectContent/ImageTabs '
-import FigmaIcon from '../../img/icons/FigmaIcon'
+import CatGame from '../../components/Features/Games/CatGame'
+import ImageTabs from '../../components/Features/Portfolio/ImageTabs'
+import { Figma } from 'lucide-react'
 
 const PortfolioDetails = () => {
     const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -242,12 +242,11 @@ const PortfolioDetails = () => {
                 {project.figmaLink ? (
                     <Button
                         startIcon={
-                            <FigmaIcon
-                                sx={{
-                                    htmlColor: theme.palette.background.default,
-                                }}
-                                iconStyle={{
-                                    fill: theme.palette.background.default,
+                            <Figma
+                                style={{
+                                    color: theme.palette.background.default,
+                                    width: 24,
+                                    height: 24,
                                 }}
                             />
                         }

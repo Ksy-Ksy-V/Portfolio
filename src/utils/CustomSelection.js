@@ -1,23 +1,29 @@
-import React from 'react'
-import { CssBaseline, useTheme } from '@mui/material'
-import { GlobalStyles } from '@mui/system'
+import React, { useEffect } from 'react'
+import { useTheme } from '../hooks/useTheme'
 
 const CustomSelection = () => {
     const theme = useTheme()
-    return (
-        <>
-            <CssBaseline />
 
-            <GlobalStyles
-                styles={{
-                    '::selection': {
-                        backgroundColor: theme.palette.primary.light,
-                        color: theme.palette.background.default,
-                    },
-                }}
-            />
-        </>
-    )
+    useEffect(() => {
+        const style = document.createElement('style')
+        style.textContent = `
+            ::selection {
+                background-color: ${theme.palette.primary.light};
+                color: ${theme.palette.background.default};
+            }
+            ::-moz-selection {
+                background-color: ${theme.palette.primary.light};
+                color: ${theme.palette.background.default};
+            }
+        `
+        document.head.appendChild(style)
+
+        return () => {
+            document.head.removeChild(style)
+        }
+    }, [theme])
+
+    return null
 }
 
 export default CustomSelection
