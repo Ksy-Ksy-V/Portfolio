@@ -6,7 +6,7 @@ import fetchProjects from '../../utils/fetchProjects'
 import styles from './PortfolioList.module.css'
 
 const PortfolioList = () => {
-    const { projects, loading, error } = fetchProjects()
+    const { projects, loading, error} = fetchProjects()
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage />
