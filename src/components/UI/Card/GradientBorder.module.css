@@ -1,0 +1,105 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+@keyframes slowChaoticSpin {
+  0% {
+    --rotate: 0deg;
+  }
+  20% {
+    --rotate: 85deg;
+  }
+  40% {
+    --rotate: 180deg;
+  }
+  60% {
+    --rotate: 250deg;
+  }
+  80% {
+    --rotate: 320deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+@keyframes slowChaoticSpinReverse {
+  0% {
+    --rotate: 360deg;
+  }
+  25% {
+    --rotate: 280deg;
+  }
+  50% {
+    --rotate: 180deg;
+  }
+  75% {
+    --rotate: 90deg;
+  }
+  100% {
+    --rotate: 0deg;
+  }
+}
+
+.gradientBorder {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  overflow: visible;
+}
+
+.gradientBorder::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--color-primary-light) 0%,
+    var(--color-primary-main) 25%,
+    var(--color-primary-dark) 50%,
+    var(--color-primary-main) 75%,
+    var(--color-primary-light) 100%
+  );
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  animation: slowChaoticSpin var(--card-animation-duration, 15s) ease-in-out infinite;
+  animation-delay: var(--card-animation-delay, 0s);
+  opacity: 0.8;
+  transition: opacity 0.4s ease;
+}
+
+.gradientBorder::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.05);
+  z-index: -2;
+  height: 105%;
+  width: 105%;
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--color-primary-light),
+    var(--color-primary-main) 35%,
+    var(--color-primary-dark) 65%,
+    var(--color-primary-light)
+  );
+  filter: blur(20px);
+  opacity: 0.15;
+  transition: opacity 0.4s ease;
+  animation: slowChaoticSpinReverse calc(var(--card-animation-duration, 18s) * 1.2) ease-in-out infinite;
+  animation-delay: calc(var(--card-animation-delay, 0s) * 1.5);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  border-radius: calc(1rem - 2px);
+  width: 100%;
+  height: 100%;
+}

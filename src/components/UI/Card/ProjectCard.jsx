@@ -34,22 +34,32 @@ const ProjectCard = ({ project, index, isFirst, isLast, scrollAnimationDelay = 0
     </div>
   );
 
+  const randomDelay = Math.random() * 5
+  const randomDuration = 12 + Math.random() * 8
+
   const imageSection = project.image ? (
     <div className={styles.imageWrapper}>
-      <div className={styles.imageGlow} />
       <div 
-        className={styles.imageContainer}
-        onClick={handleNavigate}
-        role="button"
-        tabIndex={0}
-        onKeyDown={handleKeyDown}
-        aria-label={`View ${project.title} project`}
+        className={`${styles.gradientBorder}`}
+        style={{
+          '--card-animation-delay': `${randomDelay}s`,
+          '--card-animation-duration': `${randomDuration}s`,
+        }}
       >
-        <img
-          src={project.image}
-          alt={project.title}
-          className={styles.image}
-        />
+        <div 
+          className={styles.gradientContent}
+          onClick={handleNavigate}
+          role="button"
+          tabIndex={0}
+          onKeyDown={handleKeyDown}
+          aria-label={`View ${project.title} project`}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            className={styles.image}
+          />
+        </div>
       </div>
     </div>
   ) : (
