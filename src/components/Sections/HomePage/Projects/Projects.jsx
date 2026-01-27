@@ -1,5 +1,5 @@
-import ProjectCard from '../../UI/Card/ProjectCard';
-import { projectsData } from '../../../data/HomePageData';
+import ProjectCard from '../../../UI/Card/ProjectCard';
+import { projectsData } from '../../../../data/HomePageData';
 import styles from './Projects.module.css';
 
 export function Projects() {

@@ -1,5 +1,5 @@
 export const navigationLinks = [
   { path: '/', label: 'Home' },
-  { path: '/portfolio', label: 'Portfolio' },
+  { path: '/portfolio-details/1', label: 'Portfolio' },
   { path: '/contact', label: 'Contact' },
 ];

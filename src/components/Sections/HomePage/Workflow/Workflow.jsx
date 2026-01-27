@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import WorkflowCard from '../../UI/Card/WorkflowCard';
-import { workflowData } from '../../../data/HomePageData';
+import WorkflowCard from '../../../UI/Card/WorkflowCard';
+import { workflowData } from '../../../../data/HomePageData';
 import styles from './Workflow.module.css';
 
 export function Workflow() {

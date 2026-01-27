@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import RunningLine from '../../components/Sections/TechStack/RunningLine'
+import RunningLine from '../../components/Sections/HomePage/TechStack/RunningLine'
 import OutlineButton from '../../components/UI/Buttons/OutlineButton'
 import styles from './NotFound.module.css'
 

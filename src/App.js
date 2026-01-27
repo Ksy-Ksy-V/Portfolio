@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 
 import Home from './pages/Home/Home'
-import PortfolioList from './pages/Portfolio/PortfolioList'
 import PortfolioDetails from './pages/Portfolio/PortfolioDetails'
 import Contact from './pages/Contact/Contact'
 import NotFound from './pages/ErrorPages/NotFound'
@@ -30,14 +29,7 @@ function App() {
                                 </PageWrapper>
                             }
                         />
-                        <Route
-                            path="/portfolio"
-                            element={
-                                <PageWrapper>
-                                    <PortfolioList />
-                                </PageWrapper>
-                            }
-                        />
+                        <Route path="/portfolio" element={<Navigate to="/portfolio-details/1" replace />} />
                         <Route
                             path="/portfolio-details/:id"
                             element={

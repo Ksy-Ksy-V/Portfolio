@@ -1,0 +1,63 @@
+.linksBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 3rem 10%;
+  margin: 0 auto 5rem;
+  box-sizing: border-box;
+}
+
+.linksBarSlot {
+  flex: 1;
+  min-width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.linksBarButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.linksBarButton > * {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .linksBar {
+    padding: 1.5rem 10%;
+    gap: 0.75rem;
+  }
+
+  .linksBarSlot {
+    min-width: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .linksBar {
+    padding: 1.25rem 10%;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .linksBarSlot {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .linksBar {
+    padding: 1rem 10%;
+  }
+}

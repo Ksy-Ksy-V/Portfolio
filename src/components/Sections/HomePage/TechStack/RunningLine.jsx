@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { techStackData } from '../../../data/HomePageData';
+import { techStackData } from '../../../../data/HomePageData';
 import styles from './RunningLine.module.css';
 
 const REPEAT_COUNT = 10;

@@ -1,0 +1,92 @@
+.aboutCard {
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-primary-main) 40%, transparent);
+  background: color-mix(in srgb, var(--color-background-default) 98%, var(--color-background-paper));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary-main) 8%, transparent);
+}
+
+.gridCellAbout {
+  grid-row: 1;
+  grid-column: 1;
+  min-height: 0;
+}
+
+.contextTag {
+  margin: 0 0 0.75rem 0;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: var(--color-primary-main);
+  text-align: center;
+}
+
+.aboutTitle {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.descriptionWithBreaks .descriptionBlock {
+  white-space: pre-line;
+  display: block;
+}
+
+.descriptionWithBreaks .descriptionBlock + .descriptionBlock,
+.descriptionWithBreaks .aboutGoalsList {
+  margin-top: 1rem;
+}
+
+.aboutGoalsList {
+  margin: 0.5rem 0 1rem 1.25rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.aboutGoalsItem {
+  margin-bottom: 0.35rem;
+  color: var(--color-text-secondary);
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .aboutCard {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .gridCellAbout {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .description {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutCard {
+    padding: 1rem 1.25rem;
+  }
+
+  .contextTag {
+    font-size: 0.75rem;
+  }
+
+  .aboutTitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
