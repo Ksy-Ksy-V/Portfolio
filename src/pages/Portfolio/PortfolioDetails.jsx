@@ -14,6 +14,7 @@ import AboutCard, { DESIGN_EMPHASIZES } from '../../components/Sections/Portfoli
 import DesignSystemCard from '../../components/Sections/PortfolioPage/DesignSystemCard'
 import ArchitectureSection from '../../components/Sections/PortfolioPage/ArchitectureSection'
 import DevelopmentProcessCard from '../../components/Sections/PortfolioPage/DevelopmentProcessCard'
+import MultiDeviceScreenshotsSection from '../../components/Sections/PortfolioPage/MultiDeviceScreenshotsSection'
 
 const PortfolioDetails = () => {
   const isMobile = useMediaQuery('(max-width: 767px)')
@@ -75,6 +76,8 @@ const PortfolioDetails = () => {
     sliderData,
     figmaLink,
     goals = [],
+    designSystem,
+    imagesData,
   } = project
 
   const descriptionParts =
@@ -107,7 +110,7 @@ const PortfolioDetails = () => {
             descriptionParts={descriptionParts}
           />
 
-          <DesignSystemCard />
+          <DesignSystemCard designSystem={designSystem} />
 
           <ArchitectureSection
             dataFlowDiagram={dataFlowDiagram}
@@ -122,6 +125,8 @@ const PortfolioDetails = () => {
           />
         </div>
       </section>
+
+      <MultiDeviceScreenshotsSection imagesData={imagesData} />
     </div>
   )
 }
