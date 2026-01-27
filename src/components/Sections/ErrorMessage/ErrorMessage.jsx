@@ -1,5 +1,5 @@
 import React from 'react' 
-import OutlineButton from '../UI/Buttons/OutlineButton'
+import OutlineButton from '../../UI/Buttons/OutlineButton'
 import styles from './ErrorMessage.module.css'
 
 const ErrorMessage = () => {

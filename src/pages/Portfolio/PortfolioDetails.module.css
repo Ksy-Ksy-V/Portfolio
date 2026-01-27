@@ -1,0 +1,857 @@
+.container {
+  width: 100%; 
+  background-color: var(--color-background-default);
+}
+
+.projectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 6rem; 
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.projectTitleBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  order: 0;
+}
+
+.projectContext {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 1rem;
+  color: var(--color-primary-main);
+  text-align: center;
+}
+
+.projectTitle {
+  color: var(--color-text-primary);
+  margin: 0 0 2rem 0;
+  text-align: center;
+  transition: all 0.4s ease;
+  cursor: default;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.projectTitle:hover {
+  color: var(--color-text-primary);
+  transform: scale(1.02);
+}
+
+.imageSection {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 1rem;
+  line-height: 0;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.stepper {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  background: color-mix(in srgb, var(--color-background-default) 80%, transparent);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(8px);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary-main);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background: var(--color-primary-light);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: var(--color-primary-main);
+  border-color: var(--color-primary-light);
+}
+
+.runningLineWrapper {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+/* Панель ссылок — после превью, перед секцией о проекте, отступы 10%, кнопки равномерно */
+.linksBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 3rem 10%;
+  margin: 0 auto 5rem;
+  box-sizing: border-box;
+}
+
+.linksBarSlot {
+  flex: 1;
+  min-width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.linksBarButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.linksBarButton > * {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Секция «О проекте» — отступы 10% слева/справа, колонки 30% и 50% ширины экрана */
+.projectDetailsSection {
+  width: 100%;
+  padding: 2rem 10% 3rem;
+  margin-bottom: 5rem;
+  box-sizing: border-box;
+}
+
+/* Сетка 2×2: About | Design System, Data Flow | Development Process (нижний ряд — одна высота) */
+.projectDetailsGrid {
+  display: grid;
+  grid-template-columns: 37.5% 62.5%;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.gridCellAbout {
+  grid-row: 1;
+  grid-column: 1;
+  min-height: 0;
+}
+
+.gridCellDesign {
+  grid-row: 1;
+  grid-column: 2;
+  min-height: 0;
+}
+
+/* Ячейка 2,1 — < Architecture /> (схема System Flow) */
+.gridCellDataFlow {
+  grid-row: 2;
+  grid-column: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+.gridCellDataFlowEmpty {
+  grid-row: 2;
+  grid-column: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* Ячейка 2,2 — Development Process (отдельная карточка, высота по контенту) */
+.gridCellDevelopment {
+  grid-row: 2;
+  grid-column: 2;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7rem;
+  align-self: start;
+}
+
+.gridCellDevelopmentFullWidth {
+  grid-column: 1 / -1;
+}
+
+/* Обёртки-колонки не используются при 2×2, оставлено для совместимости */
+.columnAbout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.aboutCard,
+.developmentCard {
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-primary-main) 40%, transparent);
+  background: color-mix(in srgb, var(--color-background-default) 98%, var(--color-background-paper));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary-main) 8%, transparent);
+}
+
+ 
+.contextTag {
+  margin: 0 0 0.75rem 0;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: var(--color-primary-main);
+  text-align: center;
+}
+
+.aboutTitle {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.sectionTitle {
+  color: var(--color-primary-main);
+  margin: 1rem 0 0.5rem 0;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.sectionTitle:hover {
+  text-decoration: underline wavy;
+  color: var(--color-primary-light);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.descriptionPreLine {
+  white-space: pre-line;
+}
+
+.descriptionWithBreaks .descriptionBlock {
+  white-space: pre-line;
+  display: block;
+}
+
+.descriptionWithBreaks .descriptionBlock + .descriptionBlock,
+.descriptionWithBreaks .aboutGoalsList {
+  margin-top: 1rem;
+}
+
+.aboutGoalsList {
+  margin: 0.5rem 0 1rem 1.25rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.aboutGoalsItem {
+  margin-bottom: 0.35rem;
+  color: var(--color-text-secondary);
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+.developmentLayersList {
+  margin: 0.75rem 0 1rem 1.25rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.developmentLayersItem {
+  margin-bottom: 0.35rem;
+  color: var(--color-text-secondary);
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+.developmentConclusion {
+  margin-top: 1rem;
+}
+
+.skillsList {
+  margin: 0.75rem 0 0 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.skillItem {
+  margin-bottom: 0.25rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.linkButton {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Правая колонка — Design System */
+.columnDesignSystem {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.designSystemCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  background: color-mix(in srgb, var(--color-background-default) 98%, var(--color-background-paper));
+  box-shadow: none;
+  min-height: 0;
+}
+
+.dsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.dsSectionTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+
+/* Color — свачи с подписью сверху и hex снизу */
+.colorSwatchesRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.swatchItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 8rem;
+  min-height: 4rem;
+}
+
+.swatchLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.swatch {
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--color-text-primary) 25%, transparent);
+}
+
+.swatchPrimary {
+  background: #387171;
+  border: 2px solid #64fcf2;
+}
+
+.swatchHex {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+}
+
+/* Общий контейнер для прямоугольников Gradient и Text — одинаковая ширина */
+.dsRectBlock {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Градиентная полоса — расширенный прямоугольник */
+.gradientBar {
+  width: 100%;
+  min-height: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Прямоугольник с текстом — та же ширина, расширен по высоте */
+.gradientBarWithText {
+  width: 100%;
+  min-height: 4rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.gradientBarText {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+/* Отступ перед блоком Typography */
+.dsSectionTypography {
+  margin-top: 6rem;
+}
+
+/* Typography — два шрифта в одном ряду, двумя столбцами */
+.typographySamples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.typoRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.typoAg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.typoLabel {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.typeScaleTitle {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Data Flow / < Architecture /> — схема без бордера, фон как у страницы */
+.dataFlowDiagramSection {
+  padding: 1.5rem 0;
+  margin-bottom: 5rem;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Карточка Data Flow (если понадобится версия с бордером) */
+.dataFlowDiagramCard {
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-primary-main) 40%, transparent);
+  background: color-mix(in srgb, var(--color-background-default) 98%, var(--color-background-paper));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary-main) 8%, transparent);
+}
+
+.dataFlowTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.flowIntro {
+  margin: 0 0 1rem 0;
+  font-size: inherit;
+}
+
+.dataFlowTitle + .flowIntro {
+  margin-top: 0;
+}
+
+.flowDiagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+}
+
+.flowBlock {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--color-primary-main) 50%, transparent);
+  background: color-mix(in srgb, var(--color-primary-main) 12%, var(--color-background-default));
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.flowBlockTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+}
+
+.flowBlockSubtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.flowArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0;
+  color: var(--color-primary-main);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .projectHeader {
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .projectTitle {
+    padding: 0 1.5rem;
+  }
+
+  .projectContext {
+    font-size: 0.9rem;
+  }
+
+  .projectDetailsGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .gridCellAbout {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .gridCellDesign {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .gridCellDataFlow,
+  .gridCellDataFlowEmpty {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  .gridCellDevelopment {
+    grid-row: 4;
+    grid-column: 1;
+  }
+
+  .gridCellDevelopmentFullWidth {
+    grid-column: 1;
+  }
+
+  .aboutCard,
+  .developmentCard,
+  .designSystemCard {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .dataFlowDiagramSection {
+    padding: 1.25rem 0;
+  }
+
+  .runningLineWrapper {
+    margin-bottom: 2rem;
+  }
+
+  .linksBar {
+    padding: 1.5rem 10%;
+    gap: 0.75rem;
+  }
+
+  .linksBarSlot {
+    min-width: 8rem;
+  }
+
+  .dsSectionTypography {
+    margin-top: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .projectHeader {
+    margin-top: 5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .projectTitle {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .projectContext {
+    font-size: 0.875rem;
+  }
+
+  .imageSection {
+    margin-bottom: 1.5rem;
+  }
+
+  .runningLineWrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .projectDetailsSection {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .projectDetailsGrid {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .sectionTitle {
+    margin: 1.25rem 0 0.5rem 0;
+  }
+
+  .description {
+    margin-bottom: 1rem;
+  }
+
+  .buttons {
+    margin-top: 1rem;
+  }
+
+  .colorSwatchesRow {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .swatch {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .typographySamples {
+    grid-template-columns: 1fr;
+  }
+
+  .typoAg {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.75rem;
+  }
+
+  .typoLabel {
+    font-size: 1.35rem;
+  }
+
+  .stepper {
+    bottom: 0.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .linksBar {
+    padding: 1.25rem 10%;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .linksBarSlot {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dsSectionTypography {
+    margin-top: 1.5rem;
+  }
+
+  .dataFlowDiagramSection {
+    padding: 1.25rem 0;
+  }
+
+  .flowBlock {
+    padding: 1.25rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .projectHeader {
+    margin-top: 4.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 0.5rem;
+  }
+
+  .projectTitle {
+    font-size: 1.25rem;
+    padding: 0 0.5rem;
+  }
+
+  .projectContext {
+    font-size: 0.75rem;
+  }
+
+  .projectDetailsGrid {
+    padding: 0 0.75rem;
+    gap: 1.25rem;
+  }
+
+  .aboutCard,
+  .developmentCard,
+  .designSystemCard {
+    padding: 1rem 1.25rem;
+  }
+
+  .contextTag {
+    font-size: 0.75rem;
+  }
+
+  .aboutTitle,
+  .dsSectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  .description {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .swatch {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .swatchHex {
+    font-size: 0.65rem;
+  }
+
+  .typographySamples {
+    grid-template-columns: 1fr;
+  }
+
+  .typoAg {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .typoLabel {
+    font-size: 1.1rem;
+  }
+
+  .linksBar {
+    padding: 1rem 10%;
+  }
+
+  .dsSectionTypography {
+    margin-top: 1.25rem;
+  }
+
+  .skillItem {
+    font-size: 0.8rem;
+  }
+
+  .buttons {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .dataFlowDiagramSection {
+    padding: 1rem 0;
+  }
+
+  .dataFlowTitle {
+    font-size: 1.25rem;
+  }
+
+  .flowBlock {
+    padding: 1rem 1.25rem;
+  }
+
+  .flowBlockTitle {
+    font-size: 0.9rem;
+  }
+
+  .flowBlockSubtitle {
+    font-size: 0.8rem;
+  }
+}

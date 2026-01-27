@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Tabs, Tab, Box, Grid } from '@mui/material'
 import { useMediaQuery } from '../../../hooks/useMediaQuery'
-import StyledImage from '../../Common/StyledImage'
 
 const ImageTabs = ({ project }) => {
     const [activeTab, setActiveTab] = useState('desc')
@@ -56,16 +55,23 @@ const ImageTabs = ({ project }) => {
                 sx={{ mt: isMobile ? '0rem' : '2rem' }}
             >
                 {project.imagesData[activeTab]?.map((image, index) => (
-                    <StyledImage
+                    <Box
                         key={index}
+                        component="img"
                         src={image}
                         alt={`${activeTab} Image ${index + 1}`}
                         sx={{
                             width: activeTab === 'mob' ? '40%' : '85%',
                             height: 'auto',
                             margin: '1rem',
+                            border: '3px solid',
+                            borderColor: 'var(--color-primary-dark)',
+                            transition: 'border-color 0.3s ease',
+                            '&:hover': {
+                                borderColor: 'var(--color-primary-main)',
+                            },
                         }}
-                    ></StyledImage>
+                    />
                 ))}
             </Box>
         </Grid>

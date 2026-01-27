@@ -1,7 +1,7 @@
 import PortfolioCard from '../../components/UI/Card/PortfolioCard'
 import React from 'react'
-import Loading from '../../components/Common/Loading'
-import ErrorMessage from '../../components/Common/ErrorMessage'
+import Loading from '../../components/Sections/Loading/Loading'
+import ErrorMessage from '../../components/Sections/ErrorMessage/ErrorMessage'
 import fetchProjects from '../../utils/fetchProjects'
 import styles from './PortfolioList.module.css'
 

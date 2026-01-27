@@ -41,8 +41,27 @@
                 "Axios",
                 "Jikan API"
             ],
-            "description": "Kito is a web platform tailored for anime fans to explore, organize, and track their favorite shows. Users can browse a vast anime library, create personalized watchlists. Kito combines a clean design with intuitive functionality, making it accessible for both seasoned anime enthusiasts and newcomers.",
-            "developmentDescription": "This project showcases my ability to develop modern web applications using advanced technologies. The frontend is built with React, TypeScript, and Material-UI, providing a responsive and visually appealing user interface. Anime data is fetched via the Jikan API, while a custom Node.js backend with MongoDB handles user registration, authentication, and list management. Through this project, I enhanced my skills in state management with Redux Toolkit, API integration, and delivering a seamless user experience. Kito represents my passion for anime and my dedication to creating user-centric web applications.",
+            "description": "Kito is an anime discovery and tracking platform designed with a strong focus on clarity, usability, and visual balance.\n\nThe interface is built to be intuitive and comfortable for long browsing sessions, allowing users to explore anime titles, search content, and navigate between sections without friction.\n\nThe design emphasizes:\n\nSpecial attention is given to user experience details such as smooth navigation, predictable interactions, and readable content presentation.\nThe goal of the product design is to make anime exploration feel simple, engaging, and visually pleasant, without overwhelming the user with unnecessary elements.",
+            "goals": [
+                "a clean and minimalistic layout",
+                "consistent spacing, typography, and color usage",
+                "clear visual hierarchy to highlight important information",
+                "responsive behavior across different screen sizes"
+            ],
+            "developmentDescription": "Kito is designed with a clear separation between presentation, state management, and data access layers.\n\nThe architecture follows a component-driven approach, where UI components remain declarative and focused on rendering, while business logic and side effects are handled outside the view layer.\n\nThe application is structured around:",
+            "developmentLayers": [
+                "Presentation layer — reusable React components responsible only for UI and user interactions",
+                "State layer — centralized state management using Redux to handle global application state",
+                "Data layer — API services responsible for communication with external and internal APIs"
+            ],
+            "developmentConclusion": "This separation improves maintainability, testability, and long-term scalability of the codebase.",
+            "architectureDiagramTitle": "System Flow",
+            "dataFlowDiagram": [
+                { "title": "Frontend", "subtitle": "React + TypeScript + MUI" },
+                { "title": "API Layer", "subtitle": "Axios + Jikan API" },
+                { "title": "Backend", "subtitle": "Node.js + Express" },
+                { "title": "Database", "subtitle": "MongoDB" }
+            ],
             "link": "https://kito-eta.vercel.app/",
             "gitHubLink": "https://github.com/Ksy-Ksy-V/kito",
             "sliderData": "/img/sliderData/projectPrev03.png",

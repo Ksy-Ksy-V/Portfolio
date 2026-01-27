@@ -35,6 +35,13 @@
   transition-delay: 0s;
 }
 
+.button.alwaysGlow {
+  box-shadow: 
+    0 0 10px var(--color-primary-main), 
+    0 0 40px var(--color-primary-main), 
+    0 0 80px var(--color-primary-main);
+}
+
 .animatedBorder {
   position: absolute;
   display: block;
