@@ -17,6 +17,7 @@ import DesignSystemCard from '../../components/Sections/PortfolioPage/DesignSyst
 import ArchitectureSection from '../../components/Sections/PortfolioPage/ArchitectureSection'
 import DevelopmentProcessCard from '../../components/Sections/PortfolioPage/DevelopmentProcessCard'
 import MultiDeviceScreenshotsSection from '../../components/Sections/PortfolioPage/MultiDeviceScreenshotsSection'
+import PixelPlayDesktopSection from '../../components/Sections/PortfolioPage/PixelPlayDesktopSection'
 import CharacterShowcaseSection from '../../components/Sections/PortfolioPage/CharacterShowcaseSection'
 
 const PortfolioDetails = () => {
@@ -140,7 +141,11 @@ const PortfolioDetails = () => {
                 <CharacterShowcaseSection title="Animated Characters" />
             )}
 
-            <MultiDeviceScreenshotsSection imagesData={imagesData} />
+            {project.id === '2' ? (
+                <PixelPlayDesktopSection />
+            ) : (
+                <MultiDeviceScreenshotsSection imagesData={imagesData} />
+            )}
         </div>
     )
 }
