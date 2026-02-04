@@ -1,5 +1,10 @@
 /* Typography styles based on design system */
 
+/* Press Start 2P — pixel/retro font (Google Fonts) */
+.font-press-start-2p {
+    font-family: 'Press Start 2P', cursive;
+}
+
 /* Headline */
 .headline-h1 {
     font-family: 'Arial', sans-serif;
@@ -58,23 +63,23 @@
     .headline-h1 {
         font-size: 64px;
     }
-    
+
     .heading-h2 {
         font-size: 48px;
     }
-    
+
     .heading-h3 {
         font-size: 22px;
     }
-    
+
     .heading-h4 {
         font-size: 28px;
     }
-    
+
     .body-text-large {
         font-size: 19px;
     }
-    
+
     .body-text-regular {
         font-size: 15px;
     }
@@ -84,23 +89,23 @@
     .headline-h1 {
         font-size: 40px;
     }
-    
+
     .heading-h2 {
         font-size: 32px;
     }
-    
+
     .heading-h3 {
         font-size: 20px;
     }
-    
+
     .heading-h4 {
         font-size: 20px;
     }
-    
+
     .body-text-large {
         font-size: 16px;
     }
-    
+
     .body-text-regular {
         font-size: 13px;
     }
@@ -110,23 +115,23 @@
     .headline-h1 {
         font-size: 32px;
     }
-    
+
     .heading-h2 {
         font-size: 28px;
     }
-    
+
     .heading-h3 {
         font-size: 18px;
     }
-    
+
     .heading-h4 {
         font-size: 18px;
     }
-    
+
     .body-text-large {
         font-size: 14px;
     }
-    
+
     .body-text-regular {
         font-size: 12px;
     }

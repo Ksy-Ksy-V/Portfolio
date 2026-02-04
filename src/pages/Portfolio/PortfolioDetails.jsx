@@ -10,125 +10,139 @@ import ErrorMessage from '../../components/Sections/ErrorMessage/ErrorMessage'
 
 import ProjectHeaderWithImage from '../../components/Sections/PortfolioPage/ProjectHeaderWithImage'
 import ProjectLinksBar from '../../components/Sections/PortfolioPage/ProjectLinksBar'
-import AboutCard, { DESIGN_EMPHASIZES } from '../../components/Sections/PortfolioPage/AboutCard'
+import AboutCard, {
+    DESIGN_EMPHASIZES,
+} from '../../components/Sections/PortfolioPage/AboutCard'
 import DesignSystemCard from '../../components/Sections/PortfolioPage/DesignSystemCard'
 import ArchitectureSection from '../../components/Sections/PortfolioPage/ArchitectureSection'
 import DevelopmentProcessCard from '../../components/Sections/PortfolioPage/DevelopmentProcessCard'
 import MultiDeviceScreenshotsSection from '../../components/Sections/PortfolioPage/MultiDeviceScreenshotsSection'
+import CharacterShowcaseSection from '../../components/Sections/PortfolioPage/CharacterShowcaseSection'
 
 const PortfolioDetails = () => {
-  const isMobile = useMediaQuery('(max-width: 767px)')
+    const isMobile = useMediaQuery('(max-width: 767px)')
 
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const [project, setProject] = useState(null)
-  const [loading, setLoading] = useState(false)
+    const { id } = useParams()
+    const navigate = useNavigate()
+    const [project, setProject] = useState(null)
+    const [loading, setLoading] = useState(false)
 
-  const { projects, error } = fetchProjects()
+    const { projects, error } = fetchProjects()
 
-  useEffect(() => {
-    setLoading(true)
-    if (projects.length > 0) {
-      const selectedProject = projects.find((p) => p.id === id)
-      if (selectedProject) {
-        setProject(selectedProject)
-        setLoading(false)
-      } else {
-        setLoading(false)
-        console.error('Project not found!')
-      }
+    useEffect(() => {
+        setLoading(true)
+        if (projects.length > 0) {
+            const selectedProject = projects.find((p) => p.id === id)
+            if (selectedProject) {
+                setProject(selectedProject)
+                setLoading(false)
+            } else {
+                setLoading(false)
+                console.error('Project not found!')
+            }
+        }
+    }, [id, projects])
+
+    if (loading) return <Loading />
+    if (error) return <ErrorMessage />
+    if (!project) return <ErrorMessage />
+
+    const goToNextPicture = () => {
+        const currentIndex = projects.findIndex((p) => p.id === id)
+        const nextIndex = (currentIndex + 1) % projects.length
+        const nextProject = projects[nextIndex]
+        navigate(`/portfolio-details/${nextProject.id}`)
     }
-  }, [id, projects])
 
-  if (loading) return <Loading />
-  if (error) return <ErrorMessage />
-  if (!project) return <ErrorMessage />
+    const goToPrevPicture = () => {
+        const currentIndex = projects.findIndex((p) => p.id === id)
+        const prevIndex = (currentIndex - 1 + projects.length) % projects.length
+        const prevProject = projects[prevIndex]
+        navigate(`/portfolio-details/${prevProject.id}`)
+    }
 
-  const goToNextPicture = () => {
+    const handleDotClick = (index) => {
+        const targetProject = projects[index]
+        navigate(`/portfolio-details/${targetProject.id}`)
+    }
+
+    const {
+        title,
+        description,
+        link,
+        developmentDescription,
+        developmentLayers,
+        developmentConclusion,
+        dataFlowDiagram,
+        architectureDiagramTitle,
+        gitHubLink,
+        sliderData,
+        figmaLink,
+        goals = [],
+        designSystem,
+        imagesData,
+    } = project
+
+    const descriptionParts =
+        goals.length > 0 && description.includes(DESIGN_EMPHASIZES)
+            ? description.split(DESIGN_EMPHASIZES)
+            : null
+
     const currentIndex = projects.findIndex((p) => p.id === id)
-    const nextIndex = (currentIndex + 1) % projects.length
-    const nextProject = projects[nextIndex]
-    navigate(`/portfolio-details/${nextProject.id}`)
-  }
 
-  const goToPrevPicture = () => {
-    const currentIndex = projects.findIndex((p) => p.id === id)
-    const prevIndex = (currentIndex - 1 + projects.length) % projects.length
-    const prevProject = projects[prevIndex]
-    navigate(`/portfolio-details/${prevProject.id}`)
-  }
+    return (
+        <div className={styles.container}>
+            <ProjectHeaderWithImage
+                title={title}
+                sliderData={sliderData}
+                projects={projects}
+                currentIndex={currentIndex}
+                onPrev={goToPrevPicture}
+                onNext={goToNextPicture}
+                onDotClick={handleDotClick}
+                isMobile={isMobile}
+            />
 
-  const handleDotClick = (index) => {
-    const targetProject = projects[index]
-    navigate(`/portfolio-details/${targetProject.id}`)
-  }
+            <ProjectLinksBar
+                gitHubLink={gitHubLink}
+                link={link}
+                figmaLink={figmaLink}
+            />
 
-  const {
-    title,
-    description,
-    link,
-    developmentDescription,
-    developmentLayers,
-    developmentConclusion,
-    dataFlowDiagram,
-    architectureDiagramTitle,
-    gitHubLink,
-    sliderData,
-    figmaLink,
-    goals = [],
-    designSystem,
-    imagesData,
-  } = project
+            <section
+                className={styles.projectDetailsSection}
+                aria-label="Project details"
+            >
+                <div className={styles.projectDetailsGrid}>
+                    <AboutCard
+                        description={description}
+                        goals={goals}
+                        descriptionParts={descriptionParts}
+                    />
 
-  const descriptionParts =
-    goals.length > 0 && description.includes(DESIGN_EMPHASIZES)
-      ? description.split(DESIGN_EMPHASIZES)
-      : null
+                    <DesignSystemCard designSystem={designSystem} />
 
-  const currentIndex = projects.findIndex((p) => p.id === id)
+                    <ArchitectureSection
+                        dataFlowDiagram={dataFlowDiagram}
+                        architectureDiagramTitle={architectureDiagramTitle}
+                    />
 
-  return (
-    <div className={styles.container}>
-      <ProjectHeaderWithImage
-        title={title}
-        sliderData={sliderData}
-        projects={projects}
-        currentIndex={currentIndex}
-        onPrev={goToPrevPicture}
-        onNext={goToNextPicture}
-        onDotClick={handleDotClick}
-        isMobile={isMobile}
-      />
+                    <DevelopmentProcessCard
+                        developmentDescription={developmentDescription}
+                        developmentLayers={developmentLayers}
+                        developmentConclusion={developmentConclusion}
+                        hasDataFlowDiagram={Boolean(dataFlowDiagram?.length)}
+                    />
+                </div>
+            </section>
 
-      <ProjectLinksBar gitHubLink={gitHubLink} link={link} figmaLink={figmaLink} />
+            {project.id === '2' && (
+                <CharacterShowcaseSection title="Animated Characters" />
+            )}
 
-      <section className={styles.projectDetailsSection} aria-label="Project details">
-        <div className={styles.projectDetailsGrid}>
-          <AboutCard
-            description={description}
-            goals={goals}
-            descriptionParts={descriptionParts}
-          />
-
-          <DesignSystemCard designSystem={designSystem} />
-
-          <ArchitectureSection
-            dataFlowDiagram={dataFlowDiagram}
-            architectureDiagramTitle={architectureDiagramTitle}
-          />
-
-          <DevelopmentProcessCard
-            developmentDescription={developmentDescription}
-            developmentLayers={developmentLayers}
-            developmentConclusion={developmentConclusion}
-            hasDataFlowDiagram={Boolean(dataFlowDiagram?.length)}
-          />
+            <MultiDeviceScreenshotsSection imagesData={imagesData} />
         </div>
-      </section>
-
-      <MultiDeviceScreenshotsSection imagesData={imagesData} />
-    </div>
-  )
+    )
 }
 
 export default PortfolioDetails
