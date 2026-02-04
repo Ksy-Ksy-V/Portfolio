@@ -62,11 +62,6 @@ const PortfolioDetails = () => {
         navigate(`/portfolio-details/${prevProject.id}`)
     }
 
-    const handleDotClick = (index) => {
-        const targetProject = projects[index]
-        navigate(`/portfolio-details/${targetProject.id}`)
-    }
-
     const {
         title,
         description,
@@ -89,18 +84,20 @@ const PortfolioDetails = () => {
             ? description.split(DESIGN_EMPHASIZES)
             : null
 
-    const currentIndex = projects.findIndex((p) => p.id === id)
+    const headerImage =
+        isMobile && project.id === '2'
+            ? `${process.env.PUBLIC_URL || ''}/img/sliderData/pixelPlayPrevSmall.png`
+            : isMobile && project.id === '3'
+              ? `${process.env.PUBLIC_URL || ''}/img/sliderData/kitoPrevSmall.png`
+              : sliderData
 
     return (
         <div className={styles.container}>
             <ProjectHeaderWithImage
                 title={title}
-                sliderData={sliderData}
-                projects={projects}
-                currentIndex={currentIndex}
+                sliderData={headerImage}
                 onPrev={goToPrevPicture}
                 onNext={goToNextPicture}
-                onDotClick={handleDotClick}
                 isMobile={isMobile}
             />
 
