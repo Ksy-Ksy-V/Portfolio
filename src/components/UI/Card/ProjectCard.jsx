@@ -102,11 +102,13 @@ const ProjectCard = ({
                 ))}
             </div>
 
-            <div className={styles.buttonWrapper}>
-                <OutlineButton onClick={handleNavigate}>
-                    View Project →
-                </OutlineButton>
-            </div>
+            {project.route && project.route !== '/' && (
+                <div className={styles.buttonWrapper}>
+                    <OutlineButton onClick={handleNavigate}>
+                        View Project →
+                    </OutlineButton>
+                </div>
+            )}
         </div>
     )
 

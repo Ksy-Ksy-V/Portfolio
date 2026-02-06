@@ -1,420 +1,453 @@
 .section {
-  width: 100%;
-  padding: 3rem 10% 4rem;
-  box-sizing: border-box;
-  background-color: var(--color-background-default);
+    width: 100%;
+    padding: 3rem 10% 4rem;
+    box-sizing: border-box;
+    background-color: var(--color-background-default);
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-  gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 0.5rem;
 }
 
 .subtitle {
-  margin: 0;
-  font-family: 'Consolas', 'Courier New', monospace;
-  font-size: 1rem;
-  color: var(--color-primary-main);
-  text-align: center;
+    margin: 0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--color-primary-main);
+    text-align: center;
 }
 
 .title {
-  margin: 0;
-  font-size: 2rem;
-  color: var(--color-text-primary);
-  text-align: center;
+    margin: 0;
+    font-size: 2rem;
+    color: var(--color-text-primary);
+    text-align: center;
 }
 
 .description {
-  margin: 0 0 1.5rem 0;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--color-text-secondary);
-  text-align: center;
-  max-width: 520px;
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 520px;
 }
 
 .tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .tab {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-  min-width: 5.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  background: transparent;
-  border: 1.5px solid color-mix(in srgb, var(--color-primary-main) 55%, transparent);
-  border-radius: 1.25rem;
-  cursor: pointer;
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    min-width: 5.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1.5px solid
+        color-mix(in srgb, var(--color-primary-main) 55%, transparent);
+    border-radius: 1.25rem;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .tab:hover:not(:disabled) {
-  color: var(--color-text-primary);
-  background: color-mix(in srgb, var(--color-primary-main) 12%, transparent);
-  border-color: var(--color-primary-main);
+    color: var(--color-text-primary);
+    background: color-mix(in srgb, var(--color-primary-main) 12%, transparent);
+    border-color: var(--color-primary-main);
 }
 
 .tab:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .tabActive {
-  color: var(--color-background-default);
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-primary-main) 95%, white) 0%,
-    var(--color-primary-main) 50%,
-    color-mix(in srgb, var(--color-primary-main) 85%, black) 100%
-  );
-  border-color: var(--color-primary-main);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary-main) 40%, transparent);
+    color: var(--color-background-default);
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--color-primary-main) 95%, white) 0%,
+        var(--color-primary-main) 50%,
+        color-mix(in srgb, var(--color-primary-main) 85%, black) 100%
+    );
+    border-color: var(--color-primary-main);
+    box-shadow: 0 0 20px
+        color-mix(in srgb, var(--color-primary-main) 40%, transparent);
 }
 
 .tabActive:hover:not(:disabled) {
-  color: var(--color-background-default);
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-light) 0%,
-    var(--color-primary-main) 50%,
-    color-mix(in srgb, var(--color-primary-main) 90%, black) 100%
-  );
-  border-color: var(--color-primary-light);
-  box-shadow: 0 0 24px color-mix(in srgb, var(--color-primary-main) 50%, transparent);
+    color: var(--color-background-default);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary-light) 0%,
+        var(--color-primary-main) 50%,
+        color-mix(in srgb, var(--color-primary-main) 90%, black) 100%
+    );
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 24px
+        color-mix(in srgb, var(--color-primary-main) 50%, transparent);
 }
 
 .tabIconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
 }
 
 .tabIcon {
-  flex-shrink: 0;
-  color: inherit;
+    flex-shrink: 0;
+    color: inherit;
 }
 
 .tabLabel {
-  font-size: inherit;
-  font-weight: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 .panel {
-  width: 100%;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .singleMockupWrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 /* ——— Device mockups (one at a time) ——— */
 .deviceMockup {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
-  transition: filter 0.3s ease;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25))
+        drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    transition: filter 0.3s ease;
 }
 
 .deviceBezel {
-  border-radius: 0;
-  overflow: hidden;
-  background: #1a1a1a;
-  border: 1px solid color-mix(in srgb, var(--color-primary-main) 25%, transparent);
+    border-radius: 0;
+    overflow: hidden;
+    background: #1a1a1a;
+    border: 1px solid
+        color-mix(in srgb, var(--color-primary-main) 25%, transparent);
 }
 
 .deviceScreen {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  overflow: hidden;
-  background: #000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    background: #000;
 }
 
 .deviceScreenScroll {
-  flex: 1 1 0;
-  min-height: 0;
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--color-primary-main) 50%, transparent) transparent;
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(
+            in srgb,
+            var(--color-primary-main) 50%,
+            transparent
+        )
+        transparent;
 }
 
 .deviceScreenScroll::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 .deviceScreenScroll::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 .deviceScreenScroll::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-primary-main) 50%, transparent);
-  border-radius: 3px;
+    background: color-mix(in srgb, var(--color-primary-main) 50%, transparent);
+    border-radius: 3px;
 }
 
 .deviceScreenScroll::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-main);
+    background: var(--color-primary-main);
 }
 
 .screenImage {
-  display: block;
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
 }
 
 /* ——— Mobile ——— */
 .deviceMobile {
-  max-width: 280px;
+    max-width: 280px;
 }
 
 .deviceMobile .deviceBezel {
-  border-radius: 2rem;
-  padding: 10px;
-  box-shadow: inset 0 0 0 2px #2a2a2a;
+    border-radius: 2rem;
+    padding: 10px;
+    box-shadow: inset 0 0 0 2px #2a2a2a;
 }
 
 .deviceMobile .deviceScreen {
-  border-radius: 1.5rem;
-  aspect-ratio: 9 / 19.5;
-  width: 100%;
+    border-radius: 1.5rem;
+    aspect-ratio: 9 / 19.5;
+    width: 100%;
 }
 
 .deviceMobile .deviceScreen::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30%;
-  max-width: 60px;
-  height: 18px;
-  background: #0a0a0a;
-  border-radius: 0 0 12px 12px;
-  z-index: 1;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    max-width: 60px;
+    height: 18px;
+    background: #0a0a0a;
+    border-radius: 0 0 12px 12px;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .deviceMobile .deviceScreen {
-  position: relative;
+    position: relative;
 }
 
 /* ——— Tablet ——— */
 .deviceTablet {
-  max-width: 520px;
+    max-width: 520px;
 }
 
 .deviceTablet .deviceBezel {
-  border-radius: 1rem;
-  padding: 12px;
-  box-shadow: inset 0 0 0 2px #2a2a2a;
+    border-radius: 1rem;
+    padding: 12px;
+    box-shadow: inset 0 0 0 2px #2a2a2a;
 }
 
 .deviceTablet .deviceScreen {
-  border-radius: 0.5rem;
-  aspect-ratio: 4 / 3;
-  width: 100%;
+    border-radius: 0.5rem;
+    aspect-ratio: 4 / 3;
+    width: 100%;
 }
 
 /* ——— Desktop ——— */
 .deviceDesktop {
-  max-width: 760px;
+    max-width: 760px;
 }
 
 .deviceDesktop .deviceBezel {
-  border-radius: 8px 8px 0 0;
-  padding: 12px 12px 10px;
-  box-shadow: inset 0 0 0 2px #252525;
+    border-radius: 8px 8px 0 0;
+    padding: 12px 12px 10px;
+    box-shadow: inset 0 0 0 2px #252525;
 }
 
 .deviceDesktop .deviceScreen {
-  border-radius: 4px;
-  aspect-ratio: 16 / 10;
-  width: 100%;
+    border-radius: 4px;
+    aspect-ratio: 16 / 10;
+    width: 100%;
 }
 
 .deviceStand {
-  width: 120px;
-  height: 24px;
-  margin-top: -2px;
-  background: linear-gradient(180deg, #252525 0%, #1a1a1a 60%, #121212 100%);
-  border: 1px solid #333;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+    width: 120px;
+    height: 24px;
+    margin-top: -2px;
+    background: linear-gradient(180deg, #252525 0%, #1a1a1a 60%, #121212 100%);
+    border: 1px solid #333;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
 }
 
 /* ——— Carousel ——— */
 .carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .carouselBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  color: var(--color-primary-main);
-  background: transparent;
-  border: 2px solid color-mix(in srgb, var(--color-primary-main) 60%, transparent);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: var(--color-primary-main);
+    background: transparent;
+    border: 2px solid
+        color-mix(in srgb, var(--color-primary-main) 60%, transparent);
+    border-radius: 50%;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
 }
 
 .carouselBtn:hover {
-  background: color-mix(in srgb, var(--color-primary-main) 15%, transparent);
-  border-color: var(--color-primary-main);
+    background: color-mix(in srgb, var(--color-primary-main) 15%, transparent);
+    border-color: var(--color-primary-main);
 }
 
 .carouselDots {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .carouselDot {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  border-radius: 50%;
-  border: 2px solid color-mix(in srgb, var(--color-primary-main) 60%, transparent);
-  background: transparent;
-  cursor: pointer;
-  transition: background 0.25s ease, border-color 0.25s ease;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid
+        color-mix(in srgb, var(--color-primary-main) 60%, transparent);
+    background: transparent;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .carouselDot:hover {
-  background: color-mix(in srgb, var(--color-primary-main) 30%, transparent);
-  border-color: var(--color-primary-main);
+    background: color-mix(in srgb, var(--color-primary-main) 30%, transparent);
+    border-color: var(--color-primary-main);
 }
 
 .carouselDotActive {
-  background: var(--color-primary-main);
-  border-color: var(--color-primary-main);
+    background: var(--color-primary-main);
+    border-color: var(--color-primary-main);
 }
 
 @media (max-width: 1024px) {
-  .section {
-    padding: 2.5rem 5% 3rem;
-  }
+    .section {
+        padding: 2.5rem 5% 3rem;
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: 2rem 1.5rem 2.5rem;
-  }
+    .section {
+        padding: 2rem 1.5rem 2.5rem;
+    }
 
-  .title {
-    font-size: 1.5rem;
-  }
+    .header {
+        margin-bottom: 1.5rem;
+    }
 
-  .description {
-    font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-  }
+    .title {
+        font-size: 1.5rem;
+    }
 
-  .tab {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.9rem;
-    min-width: 4.5rem;
-  }
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
 
-  .tabIconWrap svg {
-    width: 20px;
-    height: 20px;
-  }
+    .tab {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+        min-width: 4.5rem;
+    }
 
-  .panel {
-    gap: 1.5rem;
-  }
+    .tabIconWrap svg {
+        width: 20px;
+        height: 20px;
+    }
 
-  .deviceMobile {
-    max-width: 240px;
-  }
+    .panel {
+        gap: 1.5rem;
+    }
 
-  .deviceTablet {
-    max-width: 460px;
-  }
+    .deviceMobile {
+        max-width: 240px;
+    }
 
-  .deviceDesktop {
-    max-width: 100%;
-  }
+    .deviceTablet {
+        max-width: 460px;
+    }
 
-  .carouselBtn {
-    width: 40px;
-    height: 40px;
-  }
+    .deviceDesktop {
+        max-width: 100%;
+    }
+
+    .carouselBtn {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding: 1.5rem 1rem 2rem;
-  }
+    .section {
+        padding: 1.5rem 1rem 2rem;
+    }
 
-  .subtitle {
-    font-size: 0.875rem;
-  }
+    .header {
+        margin-bottom: 1.25rem;
+    }
 
-  .title {
-    font-size: 1.25rem;
-  }
+    .subtitle {
+        font-size: 0.875rem;
+    }
 
-  .description {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
+    .title {
+        font-size: 1.25rem;
+    }
 
-  .tabs {
-    gap: 0.5rem;
-  }
+    .description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
 
-  .tab {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
-    min-width: 4rem;
-  }
+    .tabs {
+        gap: 0.5rem;
+    }
 
-  .tabIconWrap svg {
-    width: 18px;
-    height: 18px;
-  }
+    .tab {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        min-width: 4rem;
+    }
 
-  .deviceMobile {
-    max-width: 100%;
-  }
+    .tabIconWrap svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .deviceMobile {
+        max-width: 100%;
+    }
 }

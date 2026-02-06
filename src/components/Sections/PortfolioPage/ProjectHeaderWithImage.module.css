@@ -78,6 +78,10 @@
     .projectContext {
         font-size: 0.9rem;
     }
+
+    .imageSection {
+        margin-bottom: 1.75rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -117,5 +121,9 @@
 
     .projectContext {
         font-size: 0.75rem;
+    }
+
+    .imageSection {
+        margin-bottom: 1rem;
     }
 }

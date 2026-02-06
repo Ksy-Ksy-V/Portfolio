@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-import fetchProjects from '../../utils/fetchProjects'
+import useFetchProjects from '../../hooks/useFetchProjects'
+import {
+    MOBILE_HEADER_IMAGES,
+    PIXEL_PLAY_PROJECT_ID,
+} from '../../data/portfolioConfig'
 import styles from './PortfolioDetails.module.css'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 
@@ -22,31 +26,21 @@ import CharacterShowcaseSection from '../../components/Sections/PortfolioPage/Ch
 
 const PortfolioDetails = () => {
     const isMobile = useMediaQuery('(max-width: 767px)')
-
     const { id } = useParams()
     const navigate = useNavigate()
-    const [project, setProject] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const { projects, loading, error } = useFetchProjects()
 
-    const { projects, error } = fetchProjects()
-
-    useEffect(() => {
-        setLoading(true)
-        if (projects.length > 0) {
-            const selectedProject = projects.find((p) => p.id === id)
-            if (selectedProject) {
-                setProject(selectedProject)
-                setLoading(false)
-            } else {
-                setLoading(false)
-                console.error('Project not found!')
-            }
-        }
-    }, [id, projects])
+    const project = useMemo(
+        () => projects.find((p) => p.id === id),
+        [projects, id]
+    )
 
     if (loading) return <Loading />
     if (error) return <ErrorMessage />
-    if (!project) return <ErrorMessage />
+    if (projects.length > 0 && !project) {
+        return <ErrorMessage message="< Project not found />" />
+    }
+    if (!project) return <Loading />
 
     const goToNextPicture = () => {
         const currentIndex = projects.findIndex((p) => p.id === id)
@@ -84,12 +78,11 @@ const PortfolioDetails = () => {
             ? description.split(DESIGN_EMPHASIZES)
             : null
 
+    const mobileImage = MOBILE_HEADER_IMAGES[project.id]
     const headerImage =
-        isMobile && project.id === '1'
-            ? `${process.env.PUBLIC_URL || ''}/img/sliderData/pixelPlayPrevSmall.png`
-            : isMobile && project.id === '2'
-              ? `${process.env.PUBLIC_URL || ''}/img/sliderData/kitoPrevSmall.png`
-              : sliderData
+        isMobile && mobileImage
+            ? `${process.env.PUBLIC_URL || ''}${mobileImage}`
+            : sliderData
 
     return (
         <div className={styles.container}>
@@ -134,11 +127,11 @@ const PortfolioDetails = () => {
                 </div>
             </section>
 
-            {project.id === '1' && (
+            {project.id === PIXEL_PLAY_PROJECT_ID && (
                 <CharacterShowcaseSection title="Animated Characters" />
             )}
 
-            {project.id === '1' ? (
+            {project.id === PIXEL_PLAY_PROJECT_ID ? (
                 <PixelPlayDesktopSection />
             ) : (
                 <MultiDeviceScreenshotsSection imagesData={imagesData} />

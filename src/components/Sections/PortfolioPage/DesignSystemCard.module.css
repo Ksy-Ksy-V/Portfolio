@@ -1,214 +1,225 @@
 .designSystemCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1.5rem 2rem;
-  border-radius: 1rem;
-  border: none;
-  background: color-mix(in srgb, var(--color-background-default) 98%, var(--color-background-paper));
-  box-shadow: none;
-  min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    background: color-mix(
+        in srgb,
+        var(--color-background-default) 98%,
+        var(--color-background-paper)
+    );
+    box-shadow: none;
+    min-height: 0;
 }
 
 .gridCellDesign {
-  grid-row: 1;
-  grid-column: 2;
-  min-height: 0;
-}
-
-.contextTag {
-  margin: 0 0 0.75rem 0;
-  font-family: 'Consolas', 'Courier New', monospace;
-  font-size: 0.875rem;
-  color: var(--color-primary-main);
-  text-align: center;
+    grid-row: 1;
+    grid-column: 2;
+    min-height: 0;
 }
 
 .dsSection {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex: 1;
-  min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    min-height: 0;
 }
 
 .dsSectionTitle {
-  margin: 0;
-  font-size: 1.25rem;
-  color: var(--color-text-primary);
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
 }
 
 .colorSwatchesRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0;
+    flex-wrap: wrap;
 }
 
 .swatchItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  flex: 1;
-  min-width: 8rem;
-  min-height: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+    min-width: 8rem;
+    min-height: 4rem;
 }
 
 .swatchLabel {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-  margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin: 0;
 }
 
 .swatch {
-  width: 100%;
-  height: 3.5rem;
-  border-radius: 0.5rem;
-  flex-shrink: 0;
-  border: 1px solid color-mix(in srgb, var(--color-text-primary) 25%, transparent);
+    width: 100%;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+    border: 1px solid
+        color-mix(in srgb, var(--color-text-primary) 25%, transparent);
 }
 
 .swatchPrimary {
-  background: #387171;
-  border: 2px solid #64fcf2;
+    background: #387171;
+    border: 2px solid #64fcf2;
 }
 
 .swatchHex {
-  font-family: 'Consolas', 'Courier New', monospace;
-  font-size: 0.7rem;
-  color: var(--color-text-secondary);
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
 }
 
 .dsRectBlock {
-  width: 100%;
-  min-width: 0;
+    width: 100%;
+    min-width: 0;
 }
 
 .gradientBar {
-  width: 100%;
-  min-height: 3rem;
-  height: 3rem;
-  border-radius: 0.5rem;
-  flex-shrink: 0;
+    width: 100%;
+    min-height: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
 }
 
 .gradientBarWithText {
-  width: 100%;
-  min-height: 4rem;
-  padding: 1rem 1.25rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
+    width: 100%;
+    min-height: 4rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .gradientBarText {
-  font-size: 0.9rem;
-  color: var(--color-text-primary);
-  line-height: 1.5;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    line-height: 1.5;
 }
 
 .typographySamples {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
 }
 
 .typoRow {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .typoAg {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 0.5rem;
-  font-size: 2rem;
-  font-weight: 600;
-  flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    flex-shrink: 0;
 }
 
 .typoLabel {
-  font-size: 1.5rem;
-  line-height: 1.2;
-  font-weight: 500;
-  color: var(--color-text-primary);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--color-text-primary);
 }
 
 @media (max-width: 1024px) {
-  .designSystemCard {
-    padding: 1.25rem 1.5rem;
-  }
+    .designSystemCard {
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+    }
 
-  .gridCellDesign {
-    grid-row: 2;
-    grid-column: 1;
-  }
+    .gridCellDesign {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .dsSection {
+        align-items: center;
+    }
+
+    .dsSectionTitle {
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
-  .colorSwatchesRow {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+    .dsSectionTitle {
+        text-align: center;
+    }
 
-  .swatch {
-    width: 3rem;
-    height: 3rem;
-  }
+    .colorSwatchesRow {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 
-  .typographySamples {
-    grid-template-columns: 1fr;
-  }
+    .swatch {
+        width: 3rem;
+        height: 3rem;
+    }
 
-  .typoAg {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 1.75rem;
-  }
+    .typographySamples {
+        grid-template-columns: 1fr;
+    }
 
-  .typoLabel {
-    font-size: 1.35rem;
-  }
+    .typoAg {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.75rem;
+    }
+
+    .typoLabel {
+        font-size: 1.35rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .designSystemCard {
-    padding: 1rem 1.25rem;
-  }
+    .designSystemCard {
+        padding: 1rem 1.25rem;
+    }
 
-  .dsSectionTitle {
-    font-size: 1.1rem;
-  }
+    .dsSectionTitle {
+        font-size: 1.1rem;
+        text-align: center;
+    }
 
-  .swatch {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
+    .swatch {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
 
-  .swatchHex {
-    font-size: 0.65rem;
-  }
+    .swatchHex {
+        font-size: 0.65rem;
+    }
 
-  .typographySamples {
-    grid-template-columns: 1fr;
-  }
+    .typographySamples {
+        grid-template-columns: 1fr;
+    }
 
-  .typoAg {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-  }
+    .typoAg {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
 
-  .typoLabel {
-    font-size: 1.1rem;
-  }
+    .typoLabel {
+        font-size: 1.1rem;
+    }
 }

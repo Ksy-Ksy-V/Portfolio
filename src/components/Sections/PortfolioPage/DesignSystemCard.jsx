@@ -59,7 +59,7 @@ const DesignSystemCard = ({ designSystem }) => {
 
     return (
         <div className={`${styles.designSystemCard} ${styles.gridCellDesign}`}>
-            <p className={styles.contextTag}>{'< Design System />'}</p>
+            <p className="sectionContextTag">{'< Design System />'}</p>
             <div className={styles.dsSection}>
                 <h4 className={`heading-h4 ${styles.dsSectionTitle}`}>
                     Colors

@@ -228,6 +228,20 @@
     clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
 }
 
+@media (max-width: 1024px) {
+    .section {
+        padding: 2rem 5% 2rem;
+    }
+
+    .header {
+        margin-bottom: 0.75rem;
+    }
+
+    .description {
+        margin-bottom: 1.25rem;
+    }
+}
+
 @media (max-width: 768px) {
     .section {
         padding: 2rem 1.5rem 2.5rem;
