@@ -1,5 +1,3 @@
-import cinePeekImg from '../img/projectPrev01.jpg'
-
 export const heroSectionData = {
     greeting: "< Hello, I'm Ksenia Voitikh/>",
     title: {
@@ -58,7 +56,7 @@ export const workflowData = {
             title: 'Design & Prototyping',
             description:
                 'Creation of a professional layout and design system, including interactive prototyping for better user experience.',
-            technologies: ['Figma', 'Adobe XD'],
+            technologies: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator'],
         },
         {
             number: '03',
@@ -87,7 +85,7 @@ export const projectsData = {
                 'A 2D retro-style platformer with pixelated graphics reminiscent of classic arcade games.',
             image: `${process.env.PUBLIC_URL || ''}/img/card/pixelPlayPrevCard.png`,
             tags: ['Canvas API', 'JavaScript', 'Game Dev'],
-            route: '/portfolio-details/2',
+            route: '/portfolio-details/1',
         },
         {
             title: 'Kito',
@@ -95,7 +93,7 @@ export const projectsData = {
                 'A comprehensive web app for anime fans to explore, organize, and track their favorite shows.',
             image: `${process.env.PUBLIC_URL || ''}/img/card/kitoPrevCard.png`,
             tags: ['React', 'TypeScript', 'Redux', 'MUI', 'Jikan API'],
-            route: '/portfolio-details/3',
+            route: '/portfolio-details/2',
         },
         {
             title: 'Personal Portfolio',

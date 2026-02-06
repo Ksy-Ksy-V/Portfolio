@@ -85,9 +85,9 @@ const PortfolioDetails = () => {
             : null
 
     const headerImage =
-        isMobile && project.id === '2'
+        isMobile && project.id === '1'
             ? `${process.env.PUBLIC_URL || ''}/img/sliderData/pixelPlayPrevSmall.png`
-            : isMobile && project.id === '3'
+            : isMobile && project.id === '2'
               ? `${process.env.PUBLIC_URL || ''}/img/sliderData/kitoPrevSmall.png`
               : sliderData
 
@@ -134,11 +134,11 @@ const PortfolioDetails = () => {
                 </div>
             </section>
 
-            {project.id === '2' && (
+            {project.id === '1' && (
                 <CharacterShowcaseSection title="Animated Characters" />
             )}
 
-            {project.id === '2' ? (
+            {project.id === '1' ? (
                 <PixelPlayDesktopSection />
             ) : (
                 <MultiDeviceScreenshotsSection imagesData={imagesData} />

@@ -31,7 +31,7 @@ const PortfolioCard = ({ title, imgSrc, id, description, skills = [], scrollAnim
   }
 
   const cardClassName = `${styles.card} ${isVisible ? styles.slideUp : styles.hidden}`
-  const imageUrl = imgSrc || '/img/sliderData/projectPrev01.jpg'
+  const imageUrl = imgSrc || '/img/sliderData/projectPrev02.png'
 
   return (
     <div
