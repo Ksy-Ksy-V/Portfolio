@@ -1,0 +1,234 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: var(--color-background-default);
+}
+
+.runningLineWrapper {
+  width: 100%;
+  margin: 0;
+}
+
+.errorCode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.message {
+  color: var(--color-primary-dark);
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 0.6s ease-out 0.4s both;
+}
+
+.oops {
+  color: var(--color-primary-dark);
+  margin: 0;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.code404 {
+  color: var(--color-primary-light);
+  margin: 0;
+  position: relative;
+  animation: fadeInDown 0.6s ease-out 0.2s both;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.code404:hover {
+  transform: scale(1.05);
+  color: var(--color-primary-main);
+}
+
+.code404::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary-main),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.code404:hover::after {
+  opacity: 1;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary-main);
+  animation: bounce 1.4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  40% {
+    transform: translateY(-10px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-height: 70vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .errorCode {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .oops,
+  .code404 {
+    font-size: 2.5rem;
+  }
+
+  .message {
+    font-size: 1.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .divider {
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .buttonWrapper {
+    margin-top: 0.75rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 1024px) {
+  .errorCode {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1rem;
+    min-height: 65vh;
+  }
+
+  .errorCode {
+    gap: 0.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .oops,
+  .code404 {
+    font-size: 2rem;
+  }
+
+  .message {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .divider {
+    gap: 0.4rem;
+    margin: 1rem 0;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .buttonWrapper {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

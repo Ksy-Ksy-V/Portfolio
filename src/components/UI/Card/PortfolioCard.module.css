@@ -1,0 +1,241 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slowChaoticSpin {
+  0% {
+    --rotate: 0deg;
+  }
+  20% {
+    --rotate: 85deg;
+  }
+  40% {
+    --rotate: 180deg;
+  }
+  60% {
+    --rotate: 250deg;
+  }
+  80% {
+    --rotate: 320deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+@keyframes slowChaoticSpinReverse {
+  0% {
+    --rotate: 360deg;
+  }
+  25% {
+    --rotate: 280deg;
+  }
+  50% {
+    --rotate: 180deg;
+  }
+  75% {
+    --rotate: 90deg;
+  }
+  100% {
+    --rotate: 0deg;
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: visible;
+  margin: 0;
+  will-change: transform, opacity;
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  pointer-events: none;
+  width: 100%;
+  min-height: 300px;
+}
+
+.card.hidden {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  pointer-events: none;
+  animation: none;
+}
+
+.card.slideUp {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--scroll-animation-delay, 0s);
+  pointer-events: auto;
+}
+
+.card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--color-primary-light) 0%,
+    var(--color-primary-main) 25%,
+    var(--color-primary-dark) 50%,
+    var(--color-primary-main) 75%,
+    var(--color-primary-light) 100%
+  );
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  animation: slowChaoticSpin var(--card-animation-duration, 15s) ease-in-out infinite;
+  animation-delay: var(--card-animation-delay, 0s);
+  opacity: 0.8;
+  transition: opacity 0.4s ease;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.05);
+  z-index: -2;
+  height: 105%;
+  width: 105%;
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--color-primary-light),
+    var(--color-primary-main) 35%,
+    var(--color-primary-dark) 65%,
+    var(--color-primary-light)
+  );
+  filter: blur(20px);
+  opacity: 0.15;
+  transition: opacity 0.4s ease;
+  animation: slowChaoticSpinReverse calc(var(--card-animation-duration, 18s) * 1.2) ease-in-out infinite;
+  animation-delay: calc(var(--card-animation-delay, 0s) * 1.5);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  position: relative;
+  z-index: 10;
+  border-radius: calc(1rem - 2px) 0 0 calc(1rem - 2px);
+  padding: 0;
+  width: 60%;
+  min-width: 400px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: calc(1rem - 2px) 0 0 calc(1rem - 2px);
+  min-height: 300px;
+}
+
+.info {
+  width: 40%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  background: var(--color-background-paper);
+  border-radius: 0 calc(1rem - 2px) calc(1rem - 2px) 0;
+  margin-left: -2px;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  color: var(--color-primary-main);
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.card:hover .title {
+  color: var(--color-primary-light);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    min-width: 100%;
+    border-radius: calc(1rem - 2px) calc(1rem - 2px) 0 0;
+  }
+
+  .image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: auto;
+    border-radius: calc(1rem - 2px) calc(1rem - 2px) 0 0;
+  }
+
+  .info {
+    width: 100%;
+    margin-left: 0;
+    margin-top: -2px;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: 0 0 calc(1rem - 2px) calc(1rem - 2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .info {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .buttonWrapper {
+    justify-content: center;
+  }
+}

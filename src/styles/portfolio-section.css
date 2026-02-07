@@ -1,0 +1,13 @@
+.sectionContextTag {
+    margin: 0 0 0.75rem 0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: var(--color-primary-main);
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .sectionContextTag {
+        font-size: 0.75rem;
+    }
+}
