@@ -8,15 +8,15 @@ export const themeConfig = {
         dark: '#A61E5D',
       },
       background: {
-        default: '#FAFAFA',
-        paper: '#FFFFFF',
+        default: '#F0EBE3',
+        paper: '#F5F0E9',
       },
       text: {
-        primary: '#1B1B1F',
-        secondary: '#4A4A55',
+        primary: '#564E58',
+        secondary: '#A195A2',
         contrast: '#FFFFFF',
       },
-      divider: '#E6E6EB',
+      divider: '#C5B1BC',
     },
     typography: {
       headline: {

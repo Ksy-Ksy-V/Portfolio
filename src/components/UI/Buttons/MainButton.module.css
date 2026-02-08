@@ -1,4 +1,5 @@
 .button {
+  display: inline-block;
   position: relative;
   padding: 10px 30px;
   margin: 0;
@@ -14,6 +15,7 @@
   cursor: pointer;
   font-family: 'Consolas', 'Courier New', monospace;
   border-radius: 0.5rem;
+  box-sizing: border-box;
 }
 
 @media (max-width: 480px) {

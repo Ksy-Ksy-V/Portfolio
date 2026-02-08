@@ -36,12 +36,12 @@ const BLUR_SHAPES_CONFIG = [
 ];
 
 const BLUR_SHAPES_POSITION = [
-  'absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[120px]',
-  'absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full blur-[130px]',
-  'absolute -bottom-40 -left-40 w-[650px] h-[650px] rounded-full blur-[110px]',
-  'absolute -bottom-40 -right-40 w-[680px] h-[680px] rounded-full blur-[120px]',
-  'absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[100px]',
-  'absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full blur-[110px]',
+  'absolute -top-40 -left-40 w-[820px] h-[820px] rounded-full blur-[140px]',
+  'absolute -top-40 -right-40 w-[920px] h-[920px] rounded-full blur-[150px]',
+  'absolute -bottom-40 -left-40 w-[860px] h-[860px] rounded-full blur-[130px]',
+  'absolute -bottom-40 -right-40 w-[900px] h-[900px] rounded-full blur-[140px]',
+  'absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[120px]',
+  'absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] rounded-full blur-[130px]',
 ];
 
 const FLOATING_KEYFRAMES = [
@@ -92,12 +92,12 @@ export function AnimatedBackground() {
     return Array.from({ length: 6 }, (_, i) => ({
       id: i,
       type: types[Math.floor(Math.random() * types.length)],
-      size: Math.random() * 100 + 100,
+      size: Math.random() * 140 + 180,
       startX: Math.random() * 100,
       startY: Math.random() * 100,
       duration: Math.random() * 40 + 25,
       delay: Math.random() * 15,
-      opacity: Math.random() * 0.25 + 0.15,
+      opacity: Math.random() * 0.35 + 0.3,
     }));
   }, []);
 
@@ -106,7 +106,7 @@ export function AnimatedBackground() {
       BLUR_SHAPES_CONFIG.map((config, i) => ({
         ...config,
         positionClass: BLUR_SHAPES_POSITION[i],
-        opacity: [0.25, 0.2, 0.22, 0.18, 0.15, 0.12][i],
+        opacity: [0.48, 0.44, 0.46, 0.42, 0.38, 0.35][i],
       })),
     []
   );
@@ -135,11 +135,11 @@ export function AnimatedBackground() {
         if (!p) return;
         gsap.fromTo(
           el,
-          { x: 0, y: 0, opacity: 0.2 },
+          { x: 0, y: 0, opacity: 0.35 },
           {
             x: p.xOffset,
             y: -50,
-            opacity: 0.6,
+            opacity: 0.8,
             duration: p.duration / 2,
             delay: p.delay,
             ease: 'sine.inOut',

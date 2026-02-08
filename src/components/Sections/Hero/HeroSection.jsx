@@ -35,9 +35,9 @@ export default function HeroSection() {
 
       tl.from(contentRef.current, { opacity: 0, y: 36 }, 0)
         .from(greetingRef.current, { opacity: 0, y: 24 }, 0.35)
-        .from(titleRef.current, { opacity: 0, y: 24 }, 0.7)
+        .from(titleRef.current, { opacity: 0, y: 24, duration: 0.75 }, 0.45)
         .from(descriptionRef.current, { opacity: 0, y: 24 }, 1.1)
-        .from(buttonsRef.current, { opacity: 0, y: 24 }, 1.5);
+        .from(buttonsRef.current, { opacity: 0, y: 24, duration: 0.75 }, 1.2);
 
       gsap.set(scrollIndicatorRef.current, { xPercent: -50 });
       gsap.to(scrollIndicatorRef.current, {
@@ -124,8 +124,16 @@ export default function HeroSection() {
           </div>
 
           <div ref={buttonsRef} className={styles.buttons}>
-            <MainButton>{buttons.primary}</MainButton>
-            <OutlineButton>{buttons.secondary}</OutlineButton>
+            <MainButton href={`${process.env.PUBLIC_URL || ''}/cv.pdf`} download>
+              {buttons.primary}
+            </MainButton>
+            <OutlineButton
+              onClick={() =>
+                document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              {buttons.secondary}
+            </OutlineButton>
           </div>
         </div>
       </div>
