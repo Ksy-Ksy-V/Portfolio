@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { Heart } from 'lucide-react'
 
 import styles from './ContactForm.module.css'
 
@@ -150,7 +150,7 @@ const ContactForm = () => {
                     <p className={styles.successText}>
                         I will get back to you as soon as possible.
                     </p>
-                    <FavoriteBorderIcon className={styles.successIcon} aria-hidden />
+                    <Heart className={styles.successIcon} aria-hidden />
                 </div>
             )}
         </div>

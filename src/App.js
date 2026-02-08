@@ -19,37 +19,35 @@ function App() {
             <Router>
                 <CustomSelection />
                 <OpenOnTop />
-               
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <PageWrapper>
-                                    <Home />
-                                </PageWrapper>
-                            }
-                        />
-                        <Route path="/portfolio" element={<Navigate to="/portfolio-details/1" replace />} />
-                        <Route
-                            path="/portfolio-details/:id"
-                            element={
-                                <PageWrapper>
-                                    <PortfolioDetails />
-                                </PageWrapper>
-                            }
-                        />
-                        <Route
-                            path="/contact"
-                            element={
-                                <PageWrapper>
-                                    <Contact />
-                                </PageWrapper>
-                            }
-                        />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                    <ScrollToTopButton />
-                 
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <PageWrapper>
+                                <Home />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route path="/portfolio" element={<Navigate to="/portfolio-details/1" replace />} />
+                    <Route
+                        path="/portfolio-details/:id"
+                        element={
+                            <PageWrapper>
+                                <PortfolioDetails />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route
+                        path="/contact"
+                        element={
+                            <PageWrapper>
+                                <Contact />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+                <ScrollToTopButton />
             </Router>
         </ThemeProvider>
     )

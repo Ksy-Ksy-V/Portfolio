@@ -15,9 +15,6 @@
   margin: 0 0 2rem 0;
 }
 
-.heading:hover {
-  text-decoration: underline wavy;
-}
 
 .row {
   display: flex;
@@ -33,6 +30,8 @@
   flex-shrink: 0;
   width: 1.5rem;
   height: 1.5rem;
+  stroke: currentColor;
+  fill: none;
   color: var(--color-text-primary);
 }
 
@@ -49,9 +48,6 @@
   margin: 0;
 }
 
-.text:hover {
-  text-decoration: underline wavy;
-}
 
 .socials {
   margin-top: 2rem;
