@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useMemo, useRef, useLayoutEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import gsap from 'gsap';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
 import ModeSwitchBtn from '../../UI/Buttons/ModeSwitchBtn';
 import TextButton from '../../UI/Buttons/TextButton';
@@ -11,6 +12,17 @@ const Header = () => {
     const location = useLocation();
     const isMobile = useMediaQuery('(max-width: 767px)');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const mobileMenuRef = useRef(null);
+
+    useLayoutEffect(() => {
+        if (!mobileMenuOpen || !mobileMenuRef.current) return;
+        const el = mobileMenuRef.current;
+        gsap.fromTo(
+            el,
+            { opacity: 0, y: -10 },
+            { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }
+        );
+    }, [mobileMenuOpen]);
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -50,7 +62,7 @@ const Header = () => {
                             </svg>
                         </button>
                         {mobileMenuOpen && (
-                            <div className={styles.mobileMenu}>
+                            <div ref={mobileMenuRef} className={styles.mobileMenu}>
                                 {navLinks.map((link) => (
                                     <TextButton
                                         key={link.path}

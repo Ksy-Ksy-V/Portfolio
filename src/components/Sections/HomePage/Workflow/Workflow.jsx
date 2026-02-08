@@ -6,22 +6,21 @@ import styles from './Workflow.module.css';
 export function Workflow() {
   const { sectionLabel, sectionTitle, stages } = workflowData;
 
-  const cardsWithAnimations = useMemo(() => 
+  const cardsWithAnimations = useMemo(() =>
     stages.map((stage, index) => {
       const randomDelay = Math.random() * 5;
       const randomDuration = 12 + Math.random() * 8;
-      const scrollAnimationDelay = index * 0.1; 
-      
+
       return (
         <WorkflowCard
           key={index}
           stage={stage}
           randomDelay={randomDelay}
           randomDuration={randomDuration}
-          scrollAnimationDelay={scrollAnimationDelay}
         />
       );
-    }), [stages]
+    }),
+    [stages]
   );
 
   return (

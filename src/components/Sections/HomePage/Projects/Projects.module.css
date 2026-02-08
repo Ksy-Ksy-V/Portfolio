@@ -1,53 +1,54 @@
 .section {
-  padding: 4rem 2rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-background-default);
-  position: relative;
+    padding: 4rem 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background-default);
+    position: relative;
+    overflow: hidden;
 }
 
 @media (max-width: 1024px) {
-  .section {
-    padding: 3rem 1.5rem;
-    margin-top: 2rem;
-  }
+    .section {
+        padding: 3rem 1.5rem;
+        margin-top: 2rem;
+    }
 }
 
 .container {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .header {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 6rem;
-  margin-top: 3rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 6rem;
+    margin-top: 3rem;
 }
 
 @media (max-width: 1024px) {
-  .header {
-    margin-bottom: 4rem;
-    margin-top: 2rem;
-  }
+    .header {
+        margin-bottom: 4rem;
+        margin-top: 2rem;
+    }
 }
 
 .label {
-  display: inline-block;
-  margin-bottom: 0.5rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
 
 .title {
-  margin: 0;
+    margin: 0;
 }
 
 .projectsList {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }

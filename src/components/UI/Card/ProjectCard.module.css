@@ -48,6 +48,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
 }
 
 @media (max-width: 1024px) {
@@ -372,27 +374,4 @@
     .container:last-child {
         border-bottom: none;
     }
-}
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(60px) scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.container.hidden {
-    opacity: 0;
-    transform: translateY(60px) scale(0.95);
-    pointer-events: none;
-    animation: none;
-}
-
-.container.slideUp {
-    animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--scroll-animation-delay, 0s);
-    pointer-events: auto;
 }
