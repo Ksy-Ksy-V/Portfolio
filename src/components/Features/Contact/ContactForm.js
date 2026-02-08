@@ -1,24 +1,74 @@
 import { useState } from 'react'
-import { useForm, ValidationError } from '@formspree/react'
 import { Typography, Box, Grid, TextField, Button } from '@mui/material'
 
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
-const ContactForm = () => {
-    const [state, handleSubmit] = useForm(process.env.REACT_APP_FORM_ID)
+const getApiUrl = () => {
+    if (typeof window === 'undefined') return '/api/contact'
+    return window.location.origin + '/api/contact'
+}
 
+const ContactForm = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [honeypot, setHoneypot] = useState('')
+    const [submitting, setSubmitting] = useState(false)
+    const [succeeded, setSucceeded] = useState(false)
+    const [errors, setErrors] = useState({})
 
-    const handleSubmitForm = (e) => {
-        handleSubmit(e)
+    const handleSubmitForm = async (e) => {
+        e.preventDefault()
+        setErrors({})
+        setSubmitting(true)
+
+        try {
+            const res = await fetch(getApiUrl(), {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message, hp: honeypot }),
+            })
+            const text = await res.text()
+            const data = text ? (() => { try { return JSON.parse(text) } catch { return {} } })() : {}
+
+            if (!res.ok) {
+                if (data.fields && typeof data.fields === 'object') {
+                    setErrors(data.fields)
+                } else {
+                    setErrors({ form: data.error || 'Something went wrong. Please try again.' })
+                }
+                setSubmitting(false)
+                return
+            }
+
+            setSucceeded(true)
+        } catch (err) {
+            setErrors({ form: err.message || 'Network error. Please try again.' })
+        } finally {
+            setSubmitting(false)
+        }
+    }
+
+    const fieldSx = {
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                border: '3px solid',
+                borderRadius: '0px',
+                borderColor: 'primary.dark',
+            },
+            '&:hover fieldset': {
+                borderColor: 'primary.main',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: 'primary.dark',
+            },
+        },
     }
 
     return (
         <Grid item xs={12}>
-            {!state.succeeded ? (
+            {!succeeded ? (
                 <Box
                     sx={{
                         border: '3px solid',
@@ -47,6 +97,35 @@ const ContactForm = () => {
 
                     <form onSubmit={handleSubmitForm}>
                         <Grid container spacing={2}>
+                            <Grid
+                                item
+                                xs={11}
+                                sx={{
+                                    position: 'absolute',
+                                    left: '-9999px',
+                                    width: '1px',
+                                    height: '1px',
+                                    overflow: 'hidden',
+                                }}
+                                aria-hidden="true"
+                            >
+                                <TextField
+                                    fullWidth
+                                    name="hp"
+                                    label="Leave empty"
+                                    value={honeypot}
+                                    onChange={(e) => setHoneypot(e.target.value)}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
+                            </Grid>
+                            {errors.form && (
+                                <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
+                                    <Typography variant="body2" color="error">
+                                        {errors.form}
+                                    </Typography>
+                                </Grid>
+                            )}
                             <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
                                 <TextField
                                     fullWidth
@@ -57,21 +136,9 @@ const ContactForm = () => {
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     required
-                                    sx={{
-                                        '& .MuiOutlinedInput-root': {
-                                            '& fieldset': {
-                                                border: '3px solid',
-                                                borderRadius: '0px',
-                                                borderColor: 'primary.dark',
-                                            },
-                                            '&:hover fieldset': {
-                                                borderColor: 'primary.main',
-                                            },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'primary.dark',
-                                            },
-                                        },
-                                    }}
+                                    error={Boolean(errors.name)}
+                                    helperText={errors.name}
+                                    sx={fieldSx}
                                 />
                             </Grid>
                             <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
@@ -85,28 +152,11 @@ const ContactForm = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    sx={{
-                                        '& .MuiOutlinedInput-root': {
-                                            '& fieldset': {
-                                                border: '3px solid',
-                                                borderRadius: '0px',
-                                                borderColor: 'primary.dark',
-                                            },
-                                            '&:hover fieldset': {
-                                                borderColor: 'primary.main',
-                                            },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'primary.dark',
-                                            },
-                                        },
-                                    }}
+                                    error={Boolean(errors.email)}
+                                    helperText={errors.email}
+                                    sx={fieldSx}
                                 />
                             </Grid>
-                            <ValidationError
-                                prefix="Email"
-                                field="email"
-                                errors={state.errors}
-                            />
                             <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
                                 <TextField
                                     fullWidth
@@ -119,34 +169,17 @@ const ContactForm = () => {
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     required
-                                    sx={{
-                                        '& .MuiOutlinedInput-root': {
-                                            '& fieldset': {
-                                                border: '3px solid',
-                                                borderRadius: '0px',
-                                                borderColor: 'primary.dark',
-                                            },
-                                            '&:hover fieldset': {
-                                                borderColor: 'primary.main',
-                                            },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'primary.dark',
-                                            },
-                                        },
-                                    }}
+                                    error={Boolean(errors.message)}
+                                    helperText={errors.message}
+                                    sx={fieldSx}
                                 />
                             </Grid>
-                            <ValidationError
-                                prefix="Message"
-                                field="message"
-                                errors={state.errors}
-                            />
                             <Grid item xs={11}>
                                 <Button
                                     fullWidth
                                     endIcon={<SendOutlinedIcon />}
                                     type="submit"
-                                    disabled={state.submitting}
+                                    disabled={submitting}
                                     sx={{
                                         margin: '1rem',
                                         border: '3px solid',
@@ -158,7 +191,7 @@ const ContactForm = () => {
                                         },
                                     }}
                                 >
-                                    Submit
+                                    {submitting ? 'Sending...' : 'Submit'}
                                 </Button>
                             </Grid>
                         </Grid>
