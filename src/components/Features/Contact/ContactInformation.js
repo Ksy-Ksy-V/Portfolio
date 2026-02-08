@@ -1,97 +1,29 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
 
 import SocialLinks from '../../Layout/Footer/SocialLinks'
+import styles from './ContactInformation.module.css'
 
 const ContactInformation = () => {
     return (
-        <Grid>
-            <Typography
-                variant="h6"
-                color={'primary.light'}
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    '&:hover': {
-                        textDecoration: 'underline wavy',
-                    },
-                }}
-            >
-                {`< Contact information >`}
-            </Typography>
+        <div className={styles.wrapper}>
+            <h2 className={styles.heading}>{'< Contact information >'}</h2>
 
-            <Grid container spacing={2} columns={12} sx={{ marginTop: 2 }}>
-                <Grid
-                    item
-                    xs={3}
-                    sx={{ display: 'flex', justifyContent: 'center' }}
-                >
-                    <EmailOutlinedIcon
-                        sx={{
-                            color: 'primary.dark',
-                            fontSize: '2rem',
-                            '&:hover': {
-                                color: 'primary.main',
-                            },
-                        }}
-                    />
-                </Grid>
-                <Grid
-                    item
-                    xs={8}
-                    sx={{ display: 'flex', justifyContent: 'flex-end' }}
-                >
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            '&:hover': {
-                                textDecoration: 'underline wavy',
-                            },
-                        }}
-                    >
-                        kseniia.voitikh@gmail.com
-                    </Typography>
-                </Grid>
+            <div className={styles.row}>
+                <EmailOutlinedIcon className={styles.icon} aria-hidden />
+                <p className={styles.text}>kseniia.voitikh@gmail.com</p>
+            </div>
 
-                <Grid
-                    item
-                    xs={3}
-                    sx={{ display: 'flex', justifyContent: 'center' }}
-                >
-                    <LocationOnOutlinedIcon
-                        sx={{
-                            color: 'primary.dark',
-                            fontSize: '2rem',
-                            '&:hover': {
-                                color: 'primary.main',
-                            },
-                        }}
-                    />
-                </Grid>
-                <Grid
-                    item
-                    xs={8}
-                    sx={{ display: 'flex', justifyContent: 'flex-end' }}
-                >
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            marginBottom: 2,
-                            '&:hover': {
-                                textDecoration: 'underline wavy',
-                            },
-                        }}
-                    >
-                        Sofia, Bulgaria
-                    </Typography>
-                </Grid>
-            </Grid>
-            <Grid item xs={12} sx={{ marginTop: '2rem' }}>
+            <div className={styles.row}>
+                <LocationOnOutlinedIcon className={styles.icon} aria-hidden />
+                <p className={styles.text}>Sofia, Bulgaria</p>
+            </div>
+
+            <div className={styles.socials}>
                 <SocialLinks />
-            </Grid>
-        </Grid>
+            </div>
+        </div>
     )
 }
 

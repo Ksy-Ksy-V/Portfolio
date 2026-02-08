@@ -85,11 +85,12 @@ function escapeHtml(text) {
 }
 
 async function handleRequest(request) {
-    if (request.method !== 'POST') {
-        return jsonResponse({ error: 'Method not allowed' }, 405)
-    }
+    try {
+        if (!request || (request.method !== 'POST' && request.method !== 'post')) {
+            return jsonResponse({ error: 'Method not allowed' }, 405)
+        }
 
-    loadEnvLocal()
+        loadEnvLocal()
 
     const apiKey = process.env.RESEND_API_KEY
     const recipientEmail =
@@ -115,16 +116,20 @@ async function handleRequest(request) {
         )
     }
 
-    const rl = getRatelimit()
-    if (rl) {
-        const identifier = getClientIp(request)
-        const { success: allowed } = await rl.limit(identifier)
-        if (!allowed) {
-            return jsonResponse(
-                { error: 'Too many requests. Please try again in an hour.' },
-                429
-            )
+    try {
+        const rl = getRatelimit()
+        if (rl) {
+            const identifier = getClientIp(request)
+            const { success: allowed } = await rl.limit(identifier)
+            if (!allowed) {
+                return jsonResponse(
+                    { error: 'Too many requests. Please try again in an hour.' },
+                    429
+                )
+            }
         }
+    } catch (err) {
+        console.error('Rate limit check error:', err)
     }
 
     let body
@@ -199,28 +204,63 @@ async function handleRequest(request) {
             500
         )
     }
+    } catch (err) {
+        console.error('handleRequest error:', err)
+        return jsonResponse(
+            { error: err.message || 'Internal server error.' },
+            500
+        )
+    }
 }
 
 // Vercel: Web Standard (request) or Node (req, res)
 module.exports = async function handler(req, res) {
-    const isWebRequest = req && typeof req.json === 'function'
-    const request = isWebRequest ? req : nodeReqToRequest(req)
-    if (!isWebRequest && req && req.headers) {
-        request.ip =
-            req.headers['x-real-ip'] ||
-            (req.headers['x-forwarded-for'] &&
-                req.headers['x-forwarded-for'].split(',')[0].trim()) ||
-            'anonymous'
-    }
-    const response = await handleRequest(request)
+    try {
+        if (!req) {
+            return res && typeof res.status === 'function'
+                ? res.status(500).json({ error: 'Invalid request.' })
+                : new Response(JSON.stringify({ error: 'Invalid request.' }), {
+                      status: 500,
+                      headers: { 'Content-Type': 'application/json' },
+                  })
+        }
 
-    if (!isWebRequest && res && typeof res.status === 'function') {
-        res.status(response.status)
-        response.headers.forEach((v, k) => res.setHeader(k, v))
-        res.end(await response.text())
-        return
+        const isWebRequest = typeof req.json === 'function'
+        const request = isWebRequest ? req : nodeReqToRequest(req)
+        if (!isWebRequest && req.headers) {
+            const ff = req.headers['x-forwarded-for']
+            request.ip =
+                req.headers['x-real-ip'] ||
+                (typeof ff === 'string' ? ff.split(',')[0].trim() : '') ||
+                'anonymous'
+        }
+
+        const response = await handleRequest(request)
+
+        if (!isWebRequest && res && typeof res.status === 'function') {
+            res.status(response.status)
+            if (response.headers && typeof response.headers.forEach === 'function') {
+                response.headers.forEach((v, k) => res.setHeader(k, v))
+            }
+            res.end(await response.text())
+            return
+        }
+        return response
+    } catch (err) {
+        console.error('Contact handler error:', err)
+        const body = JSON.stringify({
+            error: err.message || 'Internal server error.',
+        })
+        const status = 500
+        const headers = { 'Content-Type': 'application/json' }
+        if (res && typeof res.status === 'function') {
+            res.status(status)
+            res.setHeader('Content-Type', 'application/json')
+            res.end(body)
+            return
+        }
+        return new Response(body, { status, headers })
     }
-    return response
 }
 
 function nodeReqToRequest(req) {

@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { Typography, Box, Grid, TextField, Button } from '@mui/material'
-
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+
+import styles from './ContactForm.module.css'
 
 const getApiUrl = () => {
     if (typeof window === 'undefined') return '/api/contact'
@@ -50,206 +49,111 @@ const ContactForm = () => {
         }
     }
 
-    const fieldSx = {
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                border: '3px solid',
-                borderRadius: '0px',
-                borderColor: 'primary.dark',
-            },
-            '&:hover fieldset': {
-                borderColor: 'primary.main',
-            },
-            '&.Mui-focused fieldset': {
-                borderColor: 'primary.dark',
-            },
-        },
-    }
-
     return (
-        <Grid item xs={12}>
+        <div className={styles.wrapper}>
             {!succeeded ? (
-                <Box
-                    sx={{
-                        border: '3px solid',
-                        borderColor: 'primary.dark',
-                        '&:hover': {
-                            borderColor: 'primary.main',
-                        },
-                    }}
-                >
-                    <Typography
-                        display={'center'}
-                        textAlign={'center'}
-                        justifyContent="center"
-                        variant="h6"
-                        color={'primary.main'}
-                        sx={{
-                            '&:hover': {
-                                textDecoration: 'underline wavy',
-                            },
-                            marginBottom: '2rem',
-                            marginTop: '2rem',
-                        }}
-                    >
-                        {`< Any questions? >`}
-                    </Typography>
+                <div className={styles.formCard}>
+                    <h2 className={styles.heading}>{'< Any questions? >'}</h2>
 
-                    <form onSubmit={handleSubmitForm}>
-                        <Grid container spacing={2}>
-                            <Grid
-                                item
-                                xs={11}
-                                sx={{
-                                    position: 'absolute',
-                                    left: '-9999px',
-                                    width: '1px',
-                                    height: '1px',
-                                    overflow: 'hidden',
-                                }}
-                                aria-hidden="true"
-                            >
-                                <TextField
-                                    fullWidth
-                                    name="hp"
-                                    label="Leave empty"
-                                    value={honeypot}
-                                    onChange={(e) => setHoneypot(e.target.value)}
-                                    tabIndex={-1}
-                                    autoComplete="off"
-                                />
-                            </Grid>
-                            {errors.form && (
-                                <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
-                                    <Typography variant="body2" color="error">
-                                        {errors.form}
-                                    </Typography>
-                                </Grid>
+                    <form onSubmit={handleSubmitForm} className={styles.form}>
+                        <div className={styles.honeypot} aria-hidden="true">
+                            <label htmlFor="hp">Leave empty</label>
+                            <input
+                                id="hp"
+                                name="hp"
+                                type="text"
+                                value={honeypot}
+                                onChange={(e) => setHoneypot(e.target.value)}
+                                tabIndex={-1}
+                                autoComplete="off"
+                            />
+                        </div>
+
+                        {errors.form && (
+                            <p className={styles.errorText} role="alert">
+                                {errors.form}
+                            </p>
+                        )}
+
+                        <div className={styles.inputWrap}>
+                            <input
+                                className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Name *"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                aria-invalid={Boolean(errors.name)}
+                                aria-describedby={errors.name ? 'name-err' : undefined}
+                            />
+                            {errors.name && (
+                                <p id="name-err" className={styles.errorText}>
+                                    {errors.name}
+                                </p>
                             )}
-                            <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
-                                <TextField
-                                    fullWidth
-                                    id="name"
-                                    name="name"
-                                    label="Name"
-                                    variant="outlined"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required
-                                    error={Boolean(errors.name)}
-                                    helperText={errors.name}
-                                    sx={fieldSx}
-                                />
-                            </Grid>
-                            <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
-                                <TextField
-                                    fullWidth
-                                    id="email"
-                                    name="email"
-                                    label="Email"
-                                    type="email"
-                                    variant="outlined"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                    error={Boolean(errors.email)}
-                                    helperText={errors.email}
-                                    sx={fieldSx}
-                                />
-                            </Grid>
-                            <Grid item xs={11} sx={{ marginLeft: '1rem' }}>
-                                <TextField
-                                    fullWidth
-                                    id="message"
-                                    name="message"
-                                    label="Message"
-                                    variant="outlined"
-                                    multiline
-                                    rows={4}
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    required
-                                    error={Boolean(errors.message)}
-                                    helperText={errors.message}
-                                    sx={fieldSx}
-                                />
-                            </Grid>
-                            <Grid item xs={11}>
-                                <Button
-                                    fullWidth
-                                    endIcon={<SendOutlinedIcon />}
-                                    type="submit"
-                                    disabled={submitting}
-                                    sx={{
-                                        margin: '1rem',
-                                        border: '3px solid',
-                                        borderColor: 'primary.light',
-                                        '&:hover': {
-                                            border: '3px solid',
-                                            borderColor: 'primary.main',
-                                            backgroundColor: 'transparent',
-                                        },
-                                    }}
-                                >
-                                    {submitting ? 'Sending...' : 'Submit'}
-                                </Button>
-                            </Grid>
-                        </Grid>
-                    </form>
-                </Box>
-            ) : (
-                <Box
-                    sx={{
-                        border: '3px solid',
-                        borderColor: 'primary.dark',
-                        '&:hover': {
-                            borderColor: 'primary.main',
-                        },
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}
-                >
-                    <Typography
-                        display={'center'}
-                        textAlign={'center'}
-                        justifyContent="center"
-                        variant="h6"
-                        sx={{
-                            marginTop: '2rem',
-                        }}
-                    >
-                        Thank you for your message!
-                    </Typography>
-                    <Typography
-                        display={'center'}
-                        textAlign={'center'}
-                        justifyContent="center"
-                        variant="body"
-                        sx={{
-                            marginBottom: '1rem',
-                            marginTop: '2rem',
-                        }}
-                    >
-                        I will get back to you as soon as possible.
-                    </Typography>
+                        </div>
 
-                    <FavoriteBorderIcon
-                        sx={{
-                            display: 'center',
-                            textAlign: 'center',
-                            color: 'primary.dark',
-                            fontSize: '3rem',
-                            marginBottom: '2rem',
-                            '&:hover': {
-                                color: 'primary.main',
-                            },
-                        }}
-                    />
-                </Box>
+                        <div className={styles.inputWrap}>
+                            <input
+                                className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email *"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                aria-invalid={Boolean(errors.email)}
+                                aria-describedby={errors.email ? 'email-err' : undefined}
+                            />
+                            {errors.email && (
+                                <p id="email-err" className={styles.errorText}>
+                                    {errors.email}
+                                </p>
+                            )}
+                        </div>
+
+                        <div className={styles.inputWrap}>
+                            <textarea
+                                className={`${styles.input} ${styles.textarea} ${errors.message ? styles.inputError : ''}`}
+                                id="message"
+                                name="message"
+                                placeholder="Message *"
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                                required
+                                rows={4}
+                                aria-invalid={Boolean(errors.message)}
+                                aria-describedby={errors.message ? 'message-err' : undefined}
+                            />
+                            {errors.message && (
+                                <p id="message-err" className={styles.errorText}>
+                                    {errors.message}
+                                </p>
+                            )}
+                        </div>
+
+                        <button
+                            type="submit"
+                            className={styles.submitBtn}
+                            disabled={submitting}
+                        >
+                            {submitting ? 'Sending...' : 'Submit'}
+                        </button>
+                    </form>
+                </div>
+            ) : (
+                <div className={styles.successCard}>
+                    <h2 className={styles.successTitle}>Thank you for your message!</h2>
+                    <p className={styles.successText}>
+                        I will get back to you as soon as possible.
+                    </p>
+                    <FavoriteBorderIcon className={styles.successIcon} aria-hidden />
+                </div>
             )}
-        </Grid>
+        </div>
     )
 }
 
