@@ -1,0 +1,120 @@
+.page {
+    min-height: 78vh;
+    padding: 5.5rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--color-background-default);
+}
+
+.specks {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+            1.5px 1.5px at 10% 20%,
+            var(--color-primary-light) 50%,
+            transparent 50%
+        ),
+        radial-gradient(
+            1.5px 1.5px at 30% 60%,
+            rgba(255, 255, 255, 0.6) 50%,
+            transparent 50%
+        ),
+        radial-gradient(
+            1px 1px at 50% 30%,
+            var(--color-primary-light) 50%,
+            transparent 50%
+        ),
+        radial-gradient(
+            1.5px 1.5px at 70% 80%,
+            rgba(255, 255, 255, 0.5) 50%,
+            transparent 50%
+        ),
+        radial-gradient(
+            1px 1px at 90% 15%,
+            var(--color-primary-light) 50%,
+            transparent 50%
+        ),
+        radial-gradient(
+            1px 1px at 15% 85%,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent 50%
+        ),
+        radial-gradient(
+            1.5px 1.5px at 85% 50%,
+            var(--color-primary-light) 50%,
+            transparent 50%
+        );
+    background-size:
+        200px 180px,
+        220px 200px,
+        180px 220px,
+        200px 190px,
+        210px 185px,
+        195px 210px,
+        185px 195px;
+    background-repeat: repeat;
+    opacity: 0.7;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.colInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.colForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+@media (max-width: 1024px) {
+    .page {
+        padding-top: 5.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .colInfo {
+        order: 1;
+    }
+
+    .colForm {
+        order: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding-top: 5.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .layout {
+        padding: 0 1rem;
+    }
+}

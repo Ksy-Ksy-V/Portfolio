@@ -1,0 +1,133 @@
+.developmentCard {
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid
+        color-mix(in srgb, var(--color-primary-main) 40%, transparent);
+    background: color-mix(
+        in srgb,
+        var(--color-background-default) 98%,
+        var(--color-background-paper)
+    );
+    box-shadow: 0 0 20px
+        color-mix(in srgb, var(--color-primary-main) 8%, transparent);
+}
+
+.gridCellDevelopment {
+    grid-row: 2;
+    grid-column: 2;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7rem;
+    align-self: start;
+}
+
+.gridCellDevelopmentFullWidth {
+    grid-column: 1 / -1;
+}
+
+.aboutTitle {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+}
+
+.description {
+    color: var(--color-text-secondary);
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+}
+
+.descriptionPreLine {
+    white-space: pre-line;
+}
+
+.developmentLayersList {
+    margin: 0.75rem 0 1rem 1.25rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.developmentLayersItem {
+    margin-bottom: 0.35rem;
+    color: var(--color-text-secondary);
+    font-size: inherit;
+    line-height: 1.5;
+}
+
+.developmentConclusion {
+    margin-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .developmentCard {
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+    }
+
+    .gridCellDevelopment {
+        grid-row: 4;
+        grid-column: 1;
+        margin-top: 2rem;
+    }
+
+    .gridCellDevelopmentFullWidth {
+        grid-column: 1;
+    }
+
+    .aboutTitle {
+        text-align: center;
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    .developmentLayersList {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+        text-align: left;
+    }
+
+    .developmentConclusion {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .gridCellDevelopment {
+        margin-top: 1.5rem;
+    }
+
+    .description {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .developmentCard {
+        padding: 1rem 1.25rem;
+    }
+
+    .gridCellDevelopment {
+        margin-top: 1rem;
+    }
+
+    .aboutTitle {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .developmentLayersItem {
+        font-size: 0.8rem;
+    }
+
+    .developmentConclusion {
+        margin-top: 1rem;
+    }
+}

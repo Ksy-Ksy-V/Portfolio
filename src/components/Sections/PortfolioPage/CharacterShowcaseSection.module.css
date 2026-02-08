@@ -1,0 +1,162 @@
+.section {
+    width: 100%;
+    padding: 0 10% 4rem;
+    box-sizing: border-box;
+    background-color: var(--color-background-default);
+}
+
+@media (max-width: 1024px) {
+    .section {
+        padding: 0 5% 3rem;
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+}
+
+.subtitle {
+    margin: 0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--color-primary-main);
+    text-align: center;
+}
+
+.title {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--color-text-primary);
+    text-align: center;
+}
+
+.showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    min-height: 160px;
+    padding: 2rem;
+    background: color-mix(
+        in srgb,
+        var(--color-primary-main) 8%,
+        var(--color-background-default)
+    );
+    border-radius: 1rem;
+    border: 1px solid
+        color-mix(in srgb, var(--color-primary-main) 30%, transparent);
+}
+
+.viewportWrap {
+    flex-shrink: 0;
+}
+
+.viewport {
+    position: relative;
+    overflow: hidden;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.frameLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-origin: top left;
+    opacity: 0;
+    animation: showFrame8 var(--cycle-duration, 1200ms) steps(8) infinite;
+}
+
+.frameLayerSteps12 {
+    animation: showFrame12 var(--cycle-duration, 1200ms) steps(12) infinite;
+}
+
+.frameLayerSteps6 {
+    animation: showFrame6 var(--cycle-duration, 1200ms) steps(6) infinite;
+}
+
+@keyframes showFrame8 {
+    0% {
+        opacity: 1;
+    }
+    12.5% {
+        opacity: 1;
+    }
+    13% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes showFrame12 {
+    0% {
+        opacity: 1;
+    }
+    8.33% {
+        opacity: 1;
+    }
+    9% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes showFrame6 {
+    0% {
+        opacity: 1;
+    }
+    16.67% {
+        opacity: 1;
+    }
+    18% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 1.5rem 2.5rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 1.5rem 1rem 2rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .showcase {
+        padding: 1.5rem;
+        min-height: 140px;
+    }
+}
