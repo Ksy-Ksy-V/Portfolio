@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
     Monitor,
     Tablet,
@@ -7,6 +9,8 @@ import {
     ChevronRight,
 } from 'lucide-react'
 import styles from './MultiDeviceScreenshotsSection.module.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const VIEWS = [
     { key: 'desktop', label: 'Desktop', dataKey: 'desc', Icon: Monitor },
@@ -20,6 +24,31 @@ const DESCRIPTION =
 const MultiDeviceScreenshotsSection = ({ imagesData }) => {
     const [currentView, setCurrentView] = useState('desktop')
     const [currentIndex, setCurrentIndex] = useState(0)
+    const sectionRef = useRef(null)
+
+    useLayoutEffect(() => {
+        const el = sectionRef.current
+        if (!el) return
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                el,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 88%',
+                        end: 'top 40%',
+                        scrub: 1.2,
+                    },
+                }
+            )
+        }, sectionRef)
+        return () => ctx.revert()
+    }, [])
 
     const activeView = VIEWS.find((v) => v.key === currentView) ?? VIEWS[0]
     const images = imagesData?.[activeView.dataKey] ?? []
@@ -52,6 +81,7 @@ const MultiDeviceScreenshotsSection = ({ imagesData }) => {
 
     return (
         <section
+            ref={sectionRef}
             className={styles.section}
             aria-labelledby="multi-device-heading"
         >

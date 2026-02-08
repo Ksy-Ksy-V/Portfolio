@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useRef, useLayoutEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './CharacterShowcaseSection.module.css'
 import {
     SPRITES,
@@ -6,6 +8,8 @@ import {
     DISPLAY_FRAME_WIDTH,
     DISPLAY_FRAME_HEIGHT,
 } from '../../../data/characterShowcaseData'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const getFrameLayerClass = (frames, styles) => {
     if (frames === 12) return `${styles.frameLayer} ${styles.frameLayerSteps12}`
@@ -17,10 +21,37 @@ const CharacterShowcaseSection = ({
     sprites = SPRITES,
     title = 'Character showcase',
 }) => {
+    const sectionRef = useRef(null)
+
+    useLayoutEffect(() => {
+        const el = sectionRef.current
+        if (!el) return
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                el,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 88%',
+                        end: 'top 40%',
+                        scrub: 1.2,
+                    },
+                }
+            )
+        }, sectionRef)
+        return () => ctx.revert()
+    }, [])
+
     if (!sprites?.length) return null
 
     return (
         <section
+            ref={sectionRef}
             className={styles.section}
             aria-labelledby="character-showcase-heading"
         >

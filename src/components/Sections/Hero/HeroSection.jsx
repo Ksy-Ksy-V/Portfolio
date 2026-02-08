@@ -9,8 +9,9 @@ import { useMediaQuery } from '../../../hooks/useMediaQuery';
 import { heroSectionData } from '../../../data/HomePageData';
 import styles from './HeroSection.module.css';
 
-const DURATION = 0.8;
+const DURATION = 1.15;
 const EASE = 'power2.out';
+const INITIAL_DELAY = 0.25;
 
 export default function HeroSection() {
   const [greetingComplete, setGreetingComplete] = useState(false);
@@ -27,13 +28,16 @@ export default function HeroSection() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { duration: DURATION, ease: EASE } });
+      const tl = gsap.timeline({
+        defaults: { duration: DURATION, ease: EASE },
+        delay: INITIAL_DELAY,
+      });
 
-      tl.from(contentRef.current, { opacity: 0, y: 30 }, 0)
-        .from(greetingRef.current, { opacity: 0, y: 20 }, 0.2)
-        .from(titleRef.current, { opacity: 0, y: 20 }, 0.3)
-        .from(descriptionRef.current, { opacity: 0, y: 20 }, 0.5)
-        .from(buttonsRef.current, { opacity: 0, y: 20 }, 0.7);
+      tl.from(contentRef.current, { opacity: 0, y: 36 }, 0)
+        .from(greetingRef.current, { opacity: 0, y: 24 }, 0.35)
+        .from(titleRef.current, { opacity: 0, y: 24 }, 0.7)
+        .from(descriptionRef.current, { opacity: 0, y: 24 }, 1.1)
+        .from(buttonsRef.current, { opacity: 0, y: 24 }, 1.5);
 
       gsap.set(scrollIndicatorRef.current, { xPercent: -50 });
       gsap.to(scrollIndicatorRef.current, {
@@ -42,6 +46,7 @@ export default function HeroSection() {
         ease: 'power2.inOut',
         repeat: -1,
         yoyo: true,
+        delay: INITIAL_DELAY + 2.2,
       });
       gsap.to(scrollDotRef.current, {
         y: 12,
@@ -49,6 +54,7 @@ export default function HeroSection() {
         ease: 'power2.inOut',
         repeat: -1,
         yoyo: true,
+        delay: INITIAL_DELAY + 2.2,
       });
     });
 
