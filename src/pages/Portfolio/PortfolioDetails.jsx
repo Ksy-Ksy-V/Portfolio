@@ -1,7 +1,11 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef, useLayoutEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import useFetchProjects from '../../hooks/useFetchProjects'
+
+gsap.registerPlugin(ScrollTrigger)
 import {
     MOBILE_HEADER_IMAGES,
     PIXEL_PLAY_PROJECT_ID,
@@ -29,6 +33,35 @@ const PortfolioDetails = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const { projects, loading, error } = useFetchProjects()
+    const gridRef = useRef(null)
+
+    useLayoutEffect(() => {
+        const grid = gridRef.current
+        if (!grid) return
+        const cards = Array.from(grid.children)
+        const ctx = gsap.context(() => {
+            cards.forEach((el) => {
+                gsap.fromTo(
+                    el,
+                    { opacity: 0, y: 50, scale: 0.98 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 1,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 88%',
+                            end: 'top 40%',
+                            scrub: 1.2,
+                        },
+                    }
+                )
+            })
+        }, grid)
+        return () => ctx.revert()
+    }, [id])
 
     const project = useMemo(
         () => projects.find((p) => p.id === id),
@@ -104,7 +137,7 @@ const PortfolioDetails = () => {
                 className={styles.projectDetailsSection}
                 aria-label="Project details"
             >
-                <div className={styles.projectDetailsGrid}>
+                <div ref={gridRef} className={styles.projectDetailsGrid}>
                     <AboutCard
                         description={description}
                         goals={goals}

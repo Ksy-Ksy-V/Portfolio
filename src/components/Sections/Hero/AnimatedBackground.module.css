@@ -1,189 +1,52 @@
 /* Background container */
 .animatedBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-  background-color: var(--color-background-default);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    background-color: var(--color-background-default);
 }
 
 /* Notebook grid overlay */
 .notebookGridOverlay {
-  z-index: 1;
+    z-index: 1;
 }
 
-/* Particle animation */
-@keyframes particleFloat {
-  0%, 100% {
-    transform: translate(0, 0);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translate(var(--particle-x, 0), -50px);
-    opacity: 0.6;
-  }
-}
-
+/* Particle  */
 .particle {
-  animation: particleFloat var(--particle-duration, 15s) ease-in-out infinite;
-  animation-delay: var(--particle-delay, 0s);
-  position: absolute;
+    position: absolute;
 }
 
-/* Blur shape animations */
-@keyframes blurShape1 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(20px, 15px) scale(1.15);
-  }
-}
-
-@keyframes blurShape2 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-25px, 20px) scale(1.2);
-  }
-}
-
-@keyframes blurShape3 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(15px, -20px) scale(1.1);
-  }
-}
-
-@keyframes blurShape4 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-18px, -25px) scale(1.18);
-  }
-}
-
-@keyframes blurShape5 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(30px, -20px) scale(1.1);
-  }
-}
-
-@keyframes blurShape6 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-30px, 25px) scale(1.12);
-  }
-}
-
-.blurShape1 {
-  animation: blurShape1 12s ease-in-out infinite;
-}
-
-.blurShape2 {
-  animation: blurShape2 15s ease-in-out infinite;
-}
-
-.blurShape3 {
-  animation: blurShape3 14s ease-in-out infinite;
-}
-
-.blurShape4 {
-  animation: blurShape4 16s ease-in-out infinite;
-}
-
-.blurShape5 {
-  animation: blurShape5 18s ease-in-out infinite;
-}
-
+/* Blur shapes */
+.blurShape1,
+.blurShape2,
+.blurShape3,
+.blurShape4,
+.blurShape5,
 .blurShape6 {
-  animation: blurShape6 20s ease-in-out infinite;
+    /* transform */
 }
 
-/* Floating shapes styles */
+/* Floating shapes */
 .floatingShape {
-  position: absolute;
-  pointer-events: none;
+    position: absolute;
+    pointer-events: none;
 }
 
 .floatingShapeCircle {
-  border-radius: 50%;
-  filter: blur(80px);
+    border-radius: 50%;
+    filter: blur(80px);
 }
 
 .floatingShapeSquare {
-  border-radius: 8px;
-  filter: blur(80px);
-}
-
-/* Floating animations */
-@keyframes floatShape0 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  25% {
-    transform: translate(150px, -200px) rotate(90deg) scale(1.1);
-  }
-  50% {
-    transform: translate(-120px, -300px) rotate(180deg) scale(0.9);
-  }
-  75% {
-    transform: translate(-200px, -150px) rotate(270deg) scale(1.05);
-  }
-}
-
-@keyframes floatShape1 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  33% {
-    transform: translate(200px, 150px) rotate(120deg) scale(1.15);
-  }
-  66% {
-    transform: translate(-150px, 200px) rotate(240deg) scale(0.85);
-  }
-}
-
-@keyframes floatShape2 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translate(180px, -220px) rotate(180deg) scale(1.2);
-  }
-}
-
-@keyframes floatShape3 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  20% {
-    transform: translate(-140px, -180px) rotate(72deg) scale(1.1);
-  }
-  40% {
-    transform: translate(180px, -140px) rotate(144deg) scale(0.95);
-  }
-  60% {
-    transform: translate(140px, 180px) rotate(216deg) scale(1.05);
-  }
-  80% {
-    transform: translate(-180px, 140px) rotate(288deg) scale(0.9);
-  }
+    border-radius: 8px;
+    filter: blur(80px);
 }

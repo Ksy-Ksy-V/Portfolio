@@ -1,6 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react'
 import { createPortal } from 'react-dom'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './PixelPlayDesktopSection.module.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const GAME_URL = 'https://game-iota-six.vercel.app/'
 
@@ -91,12 +95,38 @@ const GameFullscreenPopup = ({ onClose }) => {
 
 const PixelPlayDesktopSection = () => {
     const [popupOpen, setPopupOpen] = useState(false)
+    const sectionRef = useRef(null)
+
+    useLayoutEffect(() => {
+        const el = sectionRef.current
+        if (!el) return
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                el,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 88%',
+                        end: 'top 40%',
+                        scrub: 1.2,
+                    },
+                }
+            )
+        }, sectionRef)
+        return () => ctx.revert()
+    }, [])
 
     const openPopup = useCallback(() => setPopupOpen(true), [])
     const closePopup = useCallback(() => setPopupOpen(false), [])
 
     return (
         <section
+            ref={sectionRef}
             className={styles.section}
             aria-labelledby="pixel-play-desktop-heading"
         >

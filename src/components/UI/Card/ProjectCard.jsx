@@ -1,9 +1,12 @@
-import { useCallback } from 'react'
+import { useCallback, useRef, useLayoutEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useScrollAnimation } from '../../../hooks/useScrollAnimation'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Tag from '../Tag/Tag'
 import OutlineButton from '../Buttons/OutlineButton'
 import styles from './ProjectCard.module.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ProjectCard = ({
     project,
@@ -13,11 +16,35 @@ const ProjectCard = ({
     scrollAnimationDelay = 0,
 }) => {
     const navigate = useNavigate()
+    const containerRef = useRef(null)
     const isReverse = index % 2 === 1
-    const { ref, isVisible } = useScrollAnimation({
-        rootMargin: '-100px',
-        threshold: 0.1,
-    })
+
+    useLayoutEffect(() => {
+        const el = containerRef.current
+        if (!el) return
+
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                el,
+                { opacity: 0, y: 60, scale: 0.95 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 88%',
+                        end: 'top 35%',
+                        scrub: 1.2,
+                    },
+                }
+            )
+        }, containerRef)
+
+        return () => ctx.revert()
+    }, [])
 
     const handleNavigate = useCallback(() => {
         navigate(project.route)
@@ -112,14 +139,8 @@ const ProjectCard = ({
         </div>
     )
 
-    const containerClassName = `${styles.container} ${isVisible ? styles.slideUp : styles.hidden}`
-
-    const cardStyle = {
-        '--scroll-animation-delay': `${scrollAnimationDelay}s`,
-    }
-
     return (
-        <div ref={ref} className={containerClassName} style={cardStyle}>
+        <div ref={containerRef} className={styles.container}>
             <div className={isReverse ? styles.gridReverse : styles.grid}>
                 {isReverse ? (
                     <>

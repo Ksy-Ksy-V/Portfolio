@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useRef, useLayoutEffect } from 'react'
+import gsap from 'gsap'
 import OutlineButton from '../../../components/UI/Buttons/OutlineButton'
 import { Figma, Github } from 'lucide-react'
 import styles from './ProjectLinksBar.module.css'
 
 const ProjectLinksBar = ({ gitHubLink, link, figmaLink }) => {
+  const navRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const el = navRef.current
+    if (!el) return
+    const ctx = gsap.context(() => {
+      gsap.fromTo(el, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', delay: 0.25 })
+    }, navRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <nav className={styles.linksBar} aria-label="Project links">
+    <nav ref={navRef} className={styles.linksBar} aria-label="Project links">
       <div className={styles.linksBarSlot}>
         <a href={gitHubLink} target="_blank" rel="noopener noreferrer" className={styles.linksBarButton}>
           <OutlineButton>
