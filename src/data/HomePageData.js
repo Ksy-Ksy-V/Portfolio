@@ -100,7 +100,7 @@ export const projectsData = {
             description:
                 'Modern portfolio website showcasing projects and skills with clean design and smooth animations.',
             image: `${process.env.PUBLIC_URL || ''}/img/card/portfolioPrevCard.png`,
-            tags: ['React', 'React Router', 'CSS Modules'],
+            tags: ['React', 'React Router', 'CSS Modules', 'Resend'],
             route: '/',
         },
     ],
